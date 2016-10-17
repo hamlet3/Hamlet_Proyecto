@@ -117,7 +117,7 @@ namespace BLL
             string ordenar = "";
             if (!Orden.Equals(""))
                 ordenar = "order by " + Orden;
-            return conexion.ObtenerDatos("Select " + Campos + " From Usuarios where " + Condicion + ordenar);
+            return conexion.ObtenerDatos("Select " + Campos + " From Usuarios as U inner join UsuarioTelefonos as UT on U.UsuarioId=UT.UsuarioId inner join TiposTelefono as TT on UT.TipoTelefonoId=TT.TipoTelefonoId where " + Condicion + Orden);
         }
 
     }

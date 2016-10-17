@@ -19,6 +19,12 @@
                     <tr>
                         <td class="auto-style4">&nbsp;</td>
                         <td>
+&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4">&nbsp;</td>
+                        <td>
                 <asp:Panel ID="Panel1" CssClass="panel-primary" runat="server" Height="155px" BorderStyle="Outset" Width="444px">
                     &nbsp;&nbsp; Nombre Usuario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email<br />&nbsp;&nbsp;
                     <asp:TextBox ID="NombreUsuariotxt" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
@@ -37,11 +43,6 @@
                     
                 </asp:Panel>
                         </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">&nbsp;</td>
-                        <td>&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>

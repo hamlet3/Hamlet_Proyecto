@@ -16,19 +16,20 @@ namespace AutoReyes
             TiposTelefono tipo = new TiposTelefono();
             DataTable dt = new DataTable();
 
-            if (!IsPostBack)
+            if (!Page.IsPostBack)
             {
                 GvTelefono.DataSource= ObtenerNuevaLista();
                 GvTelefono.DataBind();
-                
-            }
-            
+
                 DropDownList DescripcionDDL = (DropDownList)GvTelefono.FooterRow.FindControl("DescripcionDDl");
-                dt=tipo.Listado("Descripcion", "1=1", "ORDER BY Descripcion");
-                foreach(DataRow row in dt.Rows)
+                dt = tipo.Listado("Descripcion", "1=1", "ORDER BY Descripcion");
+                foreach (DataRow row in dt.Rows)
                 {
                     DescripcionDDL.Items.Add(row["Descripcion"].ToString());
                 }
+            }
+            
+                
         }
         public List<UsuarioTelefonos> ObtenerNuevaLista()
         {
@@ -50,6 +51,7 @@ namespace AutoReyes
             GvTelefono.DataSource = ObtenerNuevaLista();
             GvTelefono.DataBind();
         }
+        
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -170,5 +172,12 @@ namespace AutoReyes
         {
            
         }
+
+        protected void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
