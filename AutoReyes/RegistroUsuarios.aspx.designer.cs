@@ -13,13 +13,40 @@ namespace AutoReyes {
     public partial class RegistroUsuarios {
         
         /// <summary>
-        /// Panel1 control.
+        /// Buscartxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.TextBox Buscartxt;
+        
+        /// <summary>
+        /// BuscarBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuscarBtn;
+        
+        /// <summary>
+        /// PrioridadDDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PrioridadDDL;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
         /// NombreUsuariotxt control.
@@ -31,13 +58,13 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.TextBox NombreUsuariotxt;
         
         /// <summary>
-        /// Emailtxt control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Emailtxt;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
         /// Nombretxt control.
@@ -49,13 +76,13 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.TextBox Nombretxt;
         
         /// <summary>
-        /// Contraseñatxt control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Contraseñatxt;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
         /// Direcciontxt control.
@@ -67,6 +94,33 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.TextBox Direcciontxt;
         
         /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// Contraseñatxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Contraseñatxt;
+        
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+        
+        /// <summary>
         /// ConfContraseñatxt control.
         /// </summary>
         /// <remarks>
@@ -74,6 +128,24 @@ namespace AutoReyes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ConfContraseñatxt;
+        
+        /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+        
+        /// <summary>
+        /// Emailtxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Emailtxt;
         
         /// <summary>
         /// GvTelefono control.

@@ -18,6 +18,12 @@ namespace BLL
             this.TipoTelefonoId = tipoTelefonoId;
         }
 
+        public UsuarioTelefonos(string numero, string descripcion)
+        {
+            this.Telefono = numero;
+            this.Descripcion = descripcion;
+        }
+
         public UsuarioTelefonos() { }
     }
 }

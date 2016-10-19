@@ -51,6 +51,26 @@ namespace AutoReyes
             GvTelefono.DataSource = ObtenerNuevaLista();
             GvTelefono.DataBind();
         }
+
+        public void ObtenerDatos(int id) {
+            
+            Usuarios usuario = new Usuarios();
+            usuario.Buscar(id);
+            Nombretxt.Text = usuario.Nombre;
+            NombreUsuariotxt.Text = usuario.NombreUsuario;
+            Direcciontxt.Text = usuario.Direccion;
+            Emailtxt.Text = usuario.Direccion;
+            ConfContraseñatxt.Text = usuario.Contraseña;
+            Contraseñatxt.Text = usuario.Contraseña;
+
+            foreach (UsuarioTelefonos telefono in usuario.ListaTelefono)
+            {
+                GuardarLista(telefono);
+                
+            }
+            GvTelefono.DataSource = ObtenerLista();
+            GvTelefono.DataBind();
+        }
         
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -140,22 +160,28 @@ namespace AutoReyes
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
-            Usuarios usuario;
-            if (Session["Usuario"] == null)
-                Session["Usuario"] = new Usuarios();
-
-            usuario = (Usuarios)Session["Usuario"];
-
-            usuario.Nombre = Nombretxt.Text;
-            usuario.NombreUsuario = NombreUsuariotxt.Text;
-            usuario.Direccion = Direcciontxt.Text;
-            usuario.Contraseña = Contraseñatxt.Text;
-            usuario.Email = Emailtxt.Text;
-            usuario.Prioridad = 1;
-
-            if (usuario.Insertar())
+            if (PrioridadDDL.SelectedIndex != 0)
             {
-                Limpiar();
+                Usuarios usuario;
+                if (Session["Usuario"] == null)
+                    Session["Usuario"] = new Usuarios();
+
+                usuario = (Usuarios)Session["Usuario"];
+
+                usuario.Nombre = Nombretxt.Text;
+                usuario.NombreUsuario = NombreUsuariotxt.Text;
+                usuario.Direccion = Direcciontxt.Text;
+                usuario.Contraseña = Contraseñatxt.Text;
+                usuario.Email = Emailtxt.Text;
+                usuario.Prioridad = PrioridadDDL.SelectedIndex;
+                if (usuario.Insertar())
+                {
+                    Response.Write("<script>alert('Se a guardado correctamente')</script>");
+                    Limpiar();
+                }
+            }else
+            {
+                Response.Write("<script>alert('Seleccione el nivel Prioridad')</script>");
             }
         }
 
@@ -178,6 +204,11 @@ namespace AutoReyes
 
         }
 
-
+        protected void BuscarBtn_Click(object sender, EventArgs e)
+        {
+            int aux;
+            int.TryParse(Buscartxt.Text, out aux);
+            ObtenerDatos(aux);
+        }
     }
 }

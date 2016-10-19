@@ -35,6 +35,11 @@ namespace BLL
             ListaTelefono.Add(new UsuarioTelefonos(telefono, tipoTelefonoId));
         }
 
+        public void DevolverTelefono(string telefono, string descripcion)
+        {
+            ListaTelefono.Add(new UsuarioTelefonos(telefono, descripcion));
+        }
+
         public override bool Insertar()
         {
             ConexionDb conexion = new ConexionDb();
@@ -93,19 +98,20 @@ namespace BLL
             dt = conexion.ObtenerDatos("Select * from Usuarios where UsuarioId=" + IdBuscado);
             if (dt.Rows.Count > 0)
             {
-                this.UsuarioId = (int)dt.Rows[0]["Usuarios"];
-                this.Nombre = dt.Rows[0]["Nombre"].ToString();
+                this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
+                this.NombreUsuario = dt.Rows[0]["NombreUsuario"].ToString();
+                this.Nombre = dt.Rows[0]["Nombres"].ToString();
                 this.Direccion = dt.Rows[0]["Direccion"].ToString();
                 this.Email = dt.Rows[0]["Email"].ToString();
                 this.Contraseña = dt.Rows[0]["Contraseña"].ToString();
                 this.Prioridad =(int)dt.Rows[0]["Prioridad"];
 
-               telefonoDt = conexion.ObtenerDatos(String.Format("Select * from UsuarioTelefonos where UsuarioId=" + IdBuscado));
+               telefonoDt = conexion.ObtenerDatos(String.Format("Select * from UsuarioTelefonos as UT inner join TiposTelefono as TT on UT.TipoTelefonoId = TT.TipoTelefonoId  where UsuarioId=" + IdBuscado));
             }
 
             foreach(DataRow row in telefonoDt.Rows)
             {
-                AgregarTelefono(row["Numero"].ToString(), (int)row["TipoTelefono"]);
+                DevolverTelefono(row["Numero"].ToString(), row["Descripcion"].ToString());
             }
 
             return dt.Rows.Count > 0;
