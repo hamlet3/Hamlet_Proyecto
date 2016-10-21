@@ -10,23 +10,19 @@ namespace BLL
     public class Modelos:ClaseMaestra
     {
         public int ModeloId { get; set; }
+        public int MarcaId { get; set; }
         public string Descripcion { get; set; }
 
         ConexionDb conexion = new ConexionDb();
 
-        public Modelos(int modeloId, string descripcion) {
-            this.ModeloId = modeloId;
-            this.Descripcion = descripcion;
-        }
-
-        public Modelos() { }
+        public Modelos() {}
 
         public override bool Insertar()
         {
             bool retornar = false;
             try
             {
-                conexion.Ejecutar(String.Format("Insert into Modelos(Descripcion) Values('{0}')", this.Descripcion));
+                conexion.Ejecutar(String.Format("Insert into Modelos(Descripcion, MarcaId) Values('{0}', {1})", this.Descripcion, this.MarcaId));
                 retornar = true;
             }catch(Exception ex) { throw ex; }
             return retornar;
@@ -48,7 +44,7 @@ namespace BLL
             bool retornar = false;
             try
             {
-                conexion.Ejecutar(String.Format("Delete from Modelos where ModeloId={0}",this.Descripcion));
+                conexion.Ejecutar(String.Format("Delete from Modelos where ModeloId = {0}",this.ModeloId));
                 retornar = true;
             }
             catch (Exception ex) { throw ex; }
@@ -62,6 +58,7 @@ namespace BLL
             if (dt.Rows.Count>0)
             {
                 this.ModeloId = (int)dt.Rows[0]["ModeloId"];
+                this.MarcaId = (int)dt.Rows[0]["MarcaId"];
                 this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
             }
             return dt.Rows.Count > 0;

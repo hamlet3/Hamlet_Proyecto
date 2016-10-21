@@ -22,7 +22,7 @@ namespace BLL
             bool retornar = false;
             try
             {
-                conexion.Ejecutar(String.Format("Insert into Colores(descipcion) Values('{0}')", this.Descripcion));
+                conexion.Ejecutar(String.Format("Insert into Colores(Descripcion) Values('{0}')", this.Descripcion));
                 retornar = true;
             }catch(Exception ex) { throw ex; }
             return retornar;
@@ -54,7 +54,7 @@ namespace BLL
         {
             DataTable dt = new DataTable();
 
-            dt = conexion.ObtenerDatos(String.Format("Select * from Colores where ColoId=" + IdBuscado));
+            dt = conexion.ObtenerDatos(String.Format("Select * from Colores where ColorId=" + IdBuscado));
             if (dt.Rows.Count > 0)
             {
                 this.ColorId = (int)dt.Rows[0]["ColorId"];
