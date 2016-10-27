@@ -37,8 +37,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                conexion.Ejecutar(String.Format("Update Motores set Descripcion='{0} where MotorId={1}'", this.Descripcion, this,MotorId));
-                retorno = true;
+               retorno = conexion.Ejecutar(String.Format("Update Motores set Descripcion='{0}' where MotorId={1}", this.Descripcion, this.MotorId));
+               
             }catch(Exception ex) { throw ex; }
             return retorno;
         }
@@ -48,7 +48,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                conexion.Ejecutar(String.Format("Delete from Motores where MotorId={0}",this.MotorId));
+                retorno = conexion.Ejecutar(String.Format("Delete from Motores where MotorId={0}",this.MotorId));
             }catch(Exception ex) { throw ex; }
             return retorno;
         }

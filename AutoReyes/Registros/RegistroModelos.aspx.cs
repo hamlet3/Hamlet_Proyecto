@@ -48,35 +48,43 @@ namespace AutoReyes
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Modelos modelo = new Modelos();
-            if(MarcasDDL.SelectedIndex!=0)
-            if (BuscarIdTxT.Text=="") {
-                modelo.Descripcion = DescripcionTxT.Text;
-                    modelo.MarcaId = MarcasDDL.SelectedIndex;
-                if (modelo.Insertar())
+            if (MarcasDDL.SelectedIndex != 0)
+            {
+                if (BuscarIdTxT.Text == "")
                 {
-                    Response.Write("<script>alert('Se a guardado correctamente')</script>");
-                    Limpiar();
+                    modelo.Descripcion = DescripcionTxT.Text;
+                    modelo.MarcaId = MarcasDDL.SelectedIndex;
+                    if (modelo.Insertar())
+                    {
+                        Response.Write("<script>alert('Se a guardado correctamente')</script>");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Error al guardar')</script>");
+                    }
                 }
-                else {
-                    Response.Write("<script>alert('Error al guardar')</script>");
+                else
+                {
+                    int aux;
+                    int.TryParse(BuscarIdTxT.Text, out aux);
+                    modelo.ModeloId = aux;
+                    modelo.Descripcion = DescripcionTxT.Text;
+                    modelo.MarcaId = MarcasDDL.SelectedIndex;
+                    if (modelo.Editar())
+                    {
+                        Response.Write("<script>alert('Se a editado correctamente')</script>");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Error al editar')</script>");
+                    }
                 }
             }
             else
             {
-                int aux;
-                int.TryParse(BuscarIdTxT.Text, out aux);
-                modelo.ModeloId = aux;
-                modelo.Descripcion = DescripcionTxT.Text;
-                modelo.MarcaId = MarcasDDL.SelectedIndex;
-                if (modelo.Editar())
-                {
-                    Response.Write("<script>alert('Se a editado correctamente')</script>");
-                    Limpiar();
-                }
-                else
-                {
-                    Response.Write("<script>alert('Error al editar')</script>");
-                }
+                Response.Write("<script>alert('Seleccione una marca')</script>");
             }
         }
 

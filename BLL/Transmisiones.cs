@@ -35,8 +35,8 @@ namespace BLL
             bool retornar = false;
             try
             {
-                conexion.Ejecutar(String.Format("Update Transmisiones set Descripcion='{0}'  where TransmisionId={1}",this.Descripcion,this.TransmisionId));
-                retornar = true;
+                retornar = conexion.Ejecutar(String.Format("Update Transmisiones set Descripcion='{0}'  where TransmisionId={1}",this.Descripcion,this.TransmisionId));
+               
             }catch(Exception ex) { throw ex; }
             return retornar;
         }

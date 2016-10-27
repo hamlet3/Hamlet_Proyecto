@@ -5,6 +5,7 @@
     <table style="width: 100%;">
         <tr>
             <td>
+                <asp:Label ID="Label2" runat="server" Text="Id"></asp:Label>
                 <asp:TextBox ID="BuscarIdTxT" runat="server"></asp:TextBox>
                 <asp:Button ID="BuscarIdBtn" runat="server" OnClick="BuscarIdBtn_Click" Text="Buscar" />
             </td>
@@ -13,6 +14,7 @@
         </tr>
         <tr>
             <td>
+                <asp:Label ID="Label3" runat="server" Text="Marcas"></asp:Label>
                 <asp:TextBox ID="DescripcionTxT" runat="server"></asp:TextBox>
             </td>
             <td>&nbsp;</td>

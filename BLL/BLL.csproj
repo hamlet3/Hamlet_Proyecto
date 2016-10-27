@@ -45,6 +45,7 @@
     <Compile Include="Marcas.cs" />
     <Compile Include="Modelos.cs" />
     <Compile Include="Motores.cs" />
+    <Compile Include="Paquetes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiposTelefono.cs" />
     <Compile Include="Transmisiones.cs" />

@@ -56,7 +56,9 @@
             <td class="auto-style12">
                 <table class="auto-style11">
                     <tr>
-                        <td class="auto-style19"></td>
+                        <td class="auto-style19">
+                            <asp:Label ID="Label9" runat="server" Text="Id"></asp:Label>
+                        </td>
                         <td class="auto-style20">
                             <asp:TextBox ID="Buscartxt" runat="server" Width="60px"></asp:TextBox>
                             <asp:Button ID="BuscarBtn" runat="server" OnClick="BuscarBtn_Click" Text="Buscar" />
