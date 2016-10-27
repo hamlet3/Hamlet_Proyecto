@@ -131,7 +131,7 @@
     <Content Include="Registros\RegistroModelos.aspx" />
     <Content Include="Registros\RegistroTransminiones.aspx" />
     <Content Include="Registros\RegistroUsuarios.aspx" />
-    <Content Include="Registros\ReportePaquetes.aspx" />
+    <Content Include="Registros\RegistroPaquetes.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Web.config" />
@@ -194,12 +194,12 @@
     <Compile Include="Registros\RegistroUsuarios.aspx.designer.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\ReportePaquetes.aspx.cs">
-      <DependentUpon>ReportePaquetes.aspx</DependentUpon>
+    <Compile Include="Registros\RegistroPaquetes.aspx.cs">
+      <DependentUpon>RegistroPaquetes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\ReportePaquetes.aspx.designer.cs">
-      <DependentUpon>ReportePaquetes.aspx</DependentUpon>
+    <Compile Include="Registros\RegistroPaquetes.aspx.designer.cs">
+      <DependentUpon>RegistroPaquetes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>

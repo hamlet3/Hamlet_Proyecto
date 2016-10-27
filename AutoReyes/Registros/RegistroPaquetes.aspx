@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ReportePaquetes.aspx.cs" Inherits="AutoReyes.Registros.ReportePaquetes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="RegistroPaquetes.aspx.cs" Inherits="AutoReyes.Registros.ReportePaquetes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style4 {
@@ -7,7 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table style="width:100%;">
+    <table style="width: 100%;">
         <tr>
             <td>
                 <asp:Label ID="Label2" runat="server" Text="Id"></asp:Label>
@@ -34,7 +34,7 @@
             <td>&nbsp;</td>
         </tr>
     </table>
-    <table style="width:100%;">
+    <table style="width: 100%;">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
