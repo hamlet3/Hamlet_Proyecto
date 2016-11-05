@@ -15,11 +15,14 @@ namespace AutoReyes
 
         }
 
-      
-
         public void Limpiar() {
             DescripconTextBox.Text = "";
             BuscarIdTextBox.Text = "";
+        }
+
+        public void Mensaje(string mensaje)
+        {
+            Response.Write("<script>alert('" + mensaje + "')</script>");
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
@@ -30,11 +33,11 @@ namespace AutoReyes
                 color.Descripcion = DescripconTextBox.Text;
                 if (color.Insertar())
                 {
-                    Response.Write("<script>alert('Se a guardado correctamente')</script>");
+                    Mensaje("Exito al guardar");
                     Limpiar();
                 }else
                 {
-                    Response.Write("<script>alert('Error al aguardar')</script>");
+                    Mensaje("Error al guardar");
                 }
             }else
             {
@@ -42,12 +45,12 @@ namespace AutoReyes
                 color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
                 color.Descripcion = DescripconTextBox.Text;
                 if (color.Editar()) {
-                    Response.Write("<script>alert('Se a editado correctamente')</script>");
+                    Mensaje("Exito al editar");
                     Limpiar();
                 }
                 else
                 {
-                    Response.Write("<script>alert('Error al editar')</script>");
+                    Mensaje("Error al editar");
                 }
             }
             
@@ -72,7 +75,7 @@ namespace AutoReyes
             }
             else
             {
-                Response.Write("<script>alert('Id no encontrado')</script>");
+                Mensaje("Id no encontrado");
             }
         }
 
@@ -84,11 +87,11 @@ namespace AutoReyes
             if (color.Eliminar())
             {
                 Limpiar();
-                Response.Write("<script>alert('Se han eliminado los datos correctamente')</script>");
+                Mensaje("Exito al eliminar");
             }
             else
             {
-                Response.Write("<script>alert('Error al eliminar')</script>");
+                Mensaje("Error al eliminar");
             }
         }
     }

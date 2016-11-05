@@ -51,6 +51,10 @@ namespace AutoReyes
             TelefonoGridVierw.DataBind();
         }
 
+        public void Mensaje(string mensaje) {
+            Response.Write("<script>alert("+mensaje+")</script>");
+        }
+
         public void ObtenerDatos(int id) {
             
             Usuarios usuario = new Usuarios();
@@ -175,7 +179,7 @@ namespace AutoReyes
                 usuario.Prioridad = PrioridadDropDownList.SelectedIndex;
                 if (usuario.Insertar())
                 {
-                    Response.Write("<script>alert('Se a guardado correctamente')</script>");
+                    Mensaje("Se a guardado correctamente");
                     Limpiar();
                 }
             }else

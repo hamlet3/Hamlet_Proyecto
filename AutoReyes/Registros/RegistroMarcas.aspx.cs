@@ -21,6 +21,11 @@ namespace AutoReyes.Registros
             BuscarIdTextBox.Text = "";
         }
 
+        public void Mensaje(string mensaje)
+        {
+            Response.Write("<script>alert('" + mensaje + "')</script>");
+        }
+
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -34,12 +39,12 @@ namespace AutoReyes.Registros
                 marca.Descripcion = DescripcionTextBox.Text;
                 if (marca.Insertar())
                 {
-                    Response.Write("<script>alert('Se a guardado correctamente')</script>");
+                    Mensaje("Exito al guardar");
                     Limpiar();
                 }
                 else
                 {
-                    Response.Write("<script>alert('Error al guardar')</script>");
+                    Mensaje("Error al guardar");
                 }
             }
             else
@@ -49,12 +54,12 @@ namespace AutoReyes.Registros
                 marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
                 if (marca.Editar())
                 {
-                    Response.Write("<script>alert('Se a editado correctamente')</script>");
+                    Mensaje("Exito al editar");
                     Limpiar();
                 }
                 else
                 {
-                    Response.Write("<script>alert('Error al editar')</script>");
+                    Mensaje("Error al editar");
                 }
             }
         }
@@ -65,10 +70,10 @@ namespace AutoReyes.Registros
             Utilerias utileria = new Utilerias();
             marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (marca.Eliminar()) {
-                Response.Write("<script>alert('Se a eliminado correctamente')</script>");
+                Mensaje("Exito al eliminar");
                 Limpiar();
             } else {
-                Response.Write("<script>alert('Error al eliminar')</script>");
+                Mensaje("Error al eliminar");
             }
         }
 
@@ -83,7 +88,7 @@ namespace AutoReyes.Registros
             }
             else
             {
-                Response.Write("<script>alert('Id no encontrado')</script>");
+                Mensaje("Id no encontrado");
             }
         }
     }
