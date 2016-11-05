@@ -60,9 +60,9 @@
                             <asp:Label ID="Label9" runat="server" Text="Id"></asp:Label>
                         </td>
                         <td class="auto-style20">
-                            <asp:TextBox ID="Buscartxt" runat="server" Width="60px"></asp:TextBox>
-                            <asp:Button ID="BuscarBtn" runat="server" OnClick="BuscarBtn_Click" Text="Buscar" />
-                             <asp:DropDownList ID="PrioridadDDL" runat="server">
+                            <asp:TextBox ID="BuscarIdTextBox" runat="server" Width="60px"></asp:TextBox>
+                            <asp:Button ID="BuscarButton" runat="server" OnClick="BuscarBtn_Click" Text="Buscar" />
+                             <asp:DropDownList ID="PrioridadDropDownList" runat="server">
                                 <asp:ListItem>Prioridad</asp:ListItem>
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
@@ -75,17 +75,17 @@
                         <td class="auto-style16">
 
                             <asp:Label ID="Label3" runat="server" Text="Nombre de Usuario"></asp:Label>
-                            <asp:TextBox ID="NombreUsuariotxt" runat="server" CssClass="auto-style6" OnTextChanged="TextBox1_TextChanged" Width="210px"></asp:TextBox>
+                            <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="auto-style6" OnTextChanged="TextBox1_TextChanged" Width="210px"></asp:TextBox>
                             <asp:Label ID="Label4" runat="server" Text="Nombre Completo"></asp:Label>
-                            <asp:TextBox ID="Nombretxt" runat="server" CssClass="auto-style10" Width="210px"></asp:TextBox>
+                            <asp:TextBox ID="NombreTextBox" runat="server" CssClass="auto-style10" Width="210px"></asp:TextBox>
                             <asp:Label ID="Label5" runat="server" Text="Direccion"></asp:Label>
-                            <asp:TextBox ID="Direcciontxt" runat="server" CssClass="auto-style7" OnTextChanged="TextBox5_TextChanged" Width="210px"></asp:TextBox>
+                            <asp:TextBox ID="DireccionTextBox" runat="server" CssClass="auto-style7" OnTextChanged="TextBox5_TextChanged" Width="210px"></asp:TextBox>
                             <asp:Label ID="Label6" runat="server" Text="Contraseña"></asp:Label>
-                            <asp:TextBox ID="Contraseñatxt" runat="server" CssClass="auto-style6" Width="210px"></asp:TextBox>
+                            <asp:TextBox ID="ContraseñaTextBox" runat="server" CssClass="auto-style6" Width="210px"></asp:TextBox>
                             <asp:Label ID="Label7" runat="server" Text="Confirmar Contraseña"></asp:Label>
-                            <asp:TextBox ID="ConfContraseñatxt" runat="server" CssClass="auto-style7" Width="210px"></asp:TextBox>
+                            <asp:TextBox ID="ConfContraseñaTextBox" runat="server" CssClass="auto-style7" Width="210px"></asp:TextBox>
                             <asp:Label ID="Label8" runat="server" Text="Email"></asp:Label>
-                            <asp:TextBox ID="Emailtxt" runat="server" CssClass="auto-style9" Width="210px"></asp:TextBox>
+                            <asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style9" Width="210px"></asp:TextBox>
                     
                         
                             
@@ -93,14 +93,14 @@
                         
                         <td class="auto-style17">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:GridView ID="GvTelefono" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" OnRowCommand="GvTelefono_RowCommand" ShowFooter="True" Width="431px" CssClass="auto-style18">
+                                <asp:GridView ID="TelefonoGridVierw" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" OnRowCommand="GvTelefono_RowCommand" ShowFooter="True" Width="431px" CssClass="auto-style18">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Telefono" SortExpression="Telefono">
                                             <EditItemTemplate>
                                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Telefono") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <FooterTemplate>
-                                                <asp:TextBox ID="Telefonotxt" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="TelefonoTextBox" runat="server"></asp:TextBox>
                                             </FooterTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("Telefono") %>'></asp:Label>
@@ -111,10 +111,10 @@
                                                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Descripcion") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <FooterTemplate>
-                                                <asp:DropDownList ID="DescripcionDDL" runat="server" OnSelectedIndexChanged="DescripcionDDL_SelectedIndexChanged">
+                                                <asp:DropDownList ID="DescripcionDropDownList" runat="server" OnSelectedIndexChanged="DescripcionDDL_SelectedIndexChanged">
                                                     <asp:ListItem>Selecionar. . .</asp:ListItem>
                                                 </asp:DropDownList>
-                                                <asp:Button ID="AgregarBtn" runat="server" CommandName="Agregar" Text="Agregar" />
+                                                <asp:Button ID="AgregarButton" runat="server" CommandName="Agregar" Text="Agregar" />
                                             </FooterTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("Descripcion") %>'></asp:Label>
@@ -138,9 +138,9 @@
         <tr>
             <td class="auto-style13">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="NuevoBtn" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarBtn" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
-                <asp:Button ID="EliminarBtn" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
+                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
+                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
+                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
             </td>
             <td class="auto-style5"></td>
             <td class="auto-style5"></td>

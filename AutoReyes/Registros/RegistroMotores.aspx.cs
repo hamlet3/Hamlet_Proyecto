@@ -22,26 +22,32 @@ namespace AutoReyes
 
         public void Limpiar()
         {
-            DescripcionTxT.Text = "";
-            BuscarIdTxT.Text = "";
+            DescripcionTextBox.Text = "";
+            BuscarIdTextBox.Text = "";
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
         {
-            int aux;
             Motores motor = new Motores();
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            motor.Buscar(aux);
-            DescripcionTxT.Text = motor.Descripcion;
+            Utilerias utileria = new Utilerias();
+            motor.MotorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            if (motor.Buscar(motor.MotorId))
+            {
+                DescripcionTextBox.Text = motor.Descripcion;
+            }
+            else
+            {
+                Response.Write("<script>alert('Id no encontrado')</script>");
+            }
             
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Motores motor = new Motores();
-            if (BuscarIdTxT.Text == "")
+            if (BuscarIdTextBox.Text == "")
             {
-                motor.Descripcion = DescripcionTxT.Text;
+                motor.Descripcion = DescripcionTextBox.Text;
                 if (motor.Insertar())
                 {
                     Response.Write("<script>alert('Se a guardado correctamente')</script>");
@@ -52,10 +58,9 @@ namespace AutoReyes
                 }
             }else
             {
-                int aux;
-                int.TryParse(BuscarIdTxT.Text, out aux);
-                motor.MotorId = aux;
-                motor.Descripcion = DescripcionTxT.Text;
+                Utilerias utileria = new Utilerias();
+                motor.MotorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+                motor.Descripcion = DescripcionTextBox.Text;
                 if (motor.Editar())
                 {
                     Response.Write("<script>alert('Se a editado correctamente')</script>");
@@ -75,10 +80,9 @@ namespace AutoReyes
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
         {
-            int aux;
             Motores motor = new Motores();
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            motor.MotorId = aux;
+            Utilerias utileria = new Utilerias();
+            motor.MotorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (motor.Eliminar())
             {
                 Response.Write("<script>alert('Se a eliminaro correctamente')</script>");

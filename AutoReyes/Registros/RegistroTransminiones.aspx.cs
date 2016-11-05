@@ -16,18 +16,22 @@ namespace AutoReyes.Registros
         }
 
         public void Limpiar() {
-            DescripcionTxT.Text = "";
-            BuscarIdTxT.Text = "";
+            DescripcionTextBox.Text = "";
+            BuscarIdTextBox.Text = "";
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
         {
-            int aux;
             Transmisiones transmision = new Transmisiones();
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            if (transmision.Buscar(aux))
+            Utilerias utileria = new Utilerias();
+            transmision.TransmisionId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            if (transmision.Buscar(transmision.TransmisionId))
             {
-                DescripcionTxT.Text = transmision.Descripcion;
+                DescripcionTextBox.Text = transmision.Descripcion;
+            }
+            else
+            {
+                Response.Write("<script>alert('Id no encontrado')</script>");
             }
 
         }
@@ -35,9 +39,9 @@ namespace AutoReyes.Registros
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Transmisiones transmision = new Transmisiones();
-            if (BuscarIdTxT.Text=="")
+            if (BuscarIdTextBox.Text=="")
             {
-                transmision.Descripcion = DescripcionTxT.Text;
+                transmision.Descripcion = DescripcionTextBox.Text;
                 if (transmision.Insertar()) {
                     Response.Write("<script>alert('Se a guardado correctamente')</script>");
                     Limpiar();
@@ -46,10 +50,9 @@ namespace AutoReyes.Registros
                 }
             }else
             {
-                int aux;
-                int.TryParse(BuscarIdTxT.Text, out aux);
-                transmision.TransmisionId = aux;
-                transmision.Descripcion = DescripcionTxT.Text;
+                Utilerias utileria = new Utilerias();
+                transmision.TransmisionId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+                transmision.Descripcion = DescripcionTextBox.Text;
                 if (transmision.Editar())
                 {
                     Response.Write("<script>alert('Se a editado correctamente')</script>");
@@ -64,10 +67,9 @@ namespace AutoReyes.Registros
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
         {
-            int aux;
             Transmisiones transmision = new Transmisiones();
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            transmision.TransmisionId = aux;
+            Utilerias utileria = new Utilerias();
+            transmision.TransmisionId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (transmision.Eliminar())
             {
                 Response.Write("<script>alert('Se a eliminado correctamente')</script>");

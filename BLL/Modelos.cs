@@ -33,7 +33,7 @@ namespace BLL
             bool retornar = false;
             try
             {
-                conexion.Ejecutar(String.Format("Update Modelos ser Descripcion ='{0}' where ModeloId={1}", this.Descripcion));
+                conexion.Ejecutar(String.Format("Update Modelos set Descripcion ='{0}', MarcaId={1} where ModeloId={2}", this.Descripcion,this.MarcaId,this.ModeloId));
                 retornar = true;
             }catch(Exception ex) { throw ex; }
             return retornar;

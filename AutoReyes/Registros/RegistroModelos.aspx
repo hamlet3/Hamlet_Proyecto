@@ -11,8 +11,8 @@
         <tr>
             <td class="auto-style3">
                 <asp:Label ID="Label2" runat="server" Text="Id"></asp:Label>
-                <asp:TextBox ID="BuscarIdTxT" runat="server"></asp:TextBox>
-                <asp:Button ID="BuscarIdBtn" runat="server" Text="Buscar" OnClick="BuscarIdBtn_Click" />
+                <asp:TextBox ID="BuscarIdTextBox" runat="server"></asp:TextBox>
+                <asp:Button ID="BuscarIdButton" runat="server" Text="Buscar" OnClick="BuscarIdBtn_Click" />
             </td>
             <td class="auto-style3"></td>
             <td class="auto-style3"></td>
@@ -20,9 +20,9 @@
         <tr>
             <td class="auto-style4">
                 <asp:Label ID="Label1" runat="server" Text="Modelo"></asp:Label>
-                <asp:TextBox ID="DescripcionTxT" runat="server"></asp:TextBox>
+                <asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
                 <asp:Label ID="Label3" runat="server" Text="Marca"></asp:Label>
-                <asp:DropDownList ID="MarcasDDL" runat="server">
+                <asp:DropDownList ID="MarcasDropDownList" runat="server">
                     <asp:ListItem>Seleccione---</asp:ListItem>
                 </asp:DropDownList>
             </td>
@@ -31,9 +31,9 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="NuevoBtn" runat="server" OnClick="Button2_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarBtn" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
-                <asp:Button ID="EliminarBtn" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
+                <asp:Button ID="NuevoButton" runat="server" OnClick="Button2_Click" Text="Nuevo" />
+                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
+                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

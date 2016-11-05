@@ -22,22 +22,22 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// BuscarIdTxT control.
+        /// BuscarIdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BuscarIdTxT;
+        protected global::System.Web.UI.WebControls.TextBox BuscarIdTextBox;
         
         /// <summary>
-        /// BuscarIdBtn control.
+        /// BuscarIdButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuscarIdBtn;
+        protected global::System.Web.UI.WebControls.Button BuscarIdButton;
         
         /// <summary>
         /// Label3 control.
@@ -49,39 +49,39 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// DescripcionTxT control.
+        /// DescripcionTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DescripcionTxT;
+        protected global::System.Web.UI.WebControls.TextBox DescripcionTextBox;
         
         /// <summary>
-        /// NuevoBtn control.
+        /// NuevoButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NuevoBtn;
+        protected global::System.Web.UI.WebControls.Button NuevoButton;
         
         /// <summary>
-        /// GuardarBtn control.
+        /// GuardarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GuardarBtn;
+        protected global::System.Web.UI.WebControls.Button GuardarButton;
         
         /// <summary>
-        /// EliminarBtn control.
+        /// EliminarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EliminarBtn;
+        protected global::System.Web.UI.WebControls.Button EliminarButton;
     }
 }

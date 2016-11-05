@@ -16,17 +16,11 @@ namespace AutoReyes.Registros
         }
 
         public void Limpiar() {
-            BuscarIdTxT.Text = "";
-            EspaciosTxT.Text = "";
-            CostoTxT.Text = "";
-            DescripcionTxT.Text = "";
+            BuscarIdTextBox.Text = "";
+            EspaciosTextBox.Text = "";
+            CostoTextBox.Text = "";
+            DescripcionTextBox.Text = "";
             
-        }
-
-        public int ConvertirEntero(string convertir) {
-            int aux;
-            int.TryParse(convertir, out aux);
-            return aux;
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
@@ -39,12 +33,13 @@ namespace AutoReyes.Registros
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
         {
             Paquetes paquete = new Paquetes();
-            paquete.PaqueteId = ConvertirEntero(BuscarIdTxT.Text);
+            Utilerias utileria = new Utilerias();
+            paquete.PaqueteId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (paquete.Buscar(paquete.PaqueteId))
             {
-                DescripcionTxT.Text = paquete.Descripcion;
-                CostoTxT.Text = paquete.Costo.ToString();
-                EspaciosTxT.Text = paquete.Espacios.ToString();
+                DescripcionTextBox.Text = paquete.Descripcion;
+                CostoTextBox.Text = paquete.Costo.ToString();
+                EspaciosTextBox.Text = paquete.Espacios.ToString();
 
             }else
             {
@@ -55,11 +50,12 @@ namespace AutoReyes.Registros
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Paquetes paquete = new Paquetes();
-            if (BuscarIdTxT.Text == "")
+            Utilerias utileria = new Utilerias();
+            if (BuscarIdTextBox.Text == "")
             {
-                paquete.Descripcion = DescripcionTxT.Text;
-                paquete.Costo = ConvertirEntero(CostoTxT.Text);
-                paquete.Espacios = ConvertirEntero(EspaciosTxT.Text);
+                paquete.Descripcion = DescripcionTextBox.Text;
+                paquete.Costo = utileria.ConvertirValor(CostoTextBox.Text);
+                paquete.Espacios = utileria.ConvertirValor(EspaciosTextBox.Text);
                 if (paquete.Insertar())
                 {
                     Response.Write("<script>alert('Se a guardado correctamente')</script>");
@@ -72,10 +68,10 @@ namespace AutoReyes.Registros
             }
             else
             {
-                paquete.PaqueteId = ConvertirEntero(BuscarIdTxT.Text);
-                paquete.Descripcion = DescripcionTxT.Text;
-                paquete.Costo = ConvertirEntero(CostoTxT.Text);
-                paquete.Espacios = ConvertirEntero(EspaciosTxT.Text);
+                paquete.PaqueteId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+                paquete.Descripcion = DescripcionTextBox.Text;
+                paquete.Costo = utileria.ConvertirValor(CostoTextBox.Text);
+                paquete.Espacios = utileria.ConvertirValor(EspaciosTextBox.Text);
                 if (paquete.Editar())
                 {
                     Response.Write("<script>alert('Se a editado correctamente')</script>");
@@ -91,7 +87,8 @@ namespace AutoReyes.Registros
         protected void EliminarBtn_Click(object sender, EventArgs e)
         {
             Paquetes paquete = new Paquetes();
-            paquete.PaqueteId = ConvertirEntero(BuscarIdTxT.Text);
+            Utilerias utileria = new Utilerias();
+            paquete.PaqueteId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (paquete.Eliminar())
             {
                 Response.Write("<script>alert('Sea eliminado correctamente')</script>");

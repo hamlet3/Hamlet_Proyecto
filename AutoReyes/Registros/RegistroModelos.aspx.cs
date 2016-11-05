@@ -20,24 +20,24 @@ namespace AutoReyes
         }
 
         public void Limpiar() {
-            DescripcionTxT.Text = "";
-            BuscarIdTxT.Text = "";
-            MarcasDDL.SelectedIndex = 0;
+            DescripcionTextBox.Text = "";
+            BuscarIdTextBox.Text = "";
+            MarcasDropDownList.SelectedIndex = 0;
         }
 
+        public void Mensaje(string mensaje)
+        {         
+            Response.Write("<script>alert('" + mensaje + "')</script>");
+        }
         public void ListaMarca()
         {
             DataTable dt = new DataTable();
-            List<Marcas> lista = new List<Marcas>();
             Marcas marca = new Marcas();
             dt = marca.Listado("Descripcion, MarcaId","1=1","");
             foreach (DataRow row in dt.Rows)
             {
-               MarcasDDL.Items.Insert((int)row["MarcaId"], row["Descripcion"].ToString());
-
-            }
-    
-            
+               MarcasDropDownList.Items.Insert((int)row["MarcaId"], row["Descripcion"].ToString());
+            }   
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -45,79 +45,76 @@ namespace AutoReyes
             Limpiar();           
         }
 
+
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Modelos modelo = new Modelos();
-            if (MarcasDDL.SelectedIndex != 0)
+            modelo.Descripcion = DescripcionTextBox.Text;
+            modelo.MarcaId = MarcasDropDownList.SelectedIndex;
+            if (MarcasDropDownList.SelectedIndex != 0)
             {
-                if (BuscarIdTxT.Text == "")
+                if (BuscarIdTextBox.Text == "")
                 {
-                    modelo.Descripcion = DescripcionTxT.Text;
-                    modelo.MarcaId = MarcasDDL.SelectedIndex;
                     if (modelo.Insertar())
                     {
-                        Response.Write("<script>alert('Se a guardado correctamente')</script>");
+                        Mensaje("Exito al guardar");
                         Limpiar();
                     }
                     else
                     {
-                        Response.Write("<script>alert('Error al guardar')</script>");
+                        Mensaje("Error al guardar");
                     }
                 }
                 else
                 {
-                    int aux;
-                    int.TryParse(BuscarIdTxT.Text, out aux);
-                    modelo.ModeloId = aux;
-                    modelo.Descripcion = DescripcionTxT.Text;
-                    modelo.MarcaId = MarcasDDL.SelectedIndex;
+                    Utilerias utileria = new Utilerias();
+                    modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
                     if (modelo.Editar())
                     {
-                        Response.Write("<script>alert('Se a editado correctamente')</script>");
+                        Mensaje("Exito al editar");
                         Limpiar();
                     }
                     else
                     {
-                        Response.Write("<script>alert('Error al editar')</script>");
+                        Mensaje("Error al editar");
                     }
                 }
             }
             else
             {
-                Response.Write("<script>alert('Seleccione una marca')</script>");
+                Mensaje("Seleccione una marca");
             }
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
         {
-            int aux;
             Modelos modelo = new Modelos();
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            modelo.ModeloId = aux;
+            Utilerias utileria = new Utilerias();
+            modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (modelo.Eliminar())
             {
-                Response.Write("<script>alert('Se a eliminado correctament')</script>");
+                Mensaje("Exito al eliminar");
                 Limpiar();
             }
             else
             {
-                Response.Write("<script>alert('Error al eliminar')</script>");
+                Mensaje("Error al eliminar");
             }
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
         {
-            int aux;
-            int.TryParse(BuscarIdTxT.Text, out aux);
             Modelos modelo = new Modelos();
-            if (modelo.Buscar(aux))
+            Utilerias utileria = new Utilerias();
+            modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            if (modelo.Buscar(modelo.ModeloId))
             {
-                DescripcionTxT.Text = modelo.Descripcion;
-                MarcasDDL.SelectedIndex = modelo.MarcaId;
+                DescripcionTextBox.Text = modelo.Descripcion;
+                MarcasDropDownList.SelectedIndex = modelo.MarcaId;
             }
             else
             {
-                Response.Write("<script>alert('Error al buscar los datos')</script>");
+                Mensaje("Id no encontrado");
             }
         }
     }

@@ -18,16 +18,16 @@ namespace AutoReyes
       
 
         public void Limpiar() {
-            DescripconTxT.Text = "";
-            BuscarIdTxT.Text = "";
+            DescripconTextBox.Text = "";
+            BuscarIdTextBox.Text = "";
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Colores color = new Colores();
-            if (BuscarIdTxT.Text == "")
+            if (BuscarIdTextBox.Text == "")
             {
-                color.Descripcion = DescripconTxT.Text;
+                color.Descripcion = DescripconTextBox.Text;
                 if (color.Insertar())
                 {
                     Response.Write("<script>alert('Se a guardado correctamente')</script>");
@@ -38,10 +38,9 @@ namespace AutoReyes
                 }
             }else
             {
-                int aux;
-                int.TryParse(BuscarIdTxT.Text, out aux);
-                color.Descripcion = DescripconTxT.Text;
-                color.ColorId = aux;
+                Utilerias utileria = new Utilerias();
+                color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+                color.Descripcion = DescripconTextBox.Text;
                 if (color.Editar()) {
                     Response.Write("<script>alert('Se a editado correctamente')</script>");
                     Limpiar();
@@ -64,25 +63,24 @@ namespace AutoReyes
         protected void BuscarBtn_Click(object sender, EventArgs e)
         {
            
-            int aux;
-            int.TryParse(BuscarIdTxT.Text, out aux);
             Colores color = new Colores();
-            if (color.Buscar(aux))
+            Utilerias utileria = new Utilerias();
+            color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            if (color.Buscar(color.ColorId))
             {
-                DescripconTxT.Text = color.Descripcion;
+                DescripconTextBox.Text = color.Descripcion;
             }
             else
             {
-                Response.Write("<script>alert('Error al buscar los datos')</script>");
+                Response.Write("<script>alert('Id no encontrado')</script>");
             }
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
         {
             Colores color = new Colores();
-            int aux;
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            color.ColorId = aux;
+            Utilerias utileria = new Utilerias();
+            color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (color.Eliminar())
             {
                 Limpiar();

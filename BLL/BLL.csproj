@@ -51,6 +51,7 @@
     <Compile Include="Transmisiones.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="UsuarioTelefonos.cs" />
+    <Compile Include="Utilerias.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

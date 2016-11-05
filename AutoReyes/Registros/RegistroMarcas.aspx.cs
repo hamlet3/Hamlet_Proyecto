@@ -17,8 +17,8 @@ namespace AutoReyes.Registros
         
         public void Limpiar()
         {
-            DescripcionTxT.Text = "";
-            BuscarIdTxT.Text = "";
+            DescripcionTextBox.Text = "";
+            BuscarIdTextBox.Text = "";
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
@@ -29,9 +29,9 @@ namespace AutoReyes.Registros
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Marcas marca = new Marcas();
-            if (BuscarIdTxT.Text=="")
+            if (BuscarIdTextBox.Text=="")
             {
-                marca.Descripcion = DescripcionTxT.Text;
+                marca.Descripcion = DescripcionTextBox.Text;
                 if (marca.Insertar())
                 {
                     Response.Write("<script>alert('Se a guardado correctamente')</script>");
@@ -44,7 +44,9 @@ namespace AutoReyes.Registros
             }
             else
             {
-                marca.Descripcion = DescripcionTxT.Text;
+                marca.Descripcion = DescripcionTextBox.Text;
+                Utilerias utileria = new Utilerias();
+                marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
                 if (marca.Editar())
                 {
                     Response.Write("<script>alert('Se a editado correctamente')</script>");
@@ -59,10 +61,9 @@ namespace AutoReyes.Registros
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
         {
-            int aux;
             Marcas marca = new Marcas();
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            marca.MarcaId = aux;
+            Utilerias utileria = new Utilerias();
+            marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (marca.Eliminar()) {
                 Response.Write("<script>alert('Se a eliminado correctamente')</script>");
                 Limpiar();
@@ -73,12 +74,16 @@ namespace AutoReyes.Registros
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
         {
-            int aux;
             Marcas marca = new Marcas();
-            int.TryParse(BuscarIdTxT.Text, out aux);
-            if (marca.Buscar(aux))
+            Utilerias utileria = new Utilerias();
+            marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            if (marca.Buscar(marca.MarcaId))
             {
-                DescripcionTxT.Text = marca.Descripcion;
+                DescripcionTextBox.Text = marca.Descripcion;
+            }
+            else
+            {
+                Response.Write("<script>alert('Id no encontrado')</script>");
             }
         }
     }
