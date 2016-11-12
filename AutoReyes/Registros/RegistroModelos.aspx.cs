@@ -15,7 +15,7 @@ namespace AutoReyes
         {
             if (!IsPostBack)
             {
-                ListaMarca();
+                ListarMarca();
             }
         }
 
@@ -29,7 +29,7 @@ namespace AutoReyes
         {         
             Response.Write("<script>alert('" + mensaje + "')</script>");
         }
-        public void ListaMarca()
+        public void ListarMarca()
         {
             DataTable dt = new DataTable();
             Marcas marca = new Marcas();

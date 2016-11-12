@@ -13,20 +13,10 @@ namespace AutoReyes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TiposTelefono tipo = new TiposTelefono();
-            DataTable dt = new DataTable();
-
-            if (!Page.IsPostBack)
-            {
+            if (!IsPostBack){
                 TelefonoGridVierw.DataSource= ObtenerNuevaLista();
                 TelefonoGridVierw.DataBind();
-
-                DropDownList DescripcionDropDownList = (DropDownList)TelefonoGridVierw.FooterRow.FindControl("DescripcionDropDownList");
-                dt = tipo.Listado("Descripcion", "1=1", "ORDER BY Descripcion");
-                foreach (DataRow row in dt.Rows)
-                {
-                    DescripcionDropDownList.Items.Add(row["Descripcion"].ToString());
-                }
+                LlenarDropdownList();
             }                
         }
 
@@ -47,32 +37,62 @@ namespace AutoReyes
             ContraseñaTextBox.Text = "";
             ConfContraseñaTextBox.Text = "";
             DireccionTextBox.Text = "";
+            Session.Clear();
             TelefonoGridVierw.DataSource = ObtenerNuevaLista();
             TelefonoGridVierw.DataBind();
         }
 
+        public void LlenarDropdownList()
+        {
+            TiposTelefono tipo = new TiposTelefono();
+            DataTable dt = new DataTable();
+            DropDownList DescripcionDropDownList = (DropDownList)TelefonoGridVierw.FooterRow.FindControl("DescripcionDropDownList");
+            dt = tipo.Listado("Descripcion, TipoTelefonoId", "1=1", "");
+            foreach (DataRow row in dt.Rows)
+            {
+                DescripcionDropDownList.Items.Insert((int)row["TipoTelefonoId"], row["Descripcion"].ToString());
+            }
+        }
+
         public void Mensaje(string mensaje) {
-            Response.Write("<script>alert("+mensaje+")</script>");
+            Response.Write("<script>alert('"+mensaje+"')</script>");
         }
 
         public void ObtenerDatos(int id) {
             
             Usuarios usuario = new Usuarios();
-            usuario.Buscar(id);
-            NombreTextBox.Text = usuario.Nombre;
-            NombreUsuarioTextBox.Text = usuario.NombreUsuario;
-            DireccionTextBox.Text = usuario.Direccion;
-            EmailTextBox.Text = usuario.Direccion;
-            ConfContraseñaTextBox.Text = usuario.Contraseña;
-            ContraseñaTextBox.Text = usuario.Contraseña;
+            if (usuario.Buscar(id)) {
+                NombreTextBox.Text = usuario.Nombre;
+                NombreUsuarioTextBox.Text = usuario.NombreUsuario;
+                DireccionTextBox.Text = usuario.Direccion;
+                EmailTextBox.Text = usuario.Direccion;
+                ConfContraseñaTextBox.Text = usuario.Contraseña;
+                ContraseñaTextBox.Text = usuario.Contraseña;
+                PrioridadDropDownList.SelectedIndex = usuario.Prioridad;
 
-            foreach (UsuarioTelefonos telefono in usuario.ListaTelefono)
+                foreach (UsuarioTelefonos telefono in usuario.ListaTelefono)
+                {
+                    GuardarLista(telefono);
+
+                }
+                TelefonoGridVierw.DataSource = ObtenerLista();
+                TelefonoGridVierw.DataBind();
+            }else
             {
-                GuardarLista(telefono);
-                
+                Mensaje("Id no encontrado");
             }
-            TelefonoGridVierw.DataSource = ObtenerLista();
-            TelefonoGridVierw.DataBind();
+        }
+
+        public Usuarios EnviarDatos()
+        {
+            Usuarios usuario = new Usuarios();
+            usuario.Nombre = NombreTextBox.Text;
+            usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+            usuario.Direccion = DireccionTextBox.Text;
+            usuario.Contraseña = ContraseñaTextBox.Text;
+            usuario.Email = EmailTextBox.Text;
+            usuario.Prioridad = PrioridadDropDownList.SelectedIndex;
+            return usuario;
         }
         
 
@@ -146,15 +166,6 @@ namespace AutoReyes
             }
         }
 
-        protected void GvTelefono_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-       protected void AgregarLBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
@@ -170,21 +181,16 @@ namespace AutoReyes
                     Session["Usuario"] = new Usuarios();
 
                 usuario = (Usuarios)Session["Usuario"];
+                usuario = EnviarDatos();
 
-                usuario.Nombre = NombreTextBox.Text;
-                usuario.NombreUsuario = NombreUsuarioTextBox.Text;
-                usuario.Direccion = DireccionTextBox.Text;
-                usuario.Contraseña = ContraseñaTextBox.Text;
-                usuario.Email = EmailTextBox.Text;
-                usuario.Prioridad = PrioridadDropDownList.SelectedIndex;
                 if (usuario.Insertar())
                 {
-                    Mensaje("Se a guardado correctamente");
+                    Mensaje("Exito al guardar");
                     Limpiar();
                 }
             }else
             {
-                Response.Write("<script>alert('Seleccione el nivel Prioridad')</script>");
+                Mensaje("Seleccione nivel de prioridad");
             }
         }
 
@@ -196,11 +202,11 @@ namespace AutoReyes
             if (usuario.Eliminar())
             {
                 Limpiar();
-                Response.Write("<script>alert('Se a eliminado correctamente')</script>");
+                Mensaje("Exito al eliminar");
             }
             else
             {
-                Response.Write("<script>alert('Error al aliminar')</script>");
+                Mensaje("Error al eliminar");
             }
         }
 
@@ -216,9 +222,9 @@ namespace AutoReyes
 
         protected void BuscarBtn_Click(object sender, EventArgs e)
         {
-            int aux;
-            int.TryParse(BuscarIdTextBox.Text, out aux);
-            ObtenerDatos(aux);
+                Utilerias utileria = new Utilerias();
+                ObtenerDatos(utileria.ConvertirValor(BuscarIdTextBox.Text));
+            
         }
     }
 }

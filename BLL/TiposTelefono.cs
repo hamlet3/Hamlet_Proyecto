@@ -38,7 +38,7 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             string ordenar = "";
-            if (Orden.Equals(""))
+            if (!Orden.Equals(""))
                 ordenar = " Order By " + Orden;
 
             return conexion.ObtenerDatos(String.Format("Select "+Campos+" From TiPosTelefono where "+Condicion+ordenar));

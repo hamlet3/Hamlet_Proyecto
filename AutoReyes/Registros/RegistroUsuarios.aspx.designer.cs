@@ -13,15 +13,6 @@ namespace AutoReyes {
     public partial class RegistroUsuarios {
         
         /// <summary>
-        /// Label9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
-        
-        /// <summary>
         /// BuscarIdTextBox control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace AutoReyes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// TelefonoGridVierw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView TelefonoGridVierw;
         
         /// <summary>
         /// NombreUsuarioTextBox control.
@@ -155,15 +155,6 @@ namespace AutoReyes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
-        
-        /// <summary>
-        /// TelefonoGridVierw control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView TelefonoGridVierw;
         
         /// <summary>
         /// NuevoButton control.

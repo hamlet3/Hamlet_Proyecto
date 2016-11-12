@@ -42,6 +42,7 @@
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Colores.cs" />
     <Compile Include="Estados.cs" />
+    <Compile Include="Fotos.cs" />
     <Compile Include="Marcas.cs" />
     <Compile Include="Modelos.cs" />
     <Compile Include="Motores.cs" />
@@ -52,6 +53,8 @@
     <Compile Include="Usuarios.cs" />
     <Compile Include="UsuarioTelefonos.cs" />
     <Compile Include="Utilerias.cs" />
+    <Compile Include="Vehiculos.cs" />
+    <Compile Include="VentasPaquetes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
