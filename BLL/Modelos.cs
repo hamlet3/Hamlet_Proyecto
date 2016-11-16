@@ -14,8 +14,10 @@ namespace BLL
         public string Descripcion { get; set; }
 
         ConexionDb conexion = new ConexionDb();
+        List<Modelos> ListaModelo = new List<Modelos>();
 
-        public Modelos() {}
+
+        public Modelos() { }
 
         public override bool Insertar()
         {
@@ -54,13 +56,17 @@ namespace BLL
         public override bool Buscar(int IdBuscado)
         {
             DataTable dt = new DataTable();
+            DataTable dtLista = new DataTable();
             dt = conexion.ObtenerDatos("Select * from Modelos where ModeloId=" + IdBuscado);
             if (dt.Rows.Count>0)
             {
                 this.ModeloId = (int)dt.Rows[0]["ModeloId"];
                 this.MarcaId = (int)dt.Rows[0]["MarcaId"];
                 this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
+
+               // dtLista = conexion.ObtenerDatos(string.Format("Select M.Descripcion, M.ModeloId from Modelos as M inner join Marca as Ma on M.MarcaId=Ma.MarcaId where M.MarcaId="+IdBuscado));
             }
+            
             return dt.Rows.Count > 0;
         }
 
@@ -70,7 +76,7 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenar = "Order by " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Modelos where " + Condicion + ordenar);
+            return conexion.ObtenerDatos("Select " + Campos + " from Modelos as M inner join Marcas as Ma on M.MarcaId=Ma.MarcaId where " + Condicion + ordenar);
         }
     }
 }

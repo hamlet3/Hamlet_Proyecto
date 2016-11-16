@@ -14,10 +14,7 @@ namespace BLL
 
         ConexionDb conexion = new ConexionDb();
 
-        public Transmisiones()
-        {
-
-        }
+        public Transmisiones() { }
 
         public override bool Insertar()
         {

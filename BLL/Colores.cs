@@ -16,7 +16,6 @@ namespace BLL
 
         public Colores() { }
 
-
         public override bool Insertar()
         {
             bool retornar = false;

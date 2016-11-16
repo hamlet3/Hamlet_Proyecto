@@ -31,13 +31,14 @@ namespace AutoReyes
         }
         public void ListarMarca()
         {
-            DataTable dt = new DataTable();
-            Marcas marca = new Marcas();
-            dt = marca.Listado("Descripcion, MarcaId","1=1","");
-            foreach (DataRow row in dt.Rows)
-            {
-               MarcasDropDownList.Items.Insert((int)row["MarcaId"], row["Descripcion"].ToString());
-            }   
+
+            Utilerias utileria = new Utilerias();
+            MarcasDropDownList.DataSource = utileria.ListarMarcas();
+            MarcasDropDownList.DataTextField = "Descripcion";
+            MarcasDropDownList.DataValueField = "MarcaId";
+            MarcasDropDownList.DataBind();
+            MarcasDropDownList.Items.Insert(0, "Eliga una marca");
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -49,8 +50,10 @@ namespace AutoReyes
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Modelos modelo = new Modelos();
+            Utilerias utileria = new Utilerias();
+
             modelo.Descripcion = DescripcionTextBox.Text;
-            modelo.MarcaId = MarcasDropDownList.SelectedIndex;
+            modelo.MarcaId = utileria.ConvertirValor(MarcasDropDownList.SelectedValue);
             if (MarcasDropDownList.SelectedIndex != 0)
             {
                 if (BuscarIdTextBox.Text == "")
@@ -67,7 +70,7 @@ namespace AutoReyes
                 }
                 else
                 {
-                    Utilerias utileria = new Utilerias();
+                   
                     modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
                     if (modelo.Editar())
                     {

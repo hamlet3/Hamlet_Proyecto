@@ -16,7 +16,6 @@ namespace BLL
 
         public Marcas() { }
 
-
         public override bool Insertar()
         {
             bool retornar = false;
