@@ -54,6 +54,7 @@
     <Compile Include="Usuarios.cs" />
     <Compile Include="UsuarioTelefonos.cs" />
     <Compile Include="Utilerias.cs" />
+    <Compile Include="Utilerias2.cs" />
     <Compile Include="Vehiculos.cs" />
     <Compile Include="VentasPaquetes.cs" />
   </ItemGroup>

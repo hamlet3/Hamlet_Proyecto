@@ -25,25 +25,20 @@ namespace AutoReyes
             MarcasDropDownList.SelectedIndex = 0;
         }
 
-        public void Mensaje(string mensaje)
-        {         
-            Response.Write("<script>alert('" + mensaje + "')</script>");
-        }
         public void ListarMarca()
         {
-
             Utilerias utileria = new Utilerias();
             MarcasDropDownList.DataSource = utileria.ListarMarcas();
             MarcasDropDownList.DataTextField = "Descripcion";
             MarcasDropDownList.DataValueField = "MarcaId";
             MarcasDropDownList.DataBind();
             MarcasDropDownList.Items.Insert(0, "Eliga una marca");
-
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Limpiar();           
+            Limpiar();
+            Utilerias2.ShowToastr(this, "", "Exito al Limpiar", "success");
         }
 
 
@@ -51,41 +46,30 @@ namespace AutoReyes
         {
             Modelos modelo = new Modelos();
             Utilerias utileria = new Utilerias();
-
             modelo.Descripcion = DescripcionTextBox.Text;
             modelo.MarcaId = utileria.ConvertirValor(MarcasDropDownList.SelectedValue);
+            bool suiche = false;
+
             if (MarcasDropDownList.SelectedIndex != 0)
             {
-                if (BuscarIdTextBox.Text == "")
-                {
-                    if (modelo.Insertar())
+                 modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+                try {
+
+                    if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
+                        suiche = modelo.Insertar();
+                    else
+                        suiche = modelo.Editar();
+
+                    if (suiche)
                     {
-                        Mensaje("Exito al guardar");
+                        Utilerias2.ShowToastr(this, "", "Exito!", "success");
                         Limpiar();
                     }
-                    else
-                    {
-                        Mensaje("Error al guardar");
-                    }
-                }
-                else
-                {
-                   
-                    modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-                    if (modelo.Editar())
-                    {
-                        Mensaje("Exito al editar");
-                        Limpiar();
-                    }
-                    else
-                    {
-                        Mensaje("Error al editar");
-                    }
-                }
+                } catch(Exception ex) { Utilerias2.ShowToastr(this, "Error ",ex.Message, "Warning"); }
             }
             else
             {
-                Mensaje("Seleccione una marca");
+                Utilerias2.ShowToastr(this, "", "Seleccione una marca", "info");
             }
         }
 
@@ -96,14 +80,12 @@ namespace AutoReyes
             modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (modelo.Eliminar())
             {
-                Mensaje("Exito al eliminar");
+                Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
                 Limpiar();
             }
             else
-            {
-                Mensaje("Error al eliminar");
+                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
             }
-        }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
         {
@@ -117,7 +99,7 @@ namespace AutoReyes
             }
             else
             {
-                Mensaje("Id no encontrado");
+                Utilerias2.ShowToastr(this, "", "Id no encontrado", "Warning");
             }
         }
     }

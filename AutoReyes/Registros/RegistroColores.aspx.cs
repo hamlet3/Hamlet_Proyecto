@@ -18,49 +18,39 @@ namespace AutoReyes
         public void Limpiar() {
             DescripconTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-        }
-
-        public void Mensaje(string mensaje)
-        {
-            Response.Write("<script>alert('" + mensaje + "')</script>");
+            EliminarButton.Enabled = false;
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Colores color = new Colores();
-            if (BuscarIdTextBox.Text == "")
+            Utilerias utileria = new Utilerias();
+            color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            color.Descripcion = DescripconTextBox.Text;
+
+            bool suiche = false;
+            try
             {
-                color.Descripcion = DescripconTextBox.Text;
-                if (color.Insertar())
+                if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
                 {
-                    Mensaje("Exito al guardar");
-                    Limpiar();
-                }else
-                {
-                    Mensaje("Error al guardar");
-                }
-            }else
-            {
-                Utilerias utileria = new Utilerias();
-                color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-                color.Descripcion = DescripconTextBox.Text;
-                if (color.Editar()) {
-                    Mensaje("Exito al editar");
-                    Limpiar();
+                    if(!string.IsNullOrWhiteSpace(DescripconTextBox.Text))
+                       suiche = color.Insertar();
                 }
                 else
-                {
-                    Mensaje("Error al editar");
-                }
-            }
-            
+                    suiche = color.Editar();
 
-            
+                if (suiche)
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito", "success");
+                    Limpiar();
+                }
+            } catch (Exception ex) { Utilerias2.ShowToastr(this, "Error \n", ex.Message, "error"); }         
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
+            Utilerias2.ShowToastr(this, "", "Exito al Limpiar!", "success");
         }
 
         protected void BuscarBtn_Click(object sender, EventArgs e)
@@ -72,11 +62,10 @@ namespace AutoReyes
             if (color.Buscar(color.ColorId))
             {
                 DescripconTextBox.Text = color.Descripcion;
+                EliminarButton.Enabled = true;
             }
             else
-            {
-                Mensaje("Id no encontrado");
-            }
+                Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");           
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -87,12 +76,12 @@ namespace AutoReyes
             if (color.Eliminar())
             {
                 Limpiar();
-                Mensaje("Exito al eliminar");
+                Utilerias2.ShowToastr(this, "", "Exito al eliminar!", "success");
             }
             else
-            {
-                Mensaje("Error al eliminar");
-            }
+                Utilerias2.ShowToastr(this, "Error", "Error al eliminar!", "error");
+            
         }
+
     }
 }

@@ -81,6 +81,7 @@ namespace AutoReyes
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
+            Utilerias2.ShowToastr(this, "Bien", "Exito al Limpiar!", "success");
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -95,7 +96,7 @@ namespace AutoReyes
             }
             else
             {
-                Mensaje("Error al eliminar");
+                Utilerias2.ShowToastr(this, "Error", "Id no encontrado!", "error");
             }
         }
     }

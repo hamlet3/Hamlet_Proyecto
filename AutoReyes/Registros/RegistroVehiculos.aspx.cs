@@ -89,6 +89,7 @@ namespace AutoReyes.Registros
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+            Utilerias2.ShowToastr(this, "Bien", "Exito al Limpiar!", "success");
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)

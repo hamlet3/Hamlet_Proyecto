@@ -21,47 +21,32 @@ namespace AutoReyes.Registros
             BuscarIdTextBox.Text = "";
         }
 
-        public void Mensaje(string mensaje)
-        {
-            Response.Write("<script>alert('" + mensaje + "')</script>");
-        }
-
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
+            Utilerias2.ShowToastr(this, "", "Exito al Limpiar!", "success");
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Marcas marca = new Marcas();
-            if (BuscarIdTextBox.Text=="")
-            {
-                marca.Descripcion = DescripcionTextBox.Text;
-                if (marca.Insertar())
+            Utilerias utileria = new Utilerias();
+            marca.Descripcion = DescripcionTextBox.Text;
+            marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            bool suiche = false;
+
+            try {
+                if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
+                    suiche = marca.Insertar();
+                else
+                    suiche = marca.Editar();
+                if (suiche)
                 {
-                    Mensaje("Exito al guardar");
+                    Utilerias2.ShowToastr(this, "", "Exito!", "success");
                     Limpiar();
                 }
-                else
-                {
-                    Mensaje("Error al guardar");
-                }
-            }
-            else
-            {
-                marca.Descripcion = DescripcionTextBox.Text;
-                Utilerias utileria = new Utilerias();
-                marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-                if (marca.Editar())
-                {
-                    Mensaje("Exito al editar");
-                    Limpiar();
-                }
-                else
-                {
-                    Mensaje("Error al editar");
-                }
-            }
+            } catch (Exception ex) { Utilerias2.ShowToastr(this, "", "Error! \n"+ex.Message, "success"); }
+            
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -70,10 +55,10 @@ namespace AutoReyes.Registros
             Utilerias utileria = new Utilerias();
             marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (marca.Eliminar()) {
-                Mensaje("Exito al eliminar");
+                Utilerias2.ShowToastr(this, "", "Exito al Eliminar!", "success");
                 Limpiar();
             } else {
-                Mensaje("Error al eliminar");
+                Utilerias2.ShowToastr(this, "Error", "Error al eliminar!", "error");
             }
         }
 
@@ -88,7 +73,7 @@ namespace AutoReyes.Registros
             }
             else
             {
-                Mensaje("Id no encontrado");
+                Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");
             }
         }
     }

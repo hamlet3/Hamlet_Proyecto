@@ -170,6 +170,7 @@ namespace AutoReyes
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
+            Utilerias2.ShowToastr(this, "Bien", "Exito al Limpiar!", "success");
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)

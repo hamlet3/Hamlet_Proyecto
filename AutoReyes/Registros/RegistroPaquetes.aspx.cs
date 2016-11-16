@@ -26,6 +26,7 @@ namespace AutoReyes.Registros
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
+            Utilerias2.ShowToastr(this, "Bien", "Exito al Limpiar!", "success");
         }
 
         public void Mensaje(string mensaje)
@@ -99,7 +100,7 @@ namespace AutoReyes.Registros
             }
             else
             {
-                Mensaje("Error al eliminar");
+                Utilerias2.ShowToastr(this, "Error", "Id no encontrado!", "error");
             }
         }
     }
