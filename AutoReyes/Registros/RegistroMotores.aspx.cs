@@ -24,11 +24,7 @@ namespace AutoReyes
         {
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-        }
-
-        public void Mensaje(string mensaje)
-        {
-            Response.Write("<script>alert('" + mensaje + "')</script>");
+            EliminarButton.Enabled = false;
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
@@ -42,7 +38,8 @@ namespace AutoReyes
             }
             else
             {
-                Mensaje("Id no encontrado");
+                Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");
+                Limpiar();
             }
             
         }
@@ -50,38 +47,32 @@ namespace AutoReyes
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Motores motor = new Motores();
-            if (BuscarIdTextBox.Text == "")
-            {
-                motor.Descripcion = DescripcionTextBox.Text;
-                if (motor.Insertar())
+            Utilerias utileria = new Utilerias();
+            motor.Descripcion = DescripcionTextBox.Text;
+            bool suiche = false;
+            try {
+                if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
                 {
-                    Mensaje("Exito al guardar");
-                    Limpiar();
-                }else
-                {
-                    Mensaje("Error al guardar");
-                }
-            }else
-            {
-                Utilerias utileria = new Utilerias();
-                motor.MotorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-                motor.Descripcion = DescripcionTextBox.Text;
-                if (motor.Editar())
-                {
-                    Mensaje("Exito al editar");
-                    Limpiar();
+                    if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
+                        suiche = motor.Insertar();
                 }
                 else
                 {
-                    Mensaje("Error al editar");
+                    motor.MotorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+                    suiche = motor.Editar();
                 }
-            }
+                if (suiche)
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito!", "success");
+                    Limpiar();
+                }
+            } catch ( Exception ex) { Utilerias2.ShowToastr(this, "Error",ex.Message, "error"); } 
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
-            Utilerias2.ShowToastr(this, "Bien", "Exito al Limpiar!", "success");
+            Utilerias2.ShowToastr(this, "", "Exito al Limpiar!", "success");
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -91,12 +82,13 @@ namespace AutoReyes
             motor.MotorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (motor.Eliminar())
             {
-                Mensaje("Exito al eliminar");
+                Utilerias2.ShowToastr(this, "", "Exito al elimiar!", "success");
                 Limpiar();
             }
             else
             {
-                Utilerias2.ShowToastr(this, "Error", "Id no encontrado!", "error");
+                Utilerias2.ShowToastr(this, "", "Error al eliminar", "error");
+                Limpiar();
             }
         }
     }

@@ -61,15 +61,12 @@
                             <asp:Label ID="Label3" runat="server" Text="Nombre de Usuario"></asp:Label>
                             </td>
             <td>
-                                <asp:GridView ID="TelefonoGridVierw" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" OnRowCommand="GvTelefono_RowCommand" ShowFooter="True" Width="431px" CssClass="auto-style18">
+                                <asp:GridView ID="TelefonoGridVierw" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" Width="431px" CssClass="auto-style18">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Telefono" SortExpression="Telefono">
                                             <EditItemTemplate>
                                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Telefono") %>'></asp:TextBox>
                                             </EditItemTemplate>
-                                            <FooterTemplate>
-                                                <asp:TextBox ID="TelefonoTextBox" runat="server"></asp:TextBox>
-                                            </FooterTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("Telefono") %>'></asp:Label>
                                             </ItemTemplate>
@@ -78,12 +75,6 @@
                                             <EditItemTemplate>
                                                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Descripcion") %>'></asp:TextBox>
                                             </EditItemTemplate>
-                                            <FooterTemplate>
-                                                <asp:DropDownList ID="DescripcionDropDownList" runat="server" OnSelectedIndexChanged="DescripcionDDL_SelectedIndexChanged">
-                                                    <asp:ListItem>Selecionar. . .</asp:ListItem>
-                                                </asp:DropDownList>
-                                                <asp:Button ID="AgregarButton" runat="server" CommandName="Agregar" Text="Agregar" />
-                                            </FooterTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("Descripcion") %>'></asp:Label>
                                             </ItemTemplate>
@@ -185,15 +176,41 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
-                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
+                Numero Telefonico</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox ID="TelefonoTextBox" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="DescripcionDropDownList" runat="server" OnSelectedIndexChanged="DescripcionDDL_SelectedIndexChanged">
+                    <asp:ListItem>Selecionar. . .</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Button ID="AgregarButton" runat="server" CommandName="Agregar" Text="Agregar" OnClick="AgregarButton_Click" />
             </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    
+
+    <table style="width:100%;">
+        <tr>
+            <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
+                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
+                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" Enabled="False" />
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>

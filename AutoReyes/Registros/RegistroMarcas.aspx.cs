@@ -19,6 +19,7 @@ namespace AutoReyes.Registros
         {
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
+            EliminarButton.Enabled= false;
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
@@ -37,7 +38,10 @@ namespace AutoReyes.Registros
 
             try {
                 if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
-                    suiche = marca.Insertar();
+                {
+                    if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
+                        suiche = marca.Insertar();
+                }
                 else
                     suiche = marca.Editar();
                 if (suiche)
@@ -70,10 +74,12 @@ namespace AutoReyes.Registros
             if (marca.Buscar(marca.MarcaId))
             {
                 DescripcionTextBox.Text = marca.Descripcion;
+                EliminarButton.Enabled = true;
             }
             else
             {
                 Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");
+                Limpiar();
             }
         }
     }

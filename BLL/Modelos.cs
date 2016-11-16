@@ -35,8 +35,8 @@ namespace BLL
             bool retornar = false;
             try
             {
-                conexion.Ejecutar(String.Format("Update Modelos set Descripcion ='{0}', MarcaId={1} where ModeloId={2}", this.Descripcion,this.MarcaId,this.ModeloId));
-                retornar = true;
+                retornar = conexion.Ejecutar(String.Format("Update Modelos set Descripcion ='{0}', MarcaId={1} where ModeloId={2}", this.Descripcion,this.MarcaId,this.ModeloId));
+                
             }catch(Exception ex) { throw ex; }
             return retornar;
         }
@@ -63,8 +63,6 @@ namespace BLL
                 this.ModeloId = (int)dt.Rows[0]["ModeloId"];
                 this.MarcaId = (int)dt.Rows[0]["MarcaId"];
                 this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
-
-               // dtLista = conexion.ObtenerDatos(string.Format("Select M.Descripcion, M.ModeloId from Modelos as M inner join Marca as Ma on M.MarcaId=Ma.MarcaId where M.MarcaId="+IdBuscado));
             }
             
             return dt.Rows.Count > 0;

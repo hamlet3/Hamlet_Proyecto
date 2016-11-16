@@ -33,7 +33,7 @@
             <td>
                 <asp:Button ID="NuevoButton" runat="server" OnClick="Button2_Click" Text="Nuevo" />
                 <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
-                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
+                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" Enabled="False" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

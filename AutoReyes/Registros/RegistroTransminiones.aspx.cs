@@ -18,11 +18,7 @@ namespace AutoReyes.Registros
         public void Limpiar() {
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-        }
-
-        public void Mensaje(string mensaje)
-        {
-            Response.Write("<script>alert('" + mensaje + "')</script>");
+            EliminarButton.Enabled = false;
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
@@ -33,10 +29,12 @@ namespace AutoReyes.Registros
             if (transmision.Buscar(transmision.TransmisionId))
             {
                 DescripcionTextBox.Text = transmision.Descripcion;
+                EliminarButton.Enabled = true;
             }
             else
             {
-                Mensaje("Id no encontrado");
+                Utilerias2.ShowToastr(this, "", "Id no econtrado", "Warning");
+                Limpiar();
             }
 
         }
@@ -44,30 +42,23 @@ namespace AutoReyes.Registros
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             Transmisiones transmision = new Transmisiones();
-            if (BuscarIdTextBox.Text=="")
-            {
-                transmision.Descripcion = DescripcionTextBox.Text;
-                if (transmision.Insertar()) {
-                    Mensaje("Exito al guardar");
-                    Limpiar();
-                } else{
-                    Mensaje("Error al guardar");
-                }
-            }else
-            {
-                Utilerias utileria = new Utilerias();
-                transmision.TransmisionId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-                transmision.Descripcion = DescripcionTextBox.Text;
-                if (transmision.Editar())
-                {
-                    Mensaje("Exito al editar");
-                    Limpiar();
-                }
+            Utilerias utileria = new Utilerias();
+            transmision.TransmisionId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            transmision.Descripcion = DescripcionTextBox.Text;
+            bool suiche = false;
+            try {
+                if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
+                    suiche = transmision.Insertar();
                 else
+                    suiche = transmision.Editar();
+
+                if (suiche)
                 {
-                    Mensaje("Error al editar");
+                    Utilerias2.ShowToastr(this, "", "Exito!", "success");
+                    Limpiar();
                 }
-            }
+                
+            } catch (Exception ex) { Utilerias2.ShowToastr(this, "Error", ex.Message, "error"); }
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -77,18 +68,19 @@ namespace AutoReyes.Registros
             transmision.TransmisionId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (transmision.Eliminar())
             {
-                Mensaje("Exito al eliminar");
+                Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
                 Limpiar();
             }
             else
             {
-                Mensaje("Error al eliminar");
+                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
             }
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
+            Utilerias2.ShowToastr(this, "", "Exito al Limpiar!", "success");
         }
     }
 }

@@ -23,6 +23,7 @@ namespace AutoReyes
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
             MarcasDropDownList.SelectedIndex = 0;
+            EliminarButton.Enabled = false;
         }
 
         public void ListarMarca()
@@ -52,20 +53,24 @@ namespace AutoReyes
 
             if (MarcasDropDownList.SelectedIndex != 0)
             {
-                 modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
                 try {
 
                     if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
-                        suiche = modelo.Insertar();
+                    {
+                        if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
+                            suiche = modelo.Insertar();
+                    }
                     else
+                    {
+                        modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
                         suiche = modelo.Editar();
-
+                    }
                     if (suiche)
                     {
                         Utilerias2.ShowToastr(this, "", "Exito!", "success");
                         Limpiar();
                     }
-                } catch(Exception ex) { Utilerias2.ShowToastr(this, "Error ",ex.Message, "Warning"); }
+                } catch(Exception ex) { Utilerias2.ShowToastr(this, "Error ",ex.Message, "error"); }
             }
             else
             {
@@ -95,11 +100,13 @@ namespace AutoReyes
             if (modelo.Buscar(modelo.ModeloId))
             {
                 DescripcionTextBox.Text = modelo.Descripcion;
-                MarcasDropDownList.SelectedIndex = modelo.MarcaId;
+                MarcasDropDownList.SelectedValue = modelo.MarcaId.ToString();
+                EliminarButton.Enabled = true;
             }
             else
             {
                 Utilerias2.ShowToastr(this, "", "Id no encontrado", "Warning");
+                Limpiar();
             }
         }
     }

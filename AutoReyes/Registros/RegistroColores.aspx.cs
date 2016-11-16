@@ -79,7 +79,10 @@ namespace AutoReyes
                 Utilerias2.ShowToastr(this, "", "Exito al eliminar!", "success");
             }
             else
+            {
                 Utilerias2.ShowToastr(this, "Error", "Error al eliminar!", "error");
+                Limpiar();
+            }
             
         }
 

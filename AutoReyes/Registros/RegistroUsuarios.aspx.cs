@@ -37,6 +37,8 @@ namespace AutoReyes
             ContraseñaTextBox.Text = "";
             ConfContraseñaTextBox.Text = "";
             DireccionTextBox.Text = "";
+            PrioridadDropDownList.SelectedIndex = 0;
+            BuscarIdTextBox.Text = "";           
             Session.Clear();
             TelefonoGridVierw.DataSource = ObtenerNuevaLista();
             TelefonoGridVierw.DataBind();
@@ -45,13 +47,11 @@ namespace AutoReyes
         public void LlenarDropdownList()
         {
             TiposTelefono tipo = new TiposTelefono();
-            DataTable dt = new DataTable();
-            DropDownList DescripcionDropDownList = (DropDownList)TelefonoGridVierw.FooterRow.FindControl("DescripcionDropDownList");
-            dt = tipo.Listado("Descripcion, TipoTelefonoId", "1=1", "");
-            foreach (DataRow row in dt.Rows)
-            {
-                DescripcionDropDownList.Items.Insert((int)row["TipoTelefonoId"], row["Descripcion"].ToString());
-            }
+            DescripcionDropDownList.DataSource = tipo.Listado("Descripcion, TipoTelefonoId", "1=1","");
+            DescripcionDropDownList.DataTextField = "Descripcion";
+            DescripcionDropDownList.DataValueField = "TipoTelefonoId";
+            DescripcionDropDownList.DataBind();
+            DescripcionDropDownList.Items.Insert(0, "Tipo de numero");
         }
 
         public void Mensaje(string mensaje) {
@@ -79,13 +79,12 @@ namespace AutoReyes
                 TelefonoGridVierw.DataBind();
             }else
             {
-                Mensaje("Id no encontrado");
+                Utilerias2.ShowToastr(this, "", "Id no encontrado", "Warning");
             }
         }
 
-        public Usuarios EnviarDatos()
+        public Usuarios EnviarDatos(Usuarios usuario)
         {
-            Usuarios usuario = new Usuarios();
             usuario.Nombre = NombreTextBox.Text;
             usuario.NombreUsuario = NombreUsuarioTextBox.Text;
             usuario.Direccion = DireccionTextBox.Text;
@@ -134,65 +133,38 @@ namespace AutoReyes
             }
         }
 
-        protected void GvTelefono_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            
-            if (e.CommandName.Equals("Agregar"))
-            {
-                TextBox TelefonoTextBox = (TextBox)TelefonoGridVierw.FooterRow.FindControl("TelefonoTextBox");
-                DropDownList DescripcionDropDownList = (DropDownList)TelefonoGridVierw.FooterRow.FindControl("DescripcionDropDownList");
-                int tipo;
-                UsuarioTelefonos telefono = new UsuarioTelefonos();
-
-                Usuarios usuario;
-                if (Session["Usuario"] == null)
-                    Session["Usuario"] = new Usuarios();
-
-                usuario = (Usuarios)Session["Usuario"];
-
-
-                tipo = DescripcionDropDownList.SelectedIndex;
-                
-
-                usuario.AgregarTelefono(TelefonoTextBox.Text, tipo);
-                Session["Usuario"] = usuario;
-                telefono.Telefono = TelefonoTextBox.Text;
-                telefono.Descripcion = DescripcionDropDownList.Text;
-
-                GuardarLista(telefono);
-
-                TelefonoGridVierw.DataSource = ObtenerLista();
-                TelefonoGridVierw.DataBind();
-            }
-        }
-
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
         {
             Limpiar();
-            Utilerias2.ShowToastr(this, "Bien", "Exito al Limpiar!", "success");
+            Utilerias2.ShowToastr(this, "", "Exito al Limpiar!", "success");
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
             if (PrioridadDropDownList.SelectedIndex != 0)
             {
+                bool suiche = false;
                 Usuarios usuario;
                 if (Session["Usuario"] == null)
                     Session["Usuario"] = new Usuarios();
 
                 usuario = (Usuarios)Session["Usuario"];
-                usuario = EnviarDatos();
+                EnviarDatos(usuario);
+                try {
+                    if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
+                        suiche = usuario.Insertar();
+                    else
+                        suiche = usuario.Editar();
 
-                if (usuario.Insertar())
-                {
-                    Mensaje("Exito al guardar");
-                    Limpiar();
-                }
+                    if (suiche)
+                    {
+                        Utilerias2.ShowToastr(this, "", "Exito!", "success");
+                        Limpiar();
+                    }
+                } catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
             }else
-            {
-                Mensaje("Seleccione nivel de prioridad");
-            }
+                Utilerias2.ShowToastr(this, "", "Selecione el nivel de prioridad", "info");
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -203,11 +175,11 @@ namespace AutoReyes
             if (usuario.Eliminar())
             {
                 Limpiar();
-                Mensaje("Exito al eliminar");
+                Utilerias2.ShowToastr(this,"","Exito al eliminar","success");
             }
             else
             {
-                Mensaje("Error al eliminar");
+                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
             }
         }
 
@@ -225,7 +197,28 @@ namespace AutoReyes
         {
                 Utilerias utileria = new Utilerias();
                 ObtenerDatos(utileria.ConvertirValor(BuscarIdTextBox.Text));
-            
+        }
+
+        protected void AgregarButton_Click(object sender, EventArgs e)
+        {
+            UsuarioTelefonos telefono = new UsuarioTelefonos();
+            Utilerias utileria = new Utilerias();
+
+            Usuarios usuario;
+            if (Session["Usuario"] == null)
+                Session["Usuario"] = new Usuarios();
+
+            usuario = (Usuarios)Session["Usuario"];
+       
+            usuario.AgregarTelefono(TelefonoTextBox.Text, utileria.ConvertirValor(DescripcionDropDownList.SelectedValue.ToString()));
+            Session["Usuario"] = usuario;
+            telefono.Telefono = TelefonoTextBox.Text;
+            telefono.Descripcion = DescripcionDropDownList.SelectedItem.ToString();
+
+            GuardarLista(telefono);
+
+            TelefonoGridVierw.DataSource = ObtenerLista();
+            TelefonoGridVierw.DataBind();
         }
     }
 }
