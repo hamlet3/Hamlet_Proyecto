@@ -42,11 +42,6 @@ namespace AutoReyes.Registros
             MarcaDropDownList.DataBind();
             MarcaDropDownList.Items.Insert(0, "Elige Marca");
 
-            ModeloDropDownList.DataSource = utileria.ListarModelos(utileria.ConvertirValor(MarcaDropDownList.SelectedValue));
-            ModeloDropDownList.DataTextField = "Descripcion";
-            ModeloDropDownList.DataValueField = "ModeloId";
-            ModeloDropDownList.DataBind();
-            ModeloDropDownList.Items.Insert(0, "Elige Modelo");
 
             ColorDropDownList.DataSource = utileria.ListarColores();
             ColorDropDownList.DataTextField = "Descripcion";
@@ -75,13 +70,20 @@ namespace AutoReyes.Registros
         public Vehiculos ObtenerDatos()
         {
             Utilerias utileria = new Utilerias();
-            Vehiculos vehiculo = new Vehiculos();
+            Vehiculos vehiculo;
+            if (Session["Vehiculo"] == null)
+                Session["Vehiculo"] = new Vehiculos();
+
+            vehiculo = (Vehiculos)Session["Vehiculo"];
+
             vehiculo.MarcaId = utileria.ConvertirValor(MarcaDropDownList.SelectedValue);
             vehiculo.ModeloId = utileria.ConvertirValor(ModeloDropDownList.SelectedValue);
             vehiculo.MotorId = utileria.ConvertirValor(MotorDropDownList.SelectedValue);
             vehiculo.ColorId = utileria.ConvertirValor(ColorDropDownList.SelectedValue);
             vehiculo.TransmisionId = utileria.ConvertirValor(TransmisionDropDownList.SelectedValue);
-         //   vehiculo.EstadoId = EstadoDropDownList.SelectedIndex;
+            vehiculo.Año = utileria.ConvertirValor(AñoTextBox.Text);
+            vehiculo.Precio = utileria.ConvertirValor(PrecioTextBox.Text);
+            vehiculo.Kilometraje = utileria.ConvertirValor(KilometrajeTextBox.Text);
 
             return vehiculo;
         }
@@ -89,35 +91,50 @@ namespace AutoReyes.Registros
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-            Utilerias2.ShowToastr(this, "Bien", "Exito al Limpiar!", "success");
+            Utilerias2.ShowToastr(this, "", "Exito al Limpiar!", "success");
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Vehiculos vehiculo = ObtenerDatos();
+            bool suiche = false;
+
             if (vehiculo.Insertar())
             {
-                Mensaje("Exito al guardar");
+                Utilerias2.ShowToastr(this, "","Exito!", "success");
                 Limpiar();
             }
             else
-                Mensaje("Error al guardar");
+                Utilerias2.ShowToastr(this, "Error", "Error al guardar", "error");
         }
 
         protected void MarcaDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+            Utilerias utileria = new Utilerias();
+            ModeloDropDownList.DataSource = utileria.ListarModelos(utileria.ConvertirValor(MarcaDropDownList.SelectedValue));
+            ModeloDropDownList.DataTextField = "Descripcion";
+            ModeloDropDownList.DataValueField = "ModeloId";
+            ModeloDropDownList.DataBind();
+            ModeloDropDownList.Items.Insert(0, "Elige Modelo");
         }
 
         protected void AgregarButton_Click(object sender, EventArgs e)
         {
             if (FotoFileUpload.HasFile)
             {
+                Vehiculos vehiculo;
+                if (Session["Vehiculo"] == null)
+                    Session["Vehiculo"] = new Vehiculos();
+
+                vehiculo = (Vehiculos)Session["Vehiculo"];
+
                 FotoFileUpload.SaveAs(Server.MapPath("~/Fotos/" + FotoFileUpload.FileName));
-                Mensaje("Agregado correctamente");
+                vehiculo.AgregarFotos("~/Fotos/" + FotoFileUpload.FileName);
+                Session["Vehiculo"] = vehiculo;
+                Utilerias2.ShowToastr(this, "", "Agregado correctamente", "success");
             }else
             {
-                Mensaje("Seleccione una foto");
+                Utilerias2.ShowToastr(this, "", "Seleccione una foto", "info");
             }
         }
     }

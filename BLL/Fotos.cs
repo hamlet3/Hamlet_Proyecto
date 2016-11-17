@@ -12,10 +12,11 @@ namespace BLL
         public string Foto { get; set; }
         
 
-        public Fotos(int vehiculoId, string foto) {
-            this.VehiculoId = vehiculoId;
+        public Fotos(string foto) {
             this.Foto = foto;
         }
+
+        public Fotos() { }
     }
 
 }

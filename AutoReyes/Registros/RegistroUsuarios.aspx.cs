@@ -37,11 +37,11 @@ namespace AutoReyes
             ContraseñaTextBox.Text = "";
             ConfContraseñaTextBox.Text = "";
             DireccionTextBox.Text = "";
-            PrioridadDropDownList.SelectedIndex = 0;
-            BuscarIdTextBox.Text = "";           
+            PrioridadDropDownList.SelectedIndex = 0;     
             Session.Clear();
             TelefonoGridVierw.DataSource = ObtenerNuevaLista();
             TelefonoGridVierw.DataBind();
+            Session.Clear();
         }
 
         public void LlenarDropdownList()
@@ -188,15 +188,11 @@ namespace AutoReyes
            
         }
 
-        protected void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void BuscarBtn_Click(object sender, EventArgs e)
         {
-                Utilerias utileria = new Utilerias();
-                ObtenerDatos(utileria.ConvertirValor(BuscarIdTextBox.Text));
+            Utilerias utileria = new Utilerias();
+            Limpiar();
+            ObtenerDatos(utileria.ConvertirValor(BuscarIdTextBox.Text));
         }
 
         protected void AgregarButton_Click(object sender, EventArgs e)

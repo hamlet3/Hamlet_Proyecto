@@ -125,6 +125,7 @@
     <Content Include="img\NyrAjuZS.png" />
     <Content Include="js\jquery-3.1.0.min.js" />
     <Content Include="js\jquery.quicksearch.js" />
+    <Content Include="Registros\RegistroEstados.aspx" />
     <Content Include="Registros\RegistroMarcas.aspx" />
     <Content Include="Registros\RegistroVehiculos.aspx" />
     <Content Include="Registros\RegistroMotores.aspx" />
@@ -155,6 +156,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\RegistroEstados.aspx.cs">
+      <DependentUpon>RegistroEstados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\RegistroEstados.aspx.designer.cs">
+      <DependentUpon>RegistroEstados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registros\RegistroMarcas.aspx.cs">
       <DependentUpon>RegistroMarcas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

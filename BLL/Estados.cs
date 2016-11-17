@@ -23,8 +23,8 @@ namespace BLL
             bool retornar = false;
             try
             {
-                conexion.Ejecutar(String.Format("Insert into Estados(descipcion) Values('{0}')", this.Descripcion));
-                retornar = true;
+                retornar = conexion.Ejecutar(String.Format("Insert into Estados(Descripcion) Values('{0}')", this.Descripcion));
+                
             }
             catch (Exception ex) { throw ex; }
             return retornar;
@@ -35,8 +35,8 @@ namespace BLL
             bool retornar = true;
             try
             {
-                conexion.Ejecutar(String.Format("Update Estados set Descripcion='{0}' where EstadoId={1}", this.Descripcion, this.EstadoId));
-                retornar = true;
+                retornar = conexion.Ejecutar(String.Format("Update Estados set Descripcion='{0}' where EstadoId={1}", this.Descripcion, this.EstadoId));
+              
             }
             catch (Exception ex) { throw ex; }
             return retornar;
@@ -47,8 +47,7 @@ namespace BLL
             bool retornar = true;
             try
             {
-                conexion.Ejecutar(String.Format("Delete from Estados where EstadoId={0}", this.EstadoId));
-                retornar = true;
+                retornar = conexion.Ejecutar(String.Format("Delete from Estados where EstadoId={0}", this.EstadoId));
             }
             catch (Exception ex) { throw ex; }
             return retornar;

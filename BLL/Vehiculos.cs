@@ -27,9 +27,9 @@ namespace BLL
         ConexionDb conexion = new ConexionDb();
         List<Fotos> ListaFoto = new List<Fotos>();
 
-        public void AgregarFotos(int vehiculoId, string foto)
+        public void AgregarFotos( string foto)
         {
-            ListaFoto.Add(new Fotos(vehiculoId, foto));
+            ListaFoto.Add(new Fotos(foto));
         }
 
 
@@ -39,11 +39,11 @@ namespace BLL
             object identity;
             try
             {
-               identity = conexion.ObtenerValor(String.Format("Insert into Vehiculos(UsuariosId, ModeloId, MarcaId, MotorId, ColorId, TransmisionId, Año, Kilometraje, Precio, EstadoId ) Values({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}) Select @@identity", this.UsuarioId, this.ModeloId, this.MarcaId, this.MotorId, this.ColorId, this.TransmisionId, this.Año, this.Kilometraje, this.Precio, this.EstadoId));
+               identity = conexion.ObtenerValor(String.Format("Insert into Vehiculos(UsuarioId, ModeloId, MarcaId, MotorId, ColorId, TransmisionId, Año, Kilometraje, Precio, EstadoId ) Values({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}) Select @@identity", this.UsuarioId, this.ModeloId, this.MarcaId, this.MotorId, this.ColorId, this.TransmisionId, this.Año, this.Kilometraje, this.Precio, this.EstadoId));
                 int.TryParse(identity.ToString(), out retornar);
 
                 foreach (Fotos foto in ListaFoto) {
-                    conexion.Ejecutar(string.Format("Insert into Fotos(VehiculoId, Foto)Values({0},'{2}')",retornar,foto.Foto));
+                    conexion.Ejecutar(string.Format("Insert into Fotos(VehiculoId, Foto)Values({0},'{1}')",retornar,foto.Foto));
                 }
             } catch (Exception ex) { throw ex; }
             return retornar>0;
@@ -98,11 +98,11 @@ namespace BLL
                 this.Precio = (int)dt.Rows[0]["Precio"];
                 this.EstadoId = (int)dt.Rows[0]["EstadoId"];
 
-                dtFoto = conexion.ObtenerDatos(String.Format("Select VehiculoId, Foto from Fotos where VehiculoId="+IdBuscado));
+                dtFoto = conexion.ObtenerDatos(String.Format("Select Foto from Fotos where VehiculoId="+IdBuscado));
             }
             foreach(DataRow row in dtFoto.Rows)
             {
-                AgregarFotos((int)row["VehiculoId"],row["Foto"].ToString());
+                AgregarFotos(row["Foto"].ToString());
             }
             return dt.Rows.Count > 0;
         }

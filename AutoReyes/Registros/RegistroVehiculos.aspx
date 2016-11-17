@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <td>
-                Marca<asp:DropDownList ID="MarcaDropDownList" runat="server" Width="100px" OnSelectedIndexChanged="MarcaDropDownList_SelectedIndexChanged">
+                Marca<asp:DropDownList ID="MarcaDropDownList" runat="server" Width="100px" OnSelectedIndexChanged="MarcaDropDownList_SelectedIndexChanged" AutoPostBack="True">
                     <asp:ListItem>Elige Marca</asp:ListItem>
                 </asp:DropDownList>
             </td>
