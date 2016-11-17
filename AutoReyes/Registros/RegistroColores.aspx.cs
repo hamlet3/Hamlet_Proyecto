@@ -18,7 +18,6 @@ namespace AutoReyes
         public void Limpiar() {
             DescripconTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-            EliminarButton.Enabled = false;
         }
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
@@ -62,7 +61,6 @@ namespace AutoReyes
             if (color.Buscar(color.ColorId))
             {
                 DescripconTextBox.Text = color.Descripcion;
-                EliminarButton.Enabled = true;
             }
             else
                 Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");           

@@ -18,7 +18,6 @@ namespace AutoReyes.Registros
         public void Limpiar() {
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-            EliminarButton.Enabled = false;
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
@@ -29,7 +28,6 @@ namespace AutoReyes.Registros
             if (transmision.Buscar(transmision.TransmisionId))
             {
                 DescripcionTextBox.Text = transmision.Descripcion;
-                EliminarButton.Enabled = true;
             }
             else
             {

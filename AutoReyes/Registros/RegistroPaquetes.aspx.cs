@@ -20,7 +20,6 @@ namespace AutoReyes.Registros
             EspaciosTextBox.Text = "";
             CostoTextBox.Text = "";
             DescripcionTextBox.Text = "";
-            EliminarButton.Enabled = false;
             
         }
 
@@ -51,7 +50,6 @@ namespace AutoReyes.Registros
                 DescripcionTextBox.Text = paquete.Descripcion;
                 CostoTextBox.Text = paquete.Costo.ToString();
                 EspaciosTextBox.Text = paquete.Espacios.ToString();
-                EliminarButton.Enabled = true;
 
             }else
             {

@@ -19,7 +19,6 @@ namespace AutoReyes.Registros
         {
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-            EliminarButton.Enabled= false;
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)
@@ -74,7 +73,6 @@ namespace AutoReyes.Registros
             if (marca.Buscar(marca.MarcaId))
             {
                 DescripcionTextBox.Text = marca.Descripcion;
-                EliminarButton.Enabled = true;
             }
             else
             {

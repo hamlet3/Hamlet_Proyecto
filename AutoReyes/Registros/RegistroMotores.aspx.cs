@@ -24,7 +24,6 @@ namespace AutoReyes
         {
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-            EliminarButton.Enabled = false;
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)

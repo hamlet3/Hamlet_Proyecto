@@ -24,7 +24,6 @@ namespace AutoReyes
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
             MarcasDropDownList.SelectedIndex = 0;
-            EliminarButton.Enabled = false;
         }
 
         public void ListarMarca()
@@ -95,7 +94,6 @@ namespace AutoReyes
             {
                 DescripcionTextBox.Text = modelo.Descripcion;
                 MarcasDropDownList.SelectedValue = modelo.MarcaId.ToString();
-                EliminarButton.Enabled = true;
             }
             else
             {

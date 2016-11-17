@@ -34,7 +34,9 @@
         </tr>
         
         <tr>
-            <td class="auto-style12">&nbsp;</td>
+            <td class="auto-style12">
+                <asp:CompareValidator ID="BuscarIdCompareValidator" ForeColor="Red" Operator="DataTypeCheck" Type="Integer" ControlToValidate="BuscarIdTextBox" runat="server" ErrorMessage="El id debe ser un numero"></asp:CompareValidator>
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -51,6 +53,8 @@
                                  <asp:ListItem>1</asp:ListItem>
                                  <asp:ListItem>2</asp:ListItem>
                             </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="PrioridadRequiredFieldValidator2" ForeColor="Red" InitialValue="Prioridad" ControlToValidate="PrioridadDropDownList" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite la prioridad"></asp:RequiredFieldValidator>
+
                         </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -86,8 +90,9 @@
         </tr>
         <tr>
             <td>
-                            <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="auto-style6" OnTextChanged="TextBox1_TextChanged" Width="210px"></asp:TextBox>
-                            </td>
+                <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="auto-style6" OnTextChanged="TextBox1_TextChanged" Width="210px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="NombreUsuarioRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreUsuarioTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre de usuario"></asp:RequiredFieldValidator>
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -95,15 +100,16 @@
     <table style="width:100%;">
         <tr>
             <td>
-                            <asp:Label ID="Label4" runat="server" Text="Nombre Completo"></asp:Label>
-                            </td>
+                <asp:Label ID="Label4" runat="server" Text="Nombre Completo"></asp:Label>
+             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>
-                            <asp:TextBox ID="NombreTextBox" runat="server" CssClass="auto-style10" Width="210px"></asp:TextBox>
-                            </td>
+                 <asp:TextBox ID="NombreTextBox" runat="server" CssClass="auto-style10" Width="210px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre"></asp:RequiredFieldValidator>
+          </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -118,8 +124,9 @@
     <table style="width:100%;">
         <tr>
             <td>
-                            <asp:TextBox ID="DireccionTextBox" runat="server" CssClass="auto-style7" OnTextChanged="TextBox5_TextChanged" Width="210px"></asp:TextBox>
-                            </td>
+                 <asp:TextBox ID="DireccionTextBox" runat="server" CssClass="auto-style7" OnTextChanged="TextBox5_TextChanged" Width="210px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DireccionRequiredFieldValidator" ForeColor="Red" ControlToValidate="DireccionTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite la direccion"></asp:RequiredFieldValidator>
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -132,8 +139,9 @@
         </tr>
         <tr>
             <td>
-                            <asp:TextBox ID="ContraseñaTextBox" runat="server" CssClass="auto-style6" Width="210px"></asp:TextBox>
-                            </td>
+                <asp:TextBox ID="ContraseñaTextBox" runat="server" CssClass="auto-style6" Width="210px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ContraseñaRequiredFieldValidator" ForeColor="Red" ControlToValidate="ContraseñaTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite la contraseña"></asp:RequiredFieldValidator>
+                </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -148,8 +156,10 @@
         </tr>
         <tr>
             <td>
-                            <asp:TextBox ID="ConfContraseñaTextBox" runat="server" CssClass="auto-style7" Width="210px"></asp:TextBox>
-                            </td>
+                 <asp:TextBox ID="ConfirmarContraseñaTextBox" runat="server" CssClass="auto-style7" Width="210px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" Display="Dynamic" ControlToValidate="ConfirmarContraseñaTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite la contraseña"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="ConfirmarContraseñaCompareValidator" ForeColor="Red" ControlToValidate="ConfirmarContraseñaTextBox" Display="Dynamic" ControlToCompare="ContraseñaTextBox" Type="String" Operator="Equal" runat="server" ErrorMessage="Las contraseñas no coinciden"></asp:CompareValidator>
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -164,13 +174,9 @@
     <table style="width:100%;">
         <tr>
             <td>
-                            <asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style9" Width="210px"></asp:TextBox>
-                    
-                        
-                            
-                    
-                        
-                        </td>
+                <asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style9" Width="210px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator1" ForeColor="Red" ControlToValidate="EmailTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el Email"></asp:RequiredFieldValidator>
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -186,13 +192,17 @@
                 <asp:DropDownList ID="DescripcionDropDownList" runat="server" OnSelectedIndexChanged="DescripcionDDL_SelectedIndexChanged">
                     <asp:ListItem>Selecionar. . .</asp:ListItem>
                 </asp:DropDownList>
-                <asp:Button ID="AgregarButton" runat="server" CommandName="Agregar" Text="Agregar" OnClick="AgregarButton_Click" />
+                <asp:Button ID="AgregarButton" ValidationGroup="AgregarButton" runat="server" CommandName="Agregar" Text="Agregar" OnClick="AgregarButton_Click" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>
-    
+    <td>
+        <asp:RequiredFieldValidator ID="TelefonoRequiredFieldValidator" ForeColor="Red" ControlToValidate="TelefonoTextBox" ValidationGroup="AgregarButton" runat="server" ErrorMessage="Digite el numero"></asp:RequiredFieldValidator>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator" runat="server" InitialValue="Tipo de numero" ControlToValidate="DescripcionDropDownList" ForeColor="Red" ValidationGroup="AgregarButton" ErrorMessage="Seleccione el tipo"></asp:RequiredFieldValidator>
+    </td>
 
     <table style="width:100%;">
         <tr>
@@ -208,8 +218,8 @@
         <tr>
             <td>
                 <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
-                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" Enabled="False" />
+                <asp:Button ID="GuardarButton" runat="server" ValidationGroup="GuardarButton" OnClick="GuardarBtn_Click" Text="Guardar" />
+                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

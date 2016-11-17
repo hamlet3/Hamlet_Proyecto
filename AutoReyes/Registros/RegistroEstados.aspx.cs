@@ -19,7 +19,6 @@ namespace AutoReyes.Registros
         {
             DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
-            EliminarButton.Enabled = false;
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
@@ -81,7 +80,6 @@ namespace AutoReyes.Registros
             if (estado.Buscar(estado.EstadoId))
             {
                 DescripcionTextBox.Text = estado.Descripcion;
-                EliminarButton.Enabled = true;
             }
             else
                 Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");

@@ -35,7 +35,7 @@ namespace AutoReyes
             NombreTextBox.Text = "";
             EmailTextBox.Text = "";
             ContraseñaTextBox.Text = "";
-            ConfContraseñaTextBox.Text = "";
+            ConfirmarContraseñaTextBox.Text = "";
             DireccionTextBox.Text = "";
             PrioridadDropDownList.SelectedIndex = 0;     
             Session.Clear();
@@ -67,7 +67,7 @@ namespace AutoReyes
                 NombreUsuarioTextBox.Text = usuario.NombreUsuario;
                 DireccionTextBox.Text = usuario.Direccion;
                 EmailTextBox.Text = usuario.Direccion;
-                ConfContraseñaTextBox.Text = usuario.Contraseña;
+                ConfirmarContraseñaTextBox.Text = usuario.Contraseña;
                 ContraseñaTextBox.Text = usuario.Contraseña;
                 PrioridadDropDownList.SelectedIndex = usuario.Prioridad;
 
@@ -143,29 +143,28 @@ namespace AutoReyes
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
-            if (PrioridadDropDownList.SelectedIndex != 0)
+            bool suiche = false;
+            Usuarios usuario;
+            if (Session["Usuario"] == null)
+                Session["Usuario"] = new Usuarios();
+
+            usuario = (Usuarios)Session["Usuario"];
+            EnviarDatos(usuario);
+            try
             {
-                bool suiche = false;
-                Usuarios usuario;
-                if (Session["Usuario"] == null)
-                    Session["Usuario"] = new Usuarios();
+                if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
+                    suiche = usuario.Insertar();
+                else
+                    suiche = usuario.Editar();
 
-                usuario = (Usuarios)Session["Usuario"];
-                EnviarDatos(usuario);
-                try {
-                    if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
-                        suiche = usuario.Insertar();
-                    else
-                        suiche = usuario.Editar();
+                if (suiche)
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito!", "success");
+                    Limpiar();
+                }
+            }
+            catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
 
-                    if (suiche)
-                    {
-                        Utilerias2.ShowToastr(this, "", "Exito!", "success");
-                        Limpiar();
-                    }
-                } catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
-            }else
-                Utilerias2.ShowToastr(this, "", "Selecione el nivel de prioridad", "info");
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -173,15 +172,15 @@ namespace AutoReyes
             Usuarios usuario = new Usuarios();
             Utilerias utileria = new Utilerias();
             usuario.UsuarioId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (usuario.Eliminar())
-            {
-                Limpiar();
-                Utilerias2.ShowToastr(this,"","Exito al eliminar","success");
-            }
-            else
-            {
-                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
-            }
+                if (usuario.Eliminar())
+                {
+                    Limpiar();
+                    Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
+                }
+                else
+                {
+                    Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
+                }
         }
 
         protected void DescripcionDDL_SelectedIndexChanged(object sender, EventArgs e)

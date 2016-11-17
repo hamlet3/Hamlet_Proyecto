@@ -22,6 +22,15 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.DropDownList MarcaDropDownList;
         
         /// <summary>
+        /// Control MarcaRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator MarcaRequiredFieldValidator;
+        
+        /// <summary>
         /// Control ModeloDropDownList.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace AutoReyes.Registros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ModeloDropDownList;
+        
+        /// <summary>
+        /// Control ModeloRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ModeloRequiredFieldValidator;
         
         /// <summary>
         /// Control MotorDropDownList.
@@ -40,6 +58,15 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.DropDownList MotorDropDownList;
         
         /// <summary>
+        /// Control MotorRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator MotorRequiredFieldValidator;
+        
+        /// <summary>
         /// Control ColorDropDownList.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace AutoReyes.Registros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ColorDropDownList;
+        
+        /// <summary>
+        /// Control ColorRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ColorRequiredFieldValidator;
         
         /// <summary>
         /// Control TransmisionDropDownList.
@@ -58,6 +94,15 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.DropDownList TransmisionDropDownList;
         
         /// <summary>
+        /// Control TransmisionRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TransmisionRequiredFieldValidator;
+        
+        /// <summary>
         /// Control EstadoDropDownList.
         /// </summary>
         /// <remarks>
@@ -65,6 +110,15 @@ namespace AutoReyes.Registros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList EstadoDropDownList;
+        
+        /// <summary>
+        /// Control EstadoRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EstadoRequiredFieldValidator;
         
         /// <summary>
         /// Control AñoTextBox.
@@ -76,6 +130,24 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.TextBox AñoTextBox;
         
         /// <summary>
+        /// Control AñoRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AñoRequiredFieldValidator;
+        
+        /// <summary>
+        /// Control AñoRangeValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator AñoRangeValidator;
+        
+        /// <summary>
         /// Control KilometrajeTextBox.
         /// </summary>
         /// <remarks>
@@ -85,6 +157,24 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.TextBox KilometrajeTextBox;
         
         /// <summary>
+        /// Control KilometrajeRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator KilometrajeRequiredFieldValidator;
+        
+        /// <summary>
+        /// Control KilometrajeRangeValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator KilometrajeRangeValidator;
+        
+        /// <summary>
         /// Control PrecioTextBox.
         /// </summary>
         /// <remarks>
@@ -92,6 +182,24 @@ namespace AutoReyes.Registros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PrecioTextBox;
+        
+        /// <summary>
+        /// Control PrecioRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PrecioRequiredFieldValidator;
+        
+        /// <summary>
+        /// Control PrecioRangeValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator PrecioRangeValidator;
         
         /// <summary>
         /// Control NuevoButton.
@@ -119,6 +227,15 @@ namespace AutoReyes.Registros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FotoFileUpload;
+        
+        /// <summary>
+        /// Control FotoRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FotoRequiredFieldValidator;
         
         /// <summary>
         /// Control AgregarButton.
