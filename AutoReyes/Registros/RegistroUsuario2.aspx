@@ -4,20 +4,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%;">
         <tr>
-            <td>Nombre Completo</td>
+            <td>Nombre de usuario</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>
-                <asp:TextBox ID="NombreCompletoTextBox" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="NombreCompletoRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreCompletoTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre"></asp:RequiredFieldValidator>
+            <td>            
+            <asp:TextBox ID="NombreUsuarioTextBox" runat="server"></asp:TextBox>
+             <asp:RequiredFieldValidator ID="NombreUsuarioRequiredFieldValidator" Display="Dynamic" ForeColor="Red" ControlToValidate="NombreUsuarioTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre de usuario"></asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="NombreUsuarioRegularExpressionValidator" runat="server" ControlToValidate="NombreUsuarioTextBox" Display="Dynamic" ErrorMessage="Caracter invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$" ValidationGroup="GuardarButton"></asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>Nombre de usuario</td>
+            <td>Nombre Completo</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -25,8 +26,9 @@
     <table style="width:100%;">
         <tr>
             <td>
-                <asp:TextBox ID="NombreUsuarioTextBox" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="NombreUsuarioRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreUsuarioTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre de usuario"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="NombreCompletoTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="NombreCompletoRequiredFieldValidator" ForeColor="Red" Display="Dynamic" ControlToValidate="NombreCompletoTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator" runat="server" Display="Dynamic" ErrorMessage="Caracter invalido" ValidationGroup="GuardarButton" ControlToValidate="NombreCompletoTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[A-Za-z]*$"></asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -83,7 +85,8 @@
         <tr>
             <td>
                 <asp:TextBox ID="EmailTextBox" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator1" ForeColor="Red" ControlToValidate="EmailTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el Email"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator1" ForeColor="Red" ControlToValidate="EmailTextBox" Display="Dynamic" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el Email"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="EmailTextBox" Display="Dynamic" ErrorMessage="Email invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="GuardarButton"></asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

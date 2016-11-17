@@ -13,6 +13,15 @@ namespace AutoReyes {
     public partial class RegistroUsuarios {
         
         /// <summary>
+        /// Control BuscarIdRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator BuscarIdRequiredFieldValidator;
+        
+        /// <summary>
         /// Control BuscarIdCompareValidator.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreUsuarioRequiredFieldValidator;
         
         /// <summary>
+        /// Control NombreUsuarioRegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator NombreUsuarioRegularExpressionValidator2;
+        
+        /// <summary>
         /// Control Label4.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,15 @@ namespace AutoReyes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreRequiredFieldValidator;
+        
+        /// <summary>
+        /// Control NombreRegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator NombreRegularExpressionValidator2;
         
         /// <summary>
         /// Control Label5.
@@ -236,6 +263,15 @@ namespace AutoReyes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRequiredFieldValidator1;
+        
+        /// <summary>
+        /// Control RegularExpressionValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// Control TelefonoTextBox.

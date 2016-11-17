@@ -35,7 +35,8 @@
         
         <tr>
             <td class="auto-style12">
-                <asp:CompareValidator ID="BuscarIdCompareValidator" ForeColor="Red" Operator="DataTypeCheck" Type="Integer" ControlToValidate="BuscarIdTextBox" runat="server" ErrorMessage="El id debe ser un numero"></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="BuscarIdRequiredFieldValidator" runat="server" ControlToValidate="BuscarIdTextBox" Display="Dynamic" ErrorMessage="Digite Id" ForeColor="Red" ValidationGroup="BuscarIdTextBox"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="BuscarIdCompareValidator" runat="server" ControlToValidate="BuscarIdTextBox" Display="Dynamic" ErrorMessage="El id debe ser un numero" ForeColor="Red" Operator="DataTypeCheck" Type="Integer" ValidationGroup="BuscarIdTextBox"></asp:CompareValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -47,7 +48,7 @@
         <tr>
             <td>
                             <asp:TextBox ID="BuscarIdTextBox" runat="server" Width="60px"></asp:TextBox>
-                            <asp:Button ID="BuscarButton" runat="server" OnClick="BuscarBtn_Click" Text="Buscar" />
+                            <asp:Button ID="BuscarButton" runat="server" ValidationGroup="BuscarIdTextBox" OnClick="BuscarBtn_Click" Text="Buscar" />
                              <asp:DropDownList ID="PrioridadDropDownList" runat="server">
                                  <asp:ListItem>Prioridad</asp:ListItem>
                                  <asp:ListItem>1</asp:ListItem>
@@ -91,7 +92,9 @@
         <tr>
             <td>
                 <asp:TextBox ID="NombreUsuarioTextBox" runat="server" CssClass="auto-style6" OnTextChanged="TextBox1_TextChanged" Width="210px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="NombreUsuarioRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreUsuarioTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre de usuario"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="NombreUsuarioRequiredFieldValidator" ForeColor="Red" Display="Dynamic" ControlToValidate="NombreUsuarioTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre de usuario"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="NombreUsuarioRegularExpressionValidator2" runat="server" Display="Dynamic" ErrorMessage="Caracter invalido" ValidationGroup="GuardarButton" ControlToValidate="NombreUsuarioTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$"></asp:RegularExpressionValidator>
+
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -108,7 +111,8 @@
         <tr>
             <td>
                  <asp:TextBox ID="NombreTextBox" runat="server" CssClass="auto-style10" Width="210px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreTextBox" ValidationGroup="GuardarButton" Display="Dynamic" runat="server" ErrorMessage="Digite el nombre"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator2" runat="server" Display="Dynamic" ErrorMessage="Caracter invalido" ValidationGroup="GuardarButton" ControlToValidate="NombreTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[A-Za-z]*$"></asp:RegularExpressionValidator>
           </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -175,7 +179,8 @@
         <tr>
             <td>
                 <asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style9" Width="210px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator1" ForeColor="Red" ControlToValidate="EmailTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el Email"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator1" ForeColor="Red" Display="Dynamic" ControlToValidate="EmailTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el Email"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Display="Dynamic" ErrorMessage="Email invalido" ValidationGroup="GuardarButton" ControlToValidate="EmailTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -219,7 +224,7 @@
             <td>
                 <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
                 <asp:Button ID="GuardarButton" runat="server" ValidationGroup="GuardarButton" OnClick="GuardarBtn_Click" Text="Guardar" />
-                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" />
+                <asp:Button ID="EliminarButton" runat="server" ValidationGroup="BuscarIdTextBox" OnClick="EliminarBtn_Click" Text="Eliminar" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

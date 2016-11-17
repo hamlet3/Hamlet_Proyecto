@@ -13,6 +13,33 @@ namespace AutoReyes.Registros {
     public partial class RegistroUsuario2 {
         
         /// <summary>
+        /// Control NombreUsuarioTextBox.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NombreUsuarioTextBox;
+        
+        /// <summary>
+        /// Control NombreUsuarioRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreUsuarioRequiredFieldValidator;
+        
+        /// <summary>
+        /// Control NombreUsuarioRegularExpressionValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator NombreUsuarioRegularExpressionValidator;
+        
+        /// <summary>
         /// Control NombreCompletoTextBox.
         /// </summary>
         /// <remarks>
@@ -31,22 +58,13 @@ namespace AutoReyes.Registros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreCompletoRequiredFieldValidator;
         
         /// <summary>
-        /// Control NombreUsuarioTextBox.
+        /// Control NombreRegularExpressionValidator.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NombreUsuarioTextBox;
-        
-        /// <summary>
-        /// Control NombreUsuarioRequiredFieldValidator.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreUsuarioRequiredFieldValidator;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator NombreRegularExpressionValidator;
         
         /// <summary>
         /// Control DireccionTextBox.
@@ -128,6 +146,15 @@ namespace AutoReyes.Registros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRequiredFieldValidator1;
+        
+        /// <summary>
+        /// Control RegularExpressionValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// Control TelefonoTextBox.
