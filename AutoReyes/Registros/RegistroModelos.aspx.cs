@@ -41,6 +41,7 @@ namespace AutoReyes
         {
             Limpiar();
             Utilerias2.ShowToastr(this, "", "Exito al Limpiar", "success");
+            
         }
 
 
@@ -51,9 +52,6 @@ namespace AutoReyes
             modelo.Descripcion = DescripcionTextBox.Text;
             modelo.MarcaId = utileria.ConvertirValor(MarcasDropDownList.SelectedValue);
             bool suiche = false;
-
-            if (MarcasDropDownList.SelectedIndex != 0)
-            {
                 try {
 
                     if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
@@ -72,11 +70,6 @@ namespace AutoReyes
                         Limpiar();
                     }
                 } catch(Exception ex) { Utilerias2.ShowToastr(this, "Error ",ex.Message, "error"); }
-            }
-            else
-            {
-                Utilerias2.ShowToastr(this, "", "Seleccione una marca", "info");
-            }
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)

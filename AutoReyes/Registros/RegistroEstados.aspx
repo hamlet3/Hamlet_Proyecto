@@ -11,14 +11,15 @@
         </tr>
         <tr>
             <td class="auto-style5">Estado<asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator" runat="server" ForeColor="Red" ValidationGroup="GuardarButton" ControlToValidate="DescripcionTextBox" ErrorMessage="Digite el estado"></asp:RequiredFieldValidator>
             </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style5">
                 <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoButton_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="Button1_Click" Text="Guardar" />
-                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarButton_Click" Text="Eliminar" />
+                <asp:Button ID="GuardarButton" runat="server" ValidationGroup="GuardarButton" OnClick="Button1_Click" Text="Guardar" />
+                <asp:Button ID="EliminarButton" Enabled="false" runat="server" OnClick="EliminarButton_Click" Text="Eliminar" />
             </td>
             <td>&nbsp;</td>
         </tr>

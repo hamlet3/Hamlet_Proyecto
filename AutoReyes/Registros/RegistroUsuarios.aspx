@@ -47,9 +47,9 @@
                             <asp:TextBox ID="BuscarIdTextBox" runat="server" Width="60px"></asp:TextBox>
                             <asp:Button ID="BuscarButton" runat="server" OnClick="BuscarBtn_Click" Text="Buscar" />
                              <asp:DropDownList ID="PrioridadDropDownList" runat="server">
-                                <asp:ListItem>Prioridad</asp:ListItem>
-                                <asp:ListItem>1</asp:ListItem>
-                                <asp:ListItem>2</asp:ListItem>
+                                 <asp:ListItem>Prioridad</asp:ListItem>
+                                 <asp:ListItem>1</asp:ListItem>
+                                 <asp:ListItem>2</asp:ListItem>
                             </asp:DropDownList>
                         </td>
             <td>&nbsp;</td>

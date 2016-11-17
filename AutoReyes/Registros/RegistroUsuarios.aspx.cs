@@ -41,7 +41,8 @@ namespace AutoReyes
             Session.Clear();
             TelefonoGridVierw.DataSource = ObtenerNuevaLista();
             TelefonoGridVierw.DataBind();
-            Session.Clear();
+            TelefonoTextBox.Text = "";
+            DescripcionDropDownList.SelectedIndex = 0;
         }
 
         public void LlenarDropdownList()
@@ -215,6 +216,8 @@ namespace AutoReyes
 
             TelefonoGridVierw.DataSource = ObtenerLista();
             TelefonoGridVierw.DataBind();
+            DescripcionDropDownList.SelectedIndex = 0;
+            TelefonoTextBox.Text = "";
         }
     }
 }

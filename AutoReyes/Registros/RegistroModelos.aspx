@@ -22,9 +22,11 @@
             <td class="auto-style4">
                 <asp:Label ID="Label1" runat="server" Text="Modelo"></asp:Label>
                 <asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" ForeColor="Red" ControlToValidate="DescripcionTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el modelo"></asp:RequiredFieldValidator>
                 <asp:Label ID="Label3" runat="server" Text="Marca"></asp:Label>
                 <asp:DropDownList ID="MarcasDropDownList" runat="server">
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="MarcasDropDownListRequiredFieldValidator1" runat="server" InitialValue="Eliga una marca" ForeColor="Red" ControlToValidate="MarcasDropDownList" ValidationGroup="GuardarButton" ErrorMessage="Seleccione una marca"></asp:RequiredFieldValidator>
             </td>
             <td class="auto-style4"></td>
             <td class="auto-style4"></td>
@@ -32,7 +34,7 @@
         <tr>
             <td>
                 <asp:Button ID="NuevoButton" runat="server" OnClick="Button2_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
+                <asp:Button ID="GuardarButton" runat="server" ValidationGroup="GuardarButton" OnClick="GuardarBtn_Click" Text="Guardar" />
                 <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" Enabled="False" />
             </td>
             <td>&nbsp;</td>

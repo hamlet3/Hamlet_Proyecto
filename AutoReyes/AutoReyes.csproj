@@ -127,6 +127,7 @@
     <Content Include="js\jquery.quicksearch.js" />
     <Content Include="Registros\RegistroEstados.aspx" />
     <Content Include="Registros\RegistroMarcas.aspx" />
+    <Content Include="Registros\RegistroUsuario2.aspx" />
     <Content Include="Registros\RegistroVehiculos.aspx" />
     <Content Include="Registros\RegistroMotores.aspx" />
     <Content Include="Registros\RegistroColores.aspx" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="Registros\RegistroMarcas.aspx.designer.cs">
       <DependentUpon>RegistroMarcas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegistroUsuario2.aspx.cs">
+      <DependentUpon>RegistroUsuario2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\RegistroUsuario2.aspx.designer.cs">
+      <DependentUpon>RegistroUsuario2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\RegistroVehiculos.aspx.cs">
       <DependentUpon>RegistroVehiculos.aspx</DependentUpon>

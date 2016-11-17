@@ -28,6 +28,7 @@
             </td>
             <td>
                 <asp:TextBox ID="DescripconTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" ForeColor="Red" ControlToValidate="DescripconTextBox" runat="server" ErrorMessage="Digite el color" ValidationGroup="GuardarButton"></asp:RequiredFieldValidator>
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -35,7 +36,7 @@
             <td class="auto-style5">&nbsp;</td>
             <td>
                 <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
+                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" ValidationGroup="GuardarButton" />
                 <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" Enabled="False" />
             </td>
             <td>&nbsp;</td>

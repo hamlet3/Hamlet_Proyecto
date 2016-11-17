@@ -16,6 +16,7 @@
             <td>
                 <asp:Label ID="Label3" runat="server" Text="Marcas"></asp:Label>
                 <asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" runat="server" ForeColor="Red" ValidationGroup="GuardarButton" ControlToValidate="DescripcionTextBox" ErrorMessage="Digite la Marca"></asp:RequiredFieldValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -23,8 +24,8 @@
         <tr>
             <td>
                 <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" />
-                <asp:Button ID="EliminarButton" runat="server" OnClick="EliminarBtn_Click" Text="Eliminar" Enabled="False" />
+                <asp:Button ID="GuardarButton" runat="server" ValidationGroup="GuardarButton" OnClick="GuardarBtn_Click" Text="Guardar" />
+                <asp:Button ID="EliminarButton" runat="server"  OnClick="EliminarBtn_Click" Text="Eliminar" Enabled="False" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
