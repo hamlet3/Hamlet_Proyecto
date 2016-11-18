@@ -51,7 +51,8 @@
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
                 <asp:TextBox ID="DescripcionTextBox" runat="server" TextMode="MultiLine"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" ControlToValidate="DescripcionTextBox" ValidationGroup="GuardarButton" ForeColor="Red" runat="server" ErrorMessage="Digite la descripcion"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" ControlToValidate="DescripcionTextBox" ValidationGroup="GuardarButton" ForeColor="Red" Display="Dynamic" runat="server" ErrorMessage="Digite la descripcion"></asp:RequiredFieldValidator>
+                 <asp:RegularExpressionValidator ID="DescripcionRegularExpressionValidator" runat="server" ControlToValidate="DescripcionTextBox" Display="Dynamic" ErrorMessage="Caracter invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$" ValidationGroup="GuardarButton"></asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

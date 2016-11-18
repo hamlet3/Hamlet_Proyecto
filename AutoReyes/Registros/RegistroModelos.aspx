@@ -30,7 +30,9 @@
             <td class="auto-style4">
                 <asp:Label ID="Label1" runat="server" Text="Modelo"></asp:Label>
                 <asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" ForeColor="Red" ControlToValidate="DescripcionTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el modelo"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" ForeColor="Red" ControlToValidate="DescripcionTextBox" Display="Dynamic" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el modelo"></asp:RequiredFieldValidator>
+                 <asp:RegularExpressionValidator ID="DescripcionRegularExpressionValidator" runat="server" ControlToValidate="DescripcionTextBox" Display="Dynamic" ErrorMessage="Caracter invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$" ValidationGroup="GuardarButton"></asp:RegularExpressionValidator>
+
                 <asp:Label ID="Label3" runat="server" Text="Marca"></asp:Label>
                 <asp:DropDownList ID="MarcasDropDownList" runat="server">
                 </asp:DropDownList>

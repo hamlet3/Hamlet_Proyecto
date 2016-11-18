@@ -16,7 +16,7 @@ namespace AutoReyes
         }
 
         public void Limpiar() {
-            DescripconTextBox.Text = "";
+            DescripcionTextBox.Text = "";
             BuscarIdTextBox.Text = "";
         }
 
@@ -25,14 +25,13 @@ namespace AutoReyes
             Colores color = new Colores();
             Utilerias utileria = new Utilerias();
             color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            color.Descripcion = DescripconTextBox.Text;
+            color.Descripcion = DescripcionTextBox.Text;
 
             bool suiche = false;
             try
             {
                 if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
                 {
-                    if(!string.IsNullOrWhiteSpace(DescripconTextBox.Text))
                        suiche = color.Insertar();
                 }
                 else
@@ -60,7 +59,7 @@ namespace AutoReyes
             color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             if (color.Buscar(color.ColorId))
             {
-                DescripconTextBox.Text = color.Descripcion;
+                DescripcionTextBox.Text = color.Descripcion;
             }
             else
                 Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");           
@@ -70,18 +69,21 @@ namespace AutoReyes
         {
             Colores color = new Colores();
             Utilerias utileria = new Utilerias();
-            color.ColorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (color.Eliminar())
-            {
-                Limpiar();
-                Utilerias2.ShowToastr(this, "", "Exito al eliminar!", "success");
-            }
-            else
-            {
-                Utilerias2.ShowToastr(this, "Error", "Error al eliminar!", "error");
-                Limpiar();
-            }
-            
+            bool suiche=false;
+            suiche = color.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+            if(suiche) {
+                if (color.Eliminar())
+                {
+                    Limpiar();
+                    Utilerias2.ShowToastr(this, "", "Exito al eliminar!", "success");
+                }
+                else
+                {
+                    Utilerias2.ShowToastr(this, "Error", "Error al eliminar!", "error");
+                    Limpiar();
+                }
+            } else
+                Utilerias2.ShowToastr(this, "", "Este id no existe", "Warning");          
         }
 
     }

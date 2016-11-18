@@ -52,7 +52,6 @@ namespace AutoReyes
             try {
                 if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
                 {
-                    if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
                         suiche = motor.Insertar();
                 }
                 else
@@ -78,17 +77,23 @@ namespace AutoReyes
         {
             Motores motor = new Motores();
             Utilerias utileria = new Utilerias();
-            motor.MotorId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (motor.Eliminar())
+            bool suiche = false;
+            motor.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+
+            if (suiche)
             {
-                Utilerias2.ShowToastr(this, "", "Exito al elimiar!", "success");
-                Limpiar();
-            }
-            else
-            {
-                Utilerias2.ShowToastr(this, "", "Error al eliminar", "error");
-                Limpiar();
-            }
+                if (motor.Eliminar())
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito al elimiar!", "success");
+                    Limpiar();
+                }
+                else
+                {
+                    Utilerias2.ShowToastr(this, "", "Error al eliminar", "error");
+                    Limpiar();
+                }
+            }else
+                Utilerias2.ShowToastr(this, "", "Este id no existe", "Warning");
         }
     }
 }

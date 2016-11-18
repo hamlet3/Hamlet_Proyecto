@@ -171,7 +171,11 @@ namespace AutoReyes
         {
             Usuarios usuario = new Usuarios();
             Utilerias utileria = new Utilerias();
-            usuario.UsuarioId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+            bool suiche = false;
+            usuario.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+
+            if (suiche)
+            {
                 if (usuario.Eliminar())
                 {
                     Limpiar();
@@ -181,6 +185,8 @@ namespace AutoReyes
                 {
                     Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
                 }
+            }else
+                Utilerias2.ShowToastr(this, "", "Este id no existe", "Warning");
         }
 
         protected void DescripcionDDL_SelectedIndexChanged(object sender, EventArgs e)

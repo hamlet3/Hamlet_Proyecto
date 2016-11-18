@@ -63,16 +63,22 @@ namespace AutoReyes.Registros
         {
             Transmisiones transmision = new Transmisiones();
             Utilerias utileria = new Utilerias();
-            transmision.TransmisionId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (transmision.Eliminar())
+            bool suiche = false;
+            transmision.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+
+            if (suiche)
             {
-                Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
-                Limpiar();
-            }
-            else
-            {
-                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
-            }
+                if (transmision.Eliminar())
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
+                    Limpiar();
+                }
+                else
+                {
+                    Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
+                }
+            }else
+                Utilerias2.ShowToastr(this, "", "Este id no existe", "Warning");
         }
 
         protected void NuevoBtn_Click(object sender, EventArgs e)

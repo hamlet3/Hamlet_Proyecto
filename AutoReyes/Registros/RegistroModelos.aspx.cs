@@ -55,7 +55,6 @@ namespace AutoReyes
 
                     if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
                     {
-                        if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
                             suiche = modelo.Insertar();
                     }
                     else
@@ -75,15 +74,22 @@ namespace AutoReyes
         {
             Modelos modelo = new Modelos();
             Utilerias utileria = new Utilerias();
-            modelo.ModeloId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (modelo.Eliminar())
+            bool suiche = false;
+            suiche = modelo.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+
+            if (suiche)
             {
-                Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
-                Limpiar();
-            }
-            else
-                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
-            }
+                if (modelo.Eliminar())
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
+                    Limpiar();
+                }
+                else
+                    Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
+            } else
+                Utilerias2.ShowToastr(this, "", "Este id no existe", "Warning");
+        }
+        
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)
         {

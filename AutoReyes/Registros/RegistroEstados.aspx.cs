@@ -31,17 +31,22 @@ namespace AutoReyes.Registros
         {
             Estados estado = new Estados();
             Utilerias utileria = new Utilerias();
-            estado.EstadoId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (estado.Eliminar())
+            bool suiche=false;
+            suiche = estado.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+            if (suiche)
             {
-                Limpiar();
-                Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
-            }
-            else
-            {
-                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
-                Limpiar();
-            }
+                if (estado.Eliminar())
+                {
+                    Limpiar();
+                    Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
+                }
+                else
+                {
+                    Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
+                    Limpiar();
+                }
+            }else
+                Utilerias2.ShowToastr(this, "", "Este Id no existe", "Warning");
         }
 
         protected void Button1_Click(object sender, EventArgs e)

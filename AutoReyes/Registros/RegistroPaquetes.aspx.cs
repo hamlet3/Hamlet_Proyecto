@@ -81,16 +81,22 @@ namespace AutoReyes.Registros
         {
             Paquetes paquete = new Paquetes();
             Utilerias utileria = new Utilerias();
-            paquete.PaqueteId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (paquete.Eliminar())
+            bool suiche = false;
+            paquete.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+
+            if (suiche)
             {
-                Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
-                Limpiar();
-            }
-            else
-            {
-                Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
-            }
+                if (paquete.Eliminar())
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito al eliminar", "success");
+                    Limpiar();
+                }
+                else
+                {
+                    Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
+                }
+            }else
+                Utilerias2.ShowToastr(this, "", "Este id no existe", "Warning");
         }
     }
 }

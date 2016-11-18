@@ -36,8 +36,9 @@
                 <asp:Label ID="Label3" runat="server" Text="Color"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="DescripconTextBox" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator1" ForeColor="Red" ControlToValidate="DescripconTextBox" runat="server" ErrorMessage="Digite el color" ValidationGroup="GuardarButton"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator" Display="Dynamic" ForeColor="Red" ControlToValidate="DescripcionTextBox" runat="server" ErrorMessage="Digite el color" ValidationGroup="GuardarButton"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="DescripcionRegularExpressionValidator" runat="server" ControlToValidate="DescripcionTextBox" Display="Dynamic" ErrorMessage="Caracter invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$" ValidationGroup="GuardarButton"></asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
         </tr>

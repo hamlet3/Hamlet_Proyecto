@@ -38,7 +38,6 @@ namespace AutoReyes.Registros
             try {
                 if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
                 {
-                    if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
                         suiche = marca.Insertar();
                 }
                 else
@@ -56,13 +55,23 @@ namespace AutoReyes.Registros
         {
             Marcas marca = new Marcas();
             Utilerias utileria = new Utilerias();
-            marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
-            if (marca.Eliminar()) {
-                Utilerias2.ShowToastr(this, "", "Exito al Eliminar!", "success");
-                Limpiar();
-            } else {
-                Utilerias2.ShowToastr(this, "Error", "Error al eliminar!", "error");
-            }
+            bool suiche=false;
+            suiche = marca.Buscar(utileria.ConvertirValor(BuscarIdTextBox.Text));
+
+            if (suiche)
+            {
+                marca.MarcaId = utileria.ConvertirValor(BuscarIdTextBox.Text);
+                if (marca.Eliminar())
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito al Eliminar", "success");
+                    Limpiar();
+                }
+                else
+                {
+                    Utilerias2.ShowToastr(this, "Error", "Error al eliminar", "error");
+                }
+            }else
+                Utilerias2.ShowToastr(this, "", "Este id no existe", "Warning");
         }
 
         protected void BuscarIdBtn_Click(object sender, EventArgs e)

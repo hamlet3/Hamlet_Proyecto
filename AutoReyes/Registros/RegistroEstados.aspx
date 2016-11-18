@@ -19,7 +19,8 @@
         </tr>
         <tr>
             <td class="auto-style5">Estado<asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator" runat="server" ForeColor="Red" ValidationGroup="GuardarButton" ControlToValidate="DescripcionTextBox" ErrorMessage="Digite el estado"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator" Display="Dynamic" runat="server" ForeColor="Red" ValidationGroup="GuardarButton" ControlToValidate="DescripcionTextBox" ErrorMessage="Digite el estado"></asp:RequiredFieldValidator>
+                 <asp:RegularExpressionValidator ID="DescripcionRegularExpressionValidator" runat="server" ControlToValidate="DescripcionTextBox" Display="Dynamic" ErrorMessage="Caracter invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$" ValidationGroup="GuardarButton"></asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
         </tr>
