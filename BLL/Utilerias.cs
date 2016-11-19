@@ -26,7 +26,7 @@ namespace BLL
             DataTable dt = new DataTable();
             Marcas marca = new Marcas();
 
-            return marca.Listado("Descripcion, MarcaId", "1=1", ""); ;
+            return marca.Listado("*", "1=1", ""); ;
         }
 
         public DataTable ListarModelos(int MarcaId)
@@ -61,6 +61,14 @@ namespace BLL
             Motores motor = new Motores();
             
             return motor.Listado("Descripcion, MotorId", "1=1", ""); ;
+        }
+
+        public DataTable ListarEstados()
+        {
+            DataTable dt = new DataTable();
+            Estados estado = new Estados();
+
+            return estado.Listado("Descripcion, EstadoId", "1=1", ""); ;
         }
     }
 }

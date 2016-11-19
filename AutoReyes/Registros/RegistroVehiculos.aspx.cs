@@ -30,6 +30,7 @@ namespace AutoReyes.Registros
             PrecioTextBox.Text = "";
             KilometrajeTextBox.Text = "";
             AñoTextBox.Text = "";
+            Session.Clear();
         }
 
         public void LLenarDropDownList()
@@ -60,6 +61,12 @@ namespace AutoReyes.Registros
             TransmisionDropDownList.DataValueField = "TransmisionId";
             TransmisionDropDownList.DataBind();
             TransmisionDropDownList.Items.Insert(0, "Elige Transmision");
+
+            EstadoDropDownList.DataSource = utileria.ListarEstados();
+            EstadoDropDownList.DataTextField = "Descripcion";
+            EstadoDropDownList.DataValueField = "EstadoId";
+            EstadoDropDownList.DataBind();
+            EstadoDropDownList.Items.Insert(0, "Elige Estado");
         }
 
         public void Mensaje(string mensaje)
@@ -84,6 +91,7 @@ namespace AutoReyes.Registros
             vehiculo.Año = utileria.ConvertirValor(AñoTextBox.Text);
             vehiculo.Precio = utileria.ConvertirValor(PrecioTextBox.Text);
             vehiculo.Kilometraje = utileria.ConvertirValor(KilometrajeTextBox.Text);
+            vehiculo.EstadoId = utileria.ConvertirValor(EstadoDropDownList.SelectedValue);
 
             return vehiculo;
         }

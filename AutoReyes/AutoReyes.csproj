@@ -119,10 +119,19 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
-    <Content Include="ConsultaUsuarios.aspx" />
+    <Content Include="Consultas\ConsultaColores.aspx" />
+    <Content Include="Consultas\ConsultaEstados.aspx" />
+    <Content Include="Consultas\ConsultaMarcas.aspx" />
+    <Content Include="Consultas\ConsultaModelos.aspx" />
+    <Content Include="Consultas\ConsultaMotores.aspx" />
+    <Content Include="Consultas\ConsultaPaquetes.aspx" />
+    <Content Include="Consultas\ConsultaTransmisiones.aspx" />
+    <Content Include="Consultas\ConsultaUsuarios.aspx" />
+    <Content Include="Consultas\ConsultaVehiculos.aspx" />
     <Content Include="css\Estilo.css" />
     <Content Include="Default.aspx" />
     <Content Include="img\NyrAjuZS.png" />
+    <Content Include="jquery.quicksearch.js" />
     <Content Include="js\jquery-3.1.0.min.js" />
     <Content Include="js\jquery.quicksearch.js" />
     <Content Include="Registros\RegistroEstados.aspx" />
@@ -142,12 +151,68 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsultaUsuarios.aspx.cs">
+    <Compile Include="Consultas\ConsultaColores.aspx.cs">
+      <DependentUpon>ConsultaColores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaColores.aspx.designer.cs">
+      <DependentUpon>ConsultaColores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaEstados.aspx.cs">
+      <DependentUpon>ConsultaEstados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaEstados.aspx.designer.cs">
+      <DependentUpon>ConsultaEstados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaMarcas.aspx.cs">
+      <DependentUpon>ConsultaMarcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaMarcas.aspx.designer.cs">
+      <DependentUpon>ConsultaMarcas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaModelos.aspx.cs">
+      <DependentUpon>ConsultaModelos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaModelos.aspx.designer.cs">
+      <DependentUpon>ConsultaModelos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaMotores.aspx.cs">
+      <DependentUpon>ConsultaMotores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaMotores.aspx.designer.cs">
+      <DependentUpon>ConsultaMotores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaPaquetes.aspx.cs">
+      <DependentUpon>ConsultaPaquetes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaPaquetes.aspx.designer.cs">
+      <DependentUpon>ConsultaPaquetes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTransmisiones.aspx.cs">
+      <DependentUpon>ConsultaTransmisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTransmisiones.aspx.designer.cs">
+      <DependentUpon>ConsultaTransmisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaUsuarios.aspx.cs">
       <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultaUsuarios.aspx.designer.cs">
+    <Compile Include="Consultas\ConsultaUsuarios.aspx.designer.cs">
       <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaVehiculos.aspx.cs">
+      <DependentUpon>ConsultaVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaVehiculos.aspx.designer.cs">
+      <DependentUpon>ConsultaVehiculos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

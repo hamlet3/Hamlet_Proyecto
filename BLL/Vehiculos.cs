@@ -112,7 +112,10 @@ namespace BLL
             string ordenar = "";
             if (!Orden.Equals(""))
                 ordenar = "Orden by " + Orden;
-            return conexion.ObtenerDatos("Select " + Campos + " from Vehiculos where " + Condicion + ordenar);
+            return conexion.ObtenerDatos("Select " + Campos + " From Vehiculos as V inner join Fotos as F on V.VehiculoId=F.VehiculoId "+
+            "inner join Estados as E on V.EstadoId=E.EstadoId inner join Modelos as M on V.ModeloId=M.ModeloId "+
+            "inner join Marcas as Ma on V.MarcaId = Ma.MarcaId inner join Motores as Mo on V.MotorId = Mo.MotorId "+
+            "inner join Colores as C on V.ColorId = C.ColorId inner join Transmisiones as T on V.TransmisionId = T.TransmisionId where " + Condicion + ordenar);
         }
     }
 }
