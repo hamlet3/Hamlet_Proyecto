@@ -128,11 +128,17 @@
     <Content Include="Consultas\ConsultaTransmisiones.aspx" />
     <Content Include="Consultas\ConsultaUsuarios.aspx" />
     <Content Include="Consultas\ConsultaVehiculos.aspx" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Estilo.css" />
+    <Content Include="css\full-slider.css" />
     <Content Include="Default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\NyrAjuZS.png" />
-    <Content Include="jquery.quicksearch.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.1.0.min.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="js\jquery.quicksearch.js" />
     <Content Include="Registros\RegistroEstados.aspx" />
     <Content Include="Registros\RegistroMarcas.aspx" />
@@ -307,6 +313,10 @@
     </Content>
     <Content Include="Site1.Master" />
     <Content Include="js\jquery.quicksearch.jquery.json" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

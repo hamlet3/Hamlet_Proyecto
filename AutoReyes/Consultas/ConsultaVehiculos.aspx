@@ -15,14 +15,30 @@
         </tr>
         <tr>
             <td>
+                <table style="width:100%;">
+                    <tr>
+                        <td>
+                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
                 <asp:Repeater ID="VehiculosRepeater" runat="server">
                     <ItemTemplate>
                         <table>
                             <tr>
-                                <td style="width:150px">
-                                    <asp:Image ID="VehiculoImage" ImageUrl='<%#Eval("Foto") %>' runat="server"/>
+                                <td style="width:50px">
+                                    <asp:Image Width="200px" Height="150px" ID="VehiculoImage" ImageUrl='<%#Eval("Foto") %>' runat="server"/>
                                 </td>
-                                <td style="width:150px">
+                                <td style="width:50px">
                                     <table>
                                         <tr>
                                             <td>
@@ -62,6 +78,11 @@
                         </table>
                     </ItemTemplate>
                 </asp:Repeater>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

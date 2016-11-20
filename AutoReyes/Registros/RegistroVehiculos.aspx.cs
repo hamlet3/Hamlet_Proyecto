@@ -33,40 +33,67 @@ namespace AutoReyes.Registros
             Session.Clear();
         }
 
-        public void LLenarDropDownList()
+        public void MarcasDropDownList()
         {
-            Utilerias utileria = new Utilerias();
-
-            MarcaDropDownList.DataSource = utileria.ListarMarcas();
+            Marcas marca = new Marcas();
+            MarcaDropDownList.DataSource = marca.Listado("*","1=1","");
             MarcaDropDownList.DataTextField = "Descripcion";
             MarcaDropDownList.DataValueField = "MarcaId";
             MarcaDropDownList.DataBind();
             MarcaDropDownList.Items.Insert(0, "Elige Marca");
+        }
 
+        public void ColoresDropDownList()
+        {
+            Colores color = new Colores();
 
-            ColorDropDownList.DataSource = utileria.ListarColores();
+            ColorDropDownList.DataSource = color.Listado("*","1=1","");
             ColorDropDownList.DataTextField = "Descripcion";
             ColorDropDownList.DataValueField = "ColorId";
             ColorDropDownList.DataBind();
             ColorDropDownList.Items.Insert(0, "Elige Color");
+        }
 
-            MotorDropDownList.DataSource = utileria.ListarMotores();
+        public void MotoresDropDownList()
+        {
+            Motores motor = new Motores();
+
+            MotorDropDownList.DataSource = motor.Listado("*","1=1","");
             MotorDropDownList.DataTextField = "Descripcion";
             MotorDropDownList.DataValueField = "MotorId";
             MotorDropDownList.DataBind();
             MotorDropDownList.Items.Insert(0, "Elige Motor");
+        }
 
-            TransmisionDropDownList.DataSource = utileria.ListarTransmisiones();
+        public void TransmisionesDropdownList()
+        {
+            Transmisiones transmision = new Transmisiones();
+
+            TransmisionDropDownList.DataSource = transmision.Listado("*","1=1","");
             TransmisionDropDownList.DataTextField = "Descripcion";
             TransmisionDropDownList.DataValueField = "TransmisionId";
             TransmisionDropDownList.DataBind();
             TransmisionDropDownList.Items.Insert(0, "Elige Transmision");
+        }
 
-            EstadoDropDownList.DataSource = utileria.ListarEstados();
+        public void EstadosDropdownList()
+        {
+            Estados estado = new Estados();
+
+            EstadoDropDownList.DataSource = estado.Listado("*","1=1","");
             EstadoDropDownList.DataTextField = "Descripcion";
             EstadoDropDownList.DataValueField = "EstadoId";
             EstadoDropDownList.DataBind();
             EstadoDropDownList.Items.Insert(0, "Elige Estado");
+        }
+
+        public void LLenarDropDownList()
+        {
+            MarcasDropDownList();
+            ColoresDropDownList();
+            MotoresDropDownList();
+            TransmisionesDropdownList();
+            EstadosDropdownList();
         }
 
         public void Mensaje(string mensaje)

@@ -8,8 +8,10 @@
             });
         </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <form id="form1" runat="server">
+
     <asp:TextBox ID="FiltrarTextbox" runat="server"></asp:TextBox>
     <div>
         <table id="IdTable" border="1">
@@ -31,4 +33,5 @@
             </tbody>
         </table>
     </div>
+    </form>
  </asp:Content>
