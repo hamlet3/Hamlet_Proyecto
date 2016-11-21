@@ -13,6 +13,15 @@ namespace AutoReyes.Registros {
     public partial class RegistroMarcas {
         
         /// <summary>
+        /// Control MarcasForm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm MarcasForm;
+        
+        /// <summary>
         /// Control BuscarIdRequiredFieldValidator.
         /// </summary>
         /// <remarks>

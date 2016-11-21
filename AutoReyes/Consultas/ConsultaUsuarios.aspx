@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ConsultaUsuarios.aspx.cs" Inherits="AutoReyes.ConsultaUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <style type="text/css">
         .auto-style4 {
             width: 285px;
@@ -38,6 +39,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form id ="UsuariosForms" runat="server">
+
     <table class="auto-style7">
         <tr>
             <td class="auto-style9">&nbsp;</td>
@@ -93,4 +96,5 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+    </form>
 </asp:Content>

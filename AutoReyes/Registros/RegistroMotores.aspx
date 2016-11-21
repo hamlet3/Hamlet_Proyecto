@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form id="MotoresForm" runat="server">
+
     <table style="width:100%;">
         <tr>
             <td>
@@ -40,4 +42,5 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+    </form>
 </asp:Content>

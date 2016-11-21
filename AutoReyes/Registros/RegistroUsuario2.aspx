@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form id="Usuario2Form" runat="server">
+
     <table style="width:100%;">
         <tr>
             <td>Nombre de usuario</td>
@@ -145,4 +147,5 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+    </form>
 </asp:Content>

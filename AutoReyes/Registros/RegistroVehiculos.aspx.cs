@@ -17,6 +17,12 @@ namespace AutoReyes.Registros
             {
                 LLenarDropDownList();
             }
+
+            if (Session["Usuarios"] == null)
+            {
+                Response.Redirect("/Login.aspx");
+            }
+           
         }
 
         public void Limpiar()
@@ -132,7 +138,6 @@ namespace AutoReyes.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Vehiculos vehiculo = ObtenerDatos();
-            bool suiche = false;
 
             if (vehiculo.Insertar())
             {

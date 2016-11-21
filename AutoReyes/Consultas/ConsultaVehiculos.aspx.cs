@@ -13,8 +13,11 @@ namespace AutoReyes.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            VehiculosRepeater.DataSource = MostrarVehiculos();
-            VehiculosRepeater.DataBind();
+            if (!IsPostBack)
+            {
+                VehiculosRepeater.DataSource = MostrarVehiculos();
+                VehiculosRepeater.DataBind();
+            }
         }
 
         public DataTable MostrarVehiculos()

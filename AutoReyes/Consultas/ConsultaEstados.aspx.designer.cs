@@ -13,6 +13,15 @@ namespace AutoReyes.Consultas {
     public partial class ConsultaEstados {
         
         /// <summary>
+        /// Control ConsultaEstadosForm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm ConsultaEstadosForm;
+        
+        /// <summary>
         /// Control EstadoGridView.
         /// </summary>
         /// <remarks>

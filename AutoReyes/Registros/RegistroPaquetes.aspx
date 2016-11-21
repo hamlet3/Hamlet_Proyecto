@@ -7,6 +7,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form id="PaquetesForm" runat="server">
+
     <table style="width: 100%;">
         <tr>
             <td>
@@ -72,4 +74,5 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+    </form>
 </asp:Content>

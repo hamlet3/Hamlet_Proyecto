@@ -12,7 +12,15 @@ namespace AutoReyes.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Usuarios"] != null)
+            {
+                Usuarios usuario = new Usuarios();
+                usuario = (Usuarios)Session["Usuarios"];
+                if (usuario.Prioridad != 1)
+                    Response.Redirect("/WebForm/Default.aspx");
+            }
+            else
+                Response.Redirect("/WebForm/Login.aspx");
         }
 
         public void Limpiar()

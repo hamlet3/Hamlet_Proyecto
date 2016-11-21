@@ -13,6 +13,15 @@ namespace AutoReyes {
     public partial class RegistroUsuarios {
         
         /// <summary>
+        /// Control UsuarioForm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm UsuarioForm;
+        
+        /// <summary>
         /// Control BuscarIdRequiredFieldValidator.
         /// </summary>
         /// <remarks>

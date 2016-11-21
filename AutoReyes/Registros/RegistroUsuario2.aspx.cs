@@ -12,12 +12,17 @@ namespace AutoReyes.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuarios"] != null)
+            {
+                Response.Redirect("/WebForm/Default.aspx");
+            }
             if (!IsPostBack)
             {
                 TelefonoGridVierw.DataSource = ObtenerNuevaLista();
                 TelefonoGridVierw.DataBind();
                 LlenarDropdownList();
             }
+
         }
 
         public List<UsuarioTelefonos> ObtenerNuevaLista()

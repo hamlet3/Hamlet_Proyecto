@@ -132,14 +132,20 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Estilo.css" />
     <Content Include="css\full-slider.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="WebForm\ComprarPaquete.aspx" />
+    <Content Include="WebForm\Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img\carro-blanco.jpg" />
+    <Content Include="img\jeep.jpg" />
+    <Content Include="img\mitsubishi_lancer.jpg" />
     <Content Include="img\NyrAjuZS.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.1.0.min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.quicksearch.js" />
+    <Content Include="WebForm\Index2.aspx" />
+    <Content Include="WebForm\Login.aspx" />
     <Content Include="Registros\RegistroEstados.aspx" />
     <Content Include="Registros\RegistroMarcas.aspx" />
     <Content Include="Registros\RegistroUsuario2.aspx" />
@@ -220,12 +226,33 @@
     <Compile Include="Consultas\ConsultaVehiculos.aspx.designer.cs">
       <DependentUpon>ConsultaVehiculos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="WebForm\ComprarPaquete.aspx.cs">
+      <DependentUpon>ComprarPaquete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\ComprarPaquete.aspx.designer.cs">
+      <DependentUpon>ComprarPaquete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="WebForm\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Index2.aspx.cs">
+      <DependentUpon>Index2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Index2.aspx.designer.cs">
+      <DependentUpon>Index2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registros\RegistroEstados.aspx.cs">
@@ -305,6 +332,13 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -317,6 +351,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Site2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

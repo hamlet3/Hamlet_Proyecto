@@ -117,6 +117,14 @@
                 <asp:FileUpload ID="FotoFileUpload" runat="server" />
                 <asp:RequiredFieldValidator ID="FotoRequiredFieldValidator" ForeColor="Red" ValidationGroup="AgregarButton" ControlToValidate="FotoFileUpload" runat="server" ErrorMessage="Selecione una Foto"></asp:RequiredFieldValidator>
                 <asp:Button ID="AgregarButton" ValidationGroup="AgregarButton" runat="server" OnClick="AgregarButton_Click" Text="Agregar" />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
