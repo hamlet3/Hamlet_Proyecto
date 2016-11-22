@@ -31,6 +31,16 @@ namespace BLL
 
         public Usuarios() { }
 
+        public bool ValidarListaTelefono()
+        {
+            if (ListaTelefono.Count > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         public void AgregarTelefono(string telefono, int tipoTelefonoId) {
             ListaTelefono.Add(new UsuarioTelefonos(telefono, tipoTelefonoId));
         }

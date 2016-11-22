@@ -20,7 +20,7 @@ namespace AutoReyes.Registros
 
             if (Session["Usuarios"] == null)
             {
-                Response.Redirect("/Login.aspx");
+               // Response.Redirect("/WebForm/Login.aspx");
             }
            
         }
@@ -139,13 +139,18 @@ namespace AutoReyes.Registros
         {
             Vehiculos vehiculo = ObtenerDatos();
 
-            if (vehiculo.Insertar())
+            if (vehiculo.ValidarListaFoto())
             {
-                Utilerias2.ShowToastr(this, "","Exito!", "success");
-                Limpiar();
+                if (vehiculo.Insertar())
+                {
+                    Utilerias2.ShowToastr(this, "", "Exito!", "success");
+                    Limpiar();
+                }
+                else
+                    Utilerias2.ShowToastr(this, "Error", "Error al guardar", "error");
             }
             else
-                Utilerias2.ShowToastr(this, "Error", "Error al guardar", "error");
+                Utilerias2.ShowToastr(this, "", "Agrege por lo menos una foto", "Warning");
         }
 
         protected void MarcaDropDownList_SelectedIndexChanged(object sender, EventArgs e)

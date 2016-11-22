@@ -27,6 +27,15 @@ namespace BLL
         ConexionDb conexion = new ConexionDb();
         List<Fotos> ListaFoto = new List<Fotos>();
 
+        public bool ValidarListaFoto()
+        {
+            if (ListaFoto.Count>0)
+            {
+                return true;
+            } else
+                return false;
+        }
+
         public void AgregarFotos( string foto)
         {
             ListaFoto.Add(new Fotos(foto));
