@@ -48,7 +48,7 @@
 
     <table class="auto-style3 form-group" style="z-index: 1">
         <tr>
-            <td>uario</td>
+            <td></td>
             <td><asp:TextBox ID="NombreUsuarioTextBox" placeholder="Usuario"  Width="200px" runat="server" CssClass="auto-style7 form-control" style="left: 221px; top: 261px"></asp:TextBox></td>
         </tr>
         <tr>

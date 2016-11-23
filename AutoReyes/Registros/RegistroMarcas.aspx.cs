@@ -12,6 +12,7 @@ namespace AutoReyes.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             if (Session["Usuarios"] != null)
             {
                 Usuarios usuario = new Usuarios();
@@ -20,7 +21,7 @@ namespace AutoReyes.Registros
                     Response.Redirect("/WebForm/Default.aspx");
             }
             else
-                Response.Redirect("/WebForm/Login.aspx");
+                Response.Redirect("/WebForm/Login.aspx");*/
         }
         
         public void Limpiar()
@@ -96,6 +97,11 @@ namespace AutoReyes.Registros
                 Utilerias2.ShowToastr(this, "", "Id no encontrado!", "Warning");
                 Limpiar();
             }
+        }
+
+        protected void DescripcionTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

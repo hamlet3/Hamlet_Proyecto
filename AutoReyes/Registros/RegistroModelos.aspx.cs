@@ -13,6 +13,7 @@ namespace AutoReyes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             if (Session["Usuarios"] != null)
             {
                 Usuarios usuario = new Usuarios();
@@ -22,6 +23,7 @@ namespace AutoReyes
             }
             else
                 Response.Redirect("/WebForm/Login.aspx");
+                */
 
             if (!IsPostBack)
             {
@@ -116,6 +118,11 @@ namespace AutoReyes
                 Utilerias2.ShowToastr(this, "", "Id no encontrado", "Warning");
                 Limpiar();
             }
+        }
+
+        protected void BuscarIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

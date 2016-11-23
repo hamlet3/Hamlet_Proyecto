@@ -73,7 +73,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="ColoresForm" runat="server">
 
-    <table style="width:100%" >
+    <table style="width:100%">
         <tr>
             <td class="auto-style4">
                 &nbsp;</td>
