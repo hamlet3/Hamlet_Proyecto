@@ -12,7 +12,7 @@ namespace AutoReyes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
+            
             if (Session["Usuarios"] != null)
             {
                 Usuarios usuario = new Usuarios();
@@ -22,7 +22,7 @@ namespace AutoReyes
             }
             else
                 Response.Redirect("/WebForm/Login.aspx");
-                */
+                
         }
 
         protected void BuscarIdTxT_TextChanged(object sender, EventArgs e)

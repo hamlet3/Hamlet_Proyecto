@@ -16,13 +16,14 @@ namespace AutoReyes.Registros
             {
                 Response.Redirect("/WebForm/Default.aspx");
             }
+            
             if (!IsPostBack)
             {
                 TelefonoGridVierw.DataSource = ObtenerNuevaLista();
                 TelefonoGridVierw.DataBind();
                 LlenarDropdownList();
             }
-
+            
         }
 
         public List<UsuarioTelefonos> ObtenerNuevaLista()
@@ -105,15 +106,16 @@ namespace AutoReyes.Registros
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-                bool suiche = false;
                 Usuarios usuario;
                 if (Session["Usuario"] == null)
                     Session["Usuario"] = new Usuarios();
 
                 usuario = (Usuarios)Session["Usuario"];
                 EnviarDatos(usuario);
+            if (usuario.ValidarListaTelefono()) {
+                bool suiche = false;
                 try
-                {   
+                {
                     suiche = usuario.Insertar();
 
                     if (suiche)
@@ -121,7 +123,9 @@ namespace AutoReyes.Registros
                         Utilerias2.ShowToastr(this, "", "Exito!", "success");
                         Limpiar();
                     }
-                }catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
+                } catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
+            }else
+                 Utilerias2.ShowToastr(this, " ","Agregue por lo menos un numero telefonico","info");
         }
 
         protected void AgregarButton_Click(object sender, EventArgs e)

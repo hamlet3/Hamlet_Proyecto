@@ -9,7 +9,7 @@
         }
         .auto-style4 {
             position: absolute;
-            top: 434px;
+            top: 439px;
             left: 343px;
             z-index: 1;
         }
@@ -90,7 +90,7 @@
         .auto-style25 {
             position: absolute;
             top: 382px;
-            left: 544px;
+            left: 548px;
             z-index: 1;
         }
         .auto-style26 {
@@ -102,44 +102,44 @@
         .auto-style27 {
             position: absolute;
             top: 168px;
-            left: 452px;
+            left: 550px;
             z-index: 1;
         }
         .auto-style28 {
             position: absolute;
-            top: 194px;
-            left: 451px;
+            top: 197px;
+            left: 551px;
             z-index: 1;
         }
         .auto-style29 {
             position: absolute;
             top: 224px;
-            left: 449px;
+            left: 550px;
             z-index: 1;
         }
         .auto-style30 {
             position: absolute;
             top: 255px;
-            left: 453px;
+            left: 551px;
             z-index: 1;
             height: 18px;
         }
         .auto-style31 {
             position: absolute;
             top: 288px;
-            left: 450px;
+            left: 550px;
             z-index: 1;
         }
         .auto-style32 {
             position: absolute;
             top: 319px;
-            left: 452px;
+            left: 550px;
             z-index: 1;
         }
         .auto-style33 {
             position: absolute;
             top: 381px;
-            left: 543px;
+            left: 548px;
             z-index: 1;
         }
         .auto-style34 {
@@ -162,7 +162,7 @@
         }
         .auto-style37 {
             position: absolute;
-            top: 407px;
+            top: 415px;
             left: 261px;
             z-index: 1;
         }
@@ -229,7 +229,7 @@
         </tr>
         <tr>
             <td>
-                <asp:DropDownList ID="MarcaDropDownList" runat="server" Width="100px" OnSelectedIndexChanged="MarcaDropDownList_SelectedIndexChanged" AutoPostBack="True" CssClass="auto-style8 form-control">
+                <asp:DropDownList ID="MarcaDropDownList" runat="server" Width="200px" OnSelectedIndexChanged="MarcaDropDownList_SelectedIndexChanged" AutoPostBack="True" CssClass="auto-style8 form-control">
                     <asp:ListItem>Elige Marca</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="MarcaRequiredFieldValidator" InitialValue="Elige Marca" ForeColor="Red" ControlToValidate="MarcaDropDownList" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Seleccione la marca" CssClass="auto-style27"></asp:RequiredFieldValidator>
@@ -239,7 +239,7 @@
         </tr>
         <tr>
             <td>
-                <asp:DropDownList ID="ModeloDropDownList" runat="server" Width="100px" CssClass="auto-style9 form-control">
+                <asp:DropDownList ID="ModeloDropDownList" runat="server" Width="200px" CssClass="auto-style9 form-control">
                     <asp:ListItem>Elige Modelo</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="ModeloRequiredFieldValidator" InitialValue="Elige Modelo" ForeColor="Red" ValidationGroup="GuardarButton" ControlToValidate="ModeloDropDownList" runat="server" ErrorMessage="Seleccione el modelo" CssClass="auto-style28"></asp:RequiredFieldValidator>
@@ -251,7 +251,7 @@
     <table style="width:100%;">
         <tr>
             <td>
-                <asp:DropDownList ID="MotorDropDownList" runat="server" Width="100px" CssClass="auto-style10 form-control">
+                <asp:DropDownList ID="MotorDropDownList" runat="server" Width="200px" CssClass="auto-style10 form-control">
                     <asp:ListItem>Elige Motor</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="MotorRequiredFieldValidator" InitialValue="Elige Motor" ForeColor="Red" ControlToValidate="MotorDropDownList" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Seleccione el tipo de motor" CssClass="auto-style29"></asp:RequiredFieldValidator>
@@ -262,7 +262,7 @@
         <tr>
             <td>
                 
-                <asp:DropDownList ID="ColorDropDownList" runat="server" Width ="100px" CssClass="auto-style11 form-control">
+                <asp:DropDownList ID="ColorDropDownList" runat="server" Width ="200px" CssClass="auto-style11 form-control">
                     <asp:ListItem>Elige Color</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="ColorRequiredFieldValidator" ForeColor="Red" InitialValue="Elige Color" ValidationGroup="GuardarButton" ControlToValidate="ColorDropDownList" runat="server" ErrorMessage="Seleccione el color" CssClass="auto-style30"></asp:RequiredFieldValidator>
@@ -273,7 +273,7 @@
         <tr>
             <td>
                 
-                <asp:DropDownList ID="TransmisionDropDownList" runat="server" Width="100px" CssClass="auto-style12 form-control">
+                <asp:DropDownList ID="TransmisionDropDownList" runat="server" Width="200px" CssClass="auto-style12 form-control">
                     <asp:ListItem>Elige Transmision</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="TransmisionRequiredFieldValidator" InitialValue="Elige Transmision" ControlToValidate="TransmisionDropDownList" ForeColor="Red" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Seleccione la transmision" CssClass="auto-style31"></asp:RequiredFieldValidator>
@@ -285,7 +285,7 @@
     <table style="width:100%;">
         <tr>
             <td>
-                <asp:DropDownList ID="EstadoDropDownList" runat="server" Width="100px" CssClass="auto-style13 form-control">
+                <asp:DropDownList ID="EstadoDropDownList" runat="server" Width="200px" CssClass="auto-style13 form-control">
                     <asp:ListItem>Elige Estado</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="EstadoRequiredFieldValidator" runat="server" InitialValue="Elige Estado" ControlToValidate="EstadoDropDownList" ForeColor="Red" ValidationGroup="GuardarButton" ErrorMessage="Selecione el estado" CssClass="auto-style32"></asp:RequiredFieldValidator>
@@ -321,8 +321,8 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoButton_Click" Text="Nuevo" CssClass="auto-style3 btn btn-info" />
-                <asp:Button ID="GuardarButton" ValidationGroup="GuardarButton" runat="server" OnClick="GuardarButton_Click" Text="Guardar" CssClass="auto-style7 btn btn-info" />
+                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoButton_Click" Text="Nuevo" CssClass="auto-style3 btn" style="left: 341px; top: 533px; width: 78px" />
+                <asp:Button ID="GuardarButton" ValidationGroup="GuardarButton" runat="server" OnClick="GuardarButton_Click" Text="Guardar" CssClass="auto-style7 btn btn-success" style="left: 474px; top: 533px" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -331,7 +331,7 @@
             <td>
                 <asp:FileUpload ID="FotoFileUpload" runat="server" CssClass="auto-style6" />
                 <asp:RequiredFieldValidator ID="FotoRequiredFieldValidator" ForeColor="Red" ValidationGroup="AgregarButton" ControlToValidate="FotoFileUpload" runat="server" ErrorMessage="Selecione una Foto" CssClass="auto-style4"></asp:RequiredFieldValidator>
-                <asp:Button ID="AgregarButton" ValidationGroup="AgregarButton" runat="server" OnClick="AgregarButton_Click" Text="Agregar" CssClass="auto-style5 btn btn-default" />
+                <asp:Button ID="AgregarButton" ValidationGroup="AgregarButton" runat="server" OnClick="AgregarButton_Click" Text="Agregar" CssClass="auto-style5 btn btn-success" />
                 <label class="auto-style40" for="NombreUsuarioTextBox">
                 Marca
                 </label>

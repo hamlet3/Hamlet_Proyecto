@@ -23,7 +23,7 @@ namespace AutoReyes.WebForm
         public DataTable ObtenerDatos()
         {
             Paquetes paquete = new Paquetes();
-            return paquete.Listado("*","1=1","");
+            return paquete.Listado("Descripcion","1=1","");
         }
     }
 }

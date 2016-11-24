@@ -18,7 +18,7 @@ namespace AutoReyes
                 TelefonoGridVierw.DataBind();
                 LlenarDropdownList();
             }
-
+            
             if (Session["Usuarios"] != null)
             {
                 Usuarios usuario = new Usuarios();
@@ -28,14 +28,12 @@ namespace AutoReyes
             }
             else
                 Response.Redirect("/WebForm/Login.aspx");
+                
         }
 
         public List<UsuarioTelefonos> ObtenerNuevaLista()
         {
             List<UsuarioTelefonos> lista = new List<UsuarioTelefonos>();
-            UsuarioTelefonos telefono = new UsuarioTelefonos();
-
-            lista.Add(telefono);
             return lista;
         }
 
@@ -153,28 +151,34 @@ namespace AutoReyes
 
         protected void GuardarBtn_Click(object sender, EventArgs e)
         {
-            bool suiche = false;
             Usuarios usuario;
             if (Session["Usuario"] == null)
                 Session["Usuario"] = new Usuarios();
 
             usuario = (Usuarios)Session["Usuario"];
             EnviarDatos(usuario);
-            try
+            if (usuario.ValidarListaTelefono())
             {
-                if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
-                    suiche = usuario.Insertar();
-                else
-                    suiche = usuario.Editar();
 
-                if (suiche)
+
+                bool suiche = false;
+                try
                 {
-                    Utilerias2.ShowToastr(this, "", "Exito!", "success");
-                    Limpiar();
-                }
-            }
-            catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
+                    if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
+                        suiche = usuario.Insertar();
+                    else
+                        suiche = usuario.Editar();
 
+                    if (suiche)
+                    {
+                        Utilerias2.ShowToastr(this, "", "Exito!", "success");
+                        Limpiar();
+                    }
+
+                }
+                catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
+            }else
+                Utilerias2.ShowToastr(this, "", "Agregue por lo menos un numero telefonico", "info");
         }
 
         protected void EliminarBtn_Click(object sender, EventArgs e)
@@ -233,6 +237,16 @@ namespace AutoReyes
             TelefonoGridVierw.DataBind();
             DescripcionDropDownList.SelectedIndex = 0;
             TelefonoTextBox.Text = "";
+        }
+
+        protected void ContraseñaTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void NombreTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -22,15 +22,6 @@ namespace AutoReyes {
         protected global::System.Web.UI.HtmlControls.HtmlForm UsuarioForm;
         
         /// <summary>
-        /// Control BuscarIdRequiredFieldValidator.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator BuscarIdRequiredFieldValidator;
-        
-        /// <summary>
         /// Control BuscarIdCompareValidator.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace AutoReyes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator BuscarIdCompareValidator;
+        
+        /// <summary>
+        /// Control BuscarIdRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator BuscarIdRequiredFieldValidator;
         
         /// <summary>
         /// Control BuscarIdTextBox.
@@ -58,42 +58,6 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
-        /// Control PrioridadDropDownList.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PrioridadDropDownList;
-        
-        /// <summary>
-        /// Control PrioridadRequiredFieldValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator PrioridadRequiredFieldValidator2;
-        
-        /// <summary>
-        /// Control Label3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// Control TelefonoGridVierw.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView TelefonoGridVierw;
-        
-        /// <summary>
         /// Control NombreUsuarioTextBox.
         /// </summary>
         /// <remarks>
@@ -101,6 +65,15 @@ namespace AutoReyes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox NombreUsuarioTextBox;
+        
+        /// <summary>
+        /// Control NombreTextBox.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
         
         /// <summary>
         /// Control NombreUsuarioRequiredFieldValidator.
@@ -121,24 +94,6 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator NombreUsuarioRegularExpressionValidator2;
         
         /// <summary>
-        /// Control Label4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// Control NombreTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
-        
-        /// <summary>
         /// Control NombreRequiredFieldValidator.
         /// </summary>
         /// <remarks>
@@ -157,13 +112,13 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator NombreRegularExpressionValidator2;
         
         /// <summary>
-        /// Control Label5.
+        /// Control ContraseñaTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.TextBox ContraseñaTextBox;
         
         /// <summary>
         /// Control DireccionTextBox.
@@ -175,33 +130,6 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.TextBox DireccionTextBox;
         
         /// <summary>
-        /// Control DireccionRequiredFieldValidator.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator DireccionRequiredFieldValidator;
-        
-        /// <summary>
-        /// Control Label6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
-        
-        /// <summary>
-        /// Control ContraseñaTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ContraseñaTextBox;
-        
-        /// <summary>
         /// Control ContraseñaRequiredFieldValidator.
         /// </summary>
         /// <remarks>
@@ -211,13 +139,13 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ContraseñaRequiredFieldValidator;
         
         /// <summary>
-        /// Control Label7.
+        /// Control DireccionRequiredFieldValidator.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DireccionRequiredFieldValidator;
         
         /// <summary>
         /// Control ConfirmarContraseñaTextBox.
@@ -229,13 +157,13 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.TextBox ConfirmarContraseñaTextBox;
         
         /// <summary>
-        /// Control RequiredFieldValidator1.
+        /// Control EmailTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
         
         /// <summary>
         /// Control ConfirmarContraseñaCompareValidator.
@@ -247,31 +175,13 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.CompareValidator ConfirmarContraseñaCompareValidator;
         
         /// <summary>
-        /// Control Label8.
+        /// Control RequiredFieldValidator1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
-        
-        /// <summary>
-        /// Control EmailTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
-        
-        /// <summary>
-        /// Control EmailRequiredFieldValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// Control RegularExpressionValidator1.
@@ -283,6 +193,33 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
+        /// Control EmailRequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRequiredFieldValidator1;
+        
+        /// <summary>
+        /// Control PrioridadDropDownList.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PrioridadDropDownList;
+        
+        /// <summary>
+        /// Control PrioridadRequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PrioridadRequiredFieldValidator2;
+        
+        /// <summary>
         /// Control TelefonoTextBox.
         /// </summary>
         /// <remarks>
@@ -290,6 +227,15 @@ namespace AutoReyes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TelefonoTextBox;
+        
+        /// <summary>
+        /// Control TelefonoRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TelefonoRequiredFieldValidator;
         
         /// <summary>
         /// Control DescripcionDropDownList.
@@ -310,15 +256,6 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.Button AgregarButton;
         
         /// <summary>
-        /// Control TelefonoRequiredFieldValidator.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator TelefonoRequiredFieldValidator;
-        
-        /// <summary>
         /// Control DescripcionRequiredFieldValidator.
         /// </summary>
         /// <remarks>
@@ -326,6 +263,15 @@ namespace AutoReyes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator DescripcionRequiredFieldValidator;
+        
+        /// <summary>
+        /// Control TelefonoGridVierw.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView TelefonoGridVierw;
         
         /// <summary>
         /// Control NuevoButton.

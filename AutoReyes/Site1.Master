@@ -43,14 +43,7 @@
   
 
 <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style2 {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-        }
-    </style>
-</head>
+    </head>
 
 <body>
 
@@ -66,7 +59,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/WebFrom/Default.aspx">Inicio</a>
+                <a class="navbar-brand" href="/WebFrom/Default.aspx">Inicio</a><br />
+&nbsp;<br />
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -105,17 +99,26 @@
 
         
     <!-- Page Content -->
+    <td>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
+            </td>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <h1>Full Slider by Start Bootstrap</h1>
+
                 <p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the <code>full-slider.css</code>file.</p>
             </div>
         </div>
 
-        <hr>
-    
-        <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">

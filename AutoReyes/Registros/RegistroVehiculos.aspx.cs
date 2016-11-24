@@ -20,7 +20,7 @@ namespace AutoReyes.Registros
 
             if (Session["Usuarios"] == null)
             {
-               // Response.Redirect("/WebForm/Login.aspx");
+               Response.Redirect("/WebForm/Login.aspx");
             }
            
         }
@@ -150,7 +150,7 @@ namespace AutoReyes.Registros
                     Utilerias2.ShowToastr(this, "Error", "Error al guardar", "error");
             }
             else
-                Utilerias2.ShowToastr(this, "", "Agrege por lo menos una foto", "Warning");
+                Utilerias2.ShowToastr(this, "", "Agrege por lo menos una foto", "info");
         }
 
         protected void MarcaDropDownList_SelectedIndexChanged(object sender, EventArgs e)

@@ -88,7 +88,7 @@
                 &nbsp;</td>
             <td class="auto-style3">
                 <asp:TextBox ID="BuscarIdTextBox" runat="server" CssClass="auto-style8"></asp:TextBox>
-                <asp:Button ID="BuscarButton" runat="server" ValidationGroup="BuscarIdTextBox" OnClick="BuscarBtn_Click" Text="Buscar" CssClass="auto-style9 btn btn-default" />
+                <asp:Button ID="BuscarButton" runat="server" ValidationGroup="BuscarIdTextBox" OnClick="BuscarBtn_Click" Text="Buscar" CssClass="auto-style9 btn btn-info" />
             </td>
             <td class="auto-style3"></td>
         </tr>
@@ -108,12 +108,12 @@
                 <asp:Label ID="Label3" runat="server" Text="Color" CssClass="auto-style17"></asp:Label>
             </td>
             <td>
-                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" CssClass="auto-style12" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" ValidationGroup="GuardarButton" CssClass="auto-style23" />
+                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" CssClass="auto-style12 btn" style="z-index: 1; position: absolute; top: 356px; left: 162px" />
+                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" ValidationGroup="GuardarButton" CssClass="auto-style23 btn btn-success" style="z-index: 1; position: absolute; top: 356px; left: 295px" />
                 <br />
                 <br />
                 <br />
-                <asp:Button ID="EliminarButton" runat="server" ValidationGroup="BuscarIdTextBox"  OnClick="EliminarBtn_Click" Text="Eliminar" CssClass="auto-style6 btn btn-info" />
+                <asp:Button ID="EliminarButton" runat="server" ValidationGroup="BuscarIdTextBox"  OnClick="EliminarBtn_Click" Text="Eliminar" CssClass="auto-style6 btn btn-danger" style="z-index: 1; position: absolute; top: 356px; left: 449px" />
                 <br />
                 <br />
                 <br />

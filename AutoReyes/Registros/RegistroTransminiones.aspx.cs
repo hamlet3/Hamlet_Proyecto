@@ -12,6 +12,7 @@ namespace AutoReyes.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["Usuarios"] != null)
             {
                 Usuarios usuario = new Usuarios();
@@ -21,6 +22,7 @@ namespace AutoReyes.Registros
             }
             else
                 Response.Redirect("/WebForm/Login.aspx");
+                
         }
 
         public void Limpiar() {

@@ -3,14 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="ComprarPaqueteForm" runat="server">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <asp:Repeater ID="PaquetesRepeater" runat="server">
             <ItemTemplate>
                 <table>
                     <tr style="width:100px">
-                        <dt><asp:Button runat="server" Text="Precione"/></dt>
+                        
                         <td style="width:100px">
                             <table>
                                 <tr>
+                                    <td>Descripcion</td>
                                     <td><asp:Label runat="server" ID="DescripcionLaber" Text='<%#Eval("Descripcion") %>'></asp:Label></td>
                                 </tr>
                             </table>
