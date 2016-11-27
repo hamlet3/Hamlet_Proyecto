@@ -69,7 +69,10 @@
                         <a href="/Consultas/ConsultaVehiculos.aspx">Vehiculos</a>
                     </li>
                     <li>
-                        <a href="#">Publica tu vehiculo</a>
+                        <a href="/Registros/RegistroVehiculos.aspx">Publica tu vehiculo</a>
+                    </li>
+                    <li>
+                        <a href="/WebForm/ComprarPaquete.aspx">Compra tu paquete</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>

@@ -28,7 +28,13 @@ namespace BLL
 
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            bool retornar = false;
+            try
+            {
+                retornar = conexion.Ejecutar(string.Format("Update VentasPaquetes set EspaciosRestantes={0} where VentaPaqueteId={1}",this.VentapaqueteId));
+            }catch(Exception ex) { throw ex; }
+            return retornar;
         }
 
         public override bool Eliminar()

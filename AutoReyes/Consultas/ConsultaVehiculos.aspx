@@ -33,53 +33,71 @@
                     </tr>
                     <tr>
                         <td>
-                <asp:Repeater ID="VehiculosRepeater" runat="server">
-                    <ItemTemplate>
-                        <table>
-                            <tr>
-                                <td style="width:50px">
-                                    <asp:Image Width="200px" Height="150px" ID="VehiculoImage" ImageUrl='<%#Eval("Foto") %>' runat="server"/>
-                                </td>
-                                <td style="width:50px">
+                            <asp:DataList ID="VehiculosDataList" runat="server" OnSelectedIndexChanged="VehiculosDataList_SelectedIndexChanged">
+
+                                <ItemTemplate>
                                     <table>
                                         <tr>
-                                            <td>
-                                                <b>Id:</b>
+                                            <td style="width:50px">
+                                                <asp:Image Width="200px" Height="150px" ID="VehiculoImage" ImageUrl='<%#Eval("Foto") %>' runat="server"/>
+                                                <asp:LinkButton ID="IdLinkButton" CommandName="Select" runat="server">Ver</asp:LinkButton>
                                             </td>
-                                            <td>
-                                                <asp:Label ID="IdLabel" runat="server" Text='<%#Eval("VehiculoId")%>'></asp:Label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <b>Marca:</b>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="MarcaLabel" runat="server" Text='<%#Eval("Descripcion")%>'></asp:Label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <b>Precio:</b>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="PrecioLabel" runat="server" Text='<%#Eval("Precio") %>'></asp:Label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <b>Kilometraje:</b>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="KilometrajeLabel" runat="server" Text='<%#Eval("Kilometraje") %>'> ></asp:Label>
+                                            <td style="width:50px">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Id:</b>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="VehiculoIdLabel" runat="server" Text='<%#Eval("VehiculoId")%>'></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Marca:</b>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="MarcaLabel" runat="server" Text='<%#Eval("Marca")%>'></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Modelo:</b>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("Modelo")%>'></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Estado:</b>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="EstadoLabel" runat="server" Text='<%#Eval("Estado")%>'></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Precio:</b>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="PrecioLabel" runat="server" Text='<%#Eval("Precio") %>'></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Kilometraje:</b>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="KilometrajeLabel" runat="server" Text='<%#Eval("Kilometraje") %>'> ></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
                                     </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </ItemTemplate>
-                </asp:Repeater>
+                                </ItemTemplate>
+                            </asp:DataList>
                         </td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>

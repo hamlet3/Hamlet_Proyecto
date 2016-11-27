@@ -36,8 +36,8 @@
                 <td class="auto-style1">&nbsp;</td>
                 <td>
                     <h1>Elige tu plan</h1>
-                <asp:Repeater ID="PaquetesRepeater" runat="server">
-                    <ItemTemplate>
+                        <asp:DataList ID="PaquetesDataList" runat="server" OnSelectedIndexChanged="PaquetesDataList_SelectedIndexChanged">
+                             <ItemTemplate>
                          <br />
                            <div style="background: black; width:600px; height:1px"></div>
                          <br />
@@ -45,14 +45,14 @@
                         <table>
                             <tr style="width:100px">
                                 <td>
-                                    <asp:Button ID="PaqueteRepeatButton" runat="server" BorderColor="Transparent" Height="80px" CssClass="btn-success" Text="Comprar" />
+                                    <asp:Button ID="PaqueteRepeatButton" runat="server" CommandName="Select" BorderColor="Transparent" Height="80px" CssClass="btn-success" Text="Comprar" />
                                 </td>
                                 <td style="width:100px">
                                     <table>
                                         <tr>
                                     
                                             <td>
-                                                <asp:TextBox ID="TextBox1" CssClass="form-control" BackColor="Transparent" Enabled="false" TextMode="MultiLine" Width="500px" Height="80px" runat="server" Text='<%#Eval("Descripcion") %>'></asp:TextBox></td>   
+                                                <asp:TextBox ID="DescripcionTextBox" CssClass="form-control" BackColor="Transparent" Enabled="false" TextMode="MultiLine" Width="500px" Height="80px" runat="server" Text='<%#Eval("Descripcion") %>'></asp:TextBox></td>   
                                         </tr>
                                     </table>
                                 </td>
@@ -60,7 +60,8 @@
                         </table>
                        
                     </ItemTemplate>
-                </asp:Repeater>
+                        </asp:DataList>
+                
                 </td>
                 <td>&nbsp;</td>
             </tr>

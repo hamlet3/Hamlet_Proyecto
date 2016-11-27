@@ -15,15 +15,30 @@ namespace AutoReyes.Consultas
         {
             if (!IsPostBack)
             {
-                VehiculosRepeater.DataSource = MostrarVehiculos();
-                VehiculosRepeater.DataBind();
+                VehiculosDataList.DataSource = MostrarVehiculos();
+                VehiculosDataList.DataBind();
             }
         }
 
         public DataTable MostrarVehiculos()
         {
             Vehiculos vehiculo = new Vehiculos();
-            return vehiculo.Listado("V.VehiculoId, Ma.Descripcion, M.Descripcion, Mo.Descripcion, E.Descripcion, C.Descripcion, T.Descripcion, Año, Kilometraje, Precio, F.Foto", "1=1", "");
+            return vehiculo.Listado("V.VehiculoId, Ma.Descripcion as 'Marca', M.Descripcion as 'Modelo', Mo.Descripcion, E.Descripcion as 'Estado', C.Descripcion, T.Descripcion, Año, Kilometraje, Precio, F.Foto", "1=1", "");
         }
+
+        protected void VehiculosDataList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Utilerias utileria = new Utilerias();
+            DataListItem Item = VehiculosDataList.Items[VehiculosDataList.SelectedIndex];
+            Label VehiculoIdLabel = (Label)Item.FindControl("VehiculoIdLabel");
+            Vehiculos vehiculo = new Vehiculos();
+            vehiculo.VehiculoId = utileria.ConvertirValor(VehiculoIdLabel.Text);
+
+          //  Session["Vehiculos"] = new Vehiculos();
+            Session["Vehiculos"] = vehiculo;
+            Response.Redirect("/WebForm/MostrarVehiculo.aspx");
+            
+        }
+
     }
 }

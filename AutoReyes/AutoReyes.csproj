@@ -161,6 +161,7 @@
     <Content Include="toastr.min.css" />
     <Content Include="toastr.min.js" />
     <Content Include="Web.config" />
+    <Content Include="WebForm\MostrarVehiculo.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consultas\ConsultaColores.aspx.cs">
@@ -339,6 +340,13 @@
     <Compile Include="Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
+    <Compile Include="WebForm\MostrarVehiculo.aspx.cs">
+      <DependentUpon>MostrarVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\MostrarVehiculo.aspx.designer.cs">
+      <DependentUpon>MostrarVehiculo.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -366,7 +374,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fotos\" />
+    <Folder Include="css\Fotos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

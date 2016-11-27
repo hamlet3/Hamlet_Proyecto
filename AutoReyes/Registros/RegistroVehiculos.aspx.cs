@@ -13,16 +13,59 @@ namespace AutoReyes.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuarios"] == null)
+            {
+               Response.Redirect("/WebForm/Login.aspx");
+            }
+            ValidarPaquete();
             if (!IsPostBack)
             {
                 LLenarDropDownList();
             }
 
-            if (Session["Usuarios"] == null)
-            {
-               Response.Redirect("/WebForm/Login.aspx");
-            }
            
+        }
+
+        public void ValidarPaquete()
+        {
+            DataTable dt = new DataTable();
+            bool aux = false;
+            Usuarios usuario = new Usuarios();
+            VentasPaquetes venta = new VentasPaquetes();
+            usuario = (Usuarios)Session["Usuarios"];
+
+            dt = venta.Listado("*", "UsuarioId=" + usuario.UsuarioId, "");
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if ((int)row["EspaciosRestantes"] != 0)
+                {
+                    aux = true;
+                }
+            }
+            if (!aux)
+                Response.Redirect("/WebForm/ComprarPaquete.aspx");
+        }
+
+        public void UsarEspacio()
+        {
+            DataTable dt = new DataTable();
+            Usuarios usuario = new Usuarios();
+            VentasPaquetes venta = new VentasPaquetes();
+            usuario =(Usuarios)Session["Usuarios"];
+
+            dt = venta.Listado("*","UsuarioId="+usuario.UsuarioId,"");
+
+            foreach(DataRow row in dt.Rows)
+            {
+                if ((int)row["EspaciosRestantes"] != 0)
+                {
+                    venta.EspaciosRestante = (int)row["EspaciosRestantes"]-1;
+                    venta.VentapaqueteId = (int)row["VentaPaqueteId"];
+                    venta.Editar();
+                    break;
+                }
+            }
         }
 
         public void Limpiar()
@@ -102,6 +145,7 @@ namespace AutoReyes.Registros
             EstadosDropdownList();
         }
 
+
         public void Mensaje(string mensaje)
         {
             Response.Write("<script>alert('" + mensaje + "')</script>");
@@ -143,6 +187,7 @@ namespace AutoReyes.Registros
             {
                 if (vehiculo.Insertar())
                 {
+                    UsarEspacio();
                     Utilerias2.ShowToastr(this, "", "Exito!", "success");
                     Limpiar();
                 }
