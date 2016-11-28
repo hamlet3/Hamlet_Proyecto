@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ConsultaUsuarios.aspx.cs" Inherits="AutoReyes.ConsultaUsuarios" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="ConsultaUsuarios.aspx.cs" Inherits="AutoReyes.ConsultaUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <style type="text/css">

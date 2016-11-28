@@ -16,21 +16,21 @@
                 <!-- Set the first background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('http://1.bp.blogspot.com/-4whQpG9HRuI/VUZ-p3oQ4JI/AAAAAAAAA6c/370wAhe0ceg/s1600/carro-blanco-deportivo-corriendo-3460.jpg One');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('https://wallpaperscraft.com/image/blue_x6_cool_car_bmw_35i_limber_xdrive_iks6_jeep_87180_1920x1080.jpg Two');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                   
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('https://wallpaperscraft.com/image/mitsubishi_lancer_evo_x_tune_96277_1280x720.jpg Three');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                    
                 </div>
             </div>
         </div>   

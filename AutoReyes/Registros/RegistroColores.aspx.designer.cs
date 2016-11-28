@@ -67,15 +67,6 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.TextBox DescripcionTextBox;
         
         /// <summary>
-        /// Control DescripcionRequiredFieldValidator.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator DescripcionRequiredFieldValidator;
-        
-        /// <summary>
         /// Control DescripcionRegularExpressionValidator.
         /// </summary>
         /// <remarks>
@@ -85,22 +76,13 @@ namespace AutoReyes {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator DescripcionRegularExpressionValidator;
         
         /// <summary>
-        /// Control Label2.
+        /// Control DescripcionRequiredFieldValidator.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// Control Label3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DescripcionRequiredFieldValidator;
         
         /// <summary>
         /// Control NuevoButton.

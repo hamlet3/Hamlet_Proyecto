@@ -38,7 +38,7 @@ namespace AutoReyes.Registros
 
             foreach (DataRow row in dt.Rows)
             {
-                if ((int)row["EspaciosRestantes"] != 0)
+                if ((int)row["EspaciosRestante"] != 0)
                 {
                     aux = true;
                 }
@@ -58,9 +58,9 @@ namespace AutoReyes.Registros
 
             foreach(DataRow row in dt.Rows)
             {
-                if ((int)row["EspaciosRestantes"] != 0)
+                if ((int)row["EspaciosRestante"] != 0)
                 {
-                    venta.EspaciosRestante = (int)row["EspaciosRestantes"]-1;
+                    venta.EspaciosRestante = (int)row["EspaciosRestante"]-1;
                     venta.VentapaqueteId = (int)row["VentaPaqueteId"];
                     venta.Editar();
                     break;

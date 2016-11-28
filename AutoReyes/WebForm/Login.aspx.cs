@@ -33,7 +33,15 @@ namespace AutoReyes.Loging
                 {
                     usuario.Buscar((int)row["usuarioId"]);
                     Session["Usuarios"] = usuario;
-                    Response.Redirect("/WebForm/Default.aspx");
+                    if (usuario.Prioridad == 1)
+                    {
+                        Response.Redirect("/WebForm/DefaultAdmin.aspx");
+
+                    }
+                    else
+                    {
+                        Response.Redirect("/WebForm/Default.aspx");
+                    }
                 }
             }
             else

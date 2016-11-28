@@ -21,7 +21,7 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             try
             {
-               retornar= conexion.Ejecutar(string.Format("Insert into VentasPaquetes(UsuacioId, PaqueteId, EspaciosRestante)Values({0}, {1}, {2})", this.UsuarioId, this.PaqueteId, this.EspaciosRestante));
+               retornar= conexion.Ejecutar(string.Format("Insert into VentasPaquetes(UsuarioId, PaqueteId, EspaciosRestante)Values({0}, {1}, {2})", this.UsuarioId, this.PaqueteId, this.EspaciosRestante));
             }catch(Exception ex){ throw ex; }
             return retornar;
         }
@@ -32,7 +32,7 @@ namespace BLL
             bool retornar = false;
             try
             {
-                retornar = conexion.Ejecutar(string.Format("Update VentasPaquetes set EspaciosRestantes={0} where VentaPaqueteId={1}",this.VentapaqueteId));
+                retornar = conexion.Ejecutar(string.Format("Update VentasPaquetes set EspaciosRestante={0} where VentaPaqueteId={1}",this.EspaciosRestante, this.VentapaqueteId));
             }catch(Exception ex) { throw ex; }
             return retornar;
         }

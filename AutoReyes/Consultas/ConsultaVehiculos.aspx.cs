@@ -34,11 +34,25 @@ namespace AutoReyes.Consultas
             Vehiculos vehiculo = new Vehiculos();
             vehiculo.VehiculoId = utileria.ConvertirValor(VehiculoIdLabel.Text);
 
-          //  Session["Vehiculos"] = new Vehiculos();
             Session["Vehiculos"] = vehiculo;
             Response.Redirect("/WebForm/MostrarVehiculo.aspx");
             
         }
 
+        protected void FiltroButton_Click(object sender, EventArgs e)
+        {
+            Vehiculos vehiculo = new Vehiculos();
+
+            string filtro = "1=1";
+
+            if (FiltroTextBox.Text.Length > 0)
+            {
+                filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
+            }
+
+            VehiculosDataList.DataSource = vehiculo.Listado("V.VehiculoId, Ma.Descripcion as 'Marca', M.Descripcion as 'Modelo', Mo.Descripcion, E.Descripcion as 'Estado', C.Descripcion, T.Descripcion, Año, Kilometraje, Precio, F.Foto",filtro, "");
+            VehiculosDataList.DataBind();
+
+        }
     }
 }

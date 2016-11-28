@@ -1,141 +1,87 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="RegistroColores.aspx.cs" Inherits="AutoReyes.RegistroColores" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="RegistroColores.aspx.cs" Inherits="AutoReyes.RegistroColores" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style4 {
-            height: 26px;
-            width: 7px;
-        }
         .auto-style5 {
-            width: 7px;
+            width: 143px;
         }
         .auto-style6 {
-            position: absolute;
-            top: 356px;
-            left: 369px;
-            z-index: 1;
+            width: 100%;
+            margin-left: 129px;
+        }
+        .auto-style7 {
+            width: 339px;
         }
         .auto-style8 {
-            position: absolute;
-            top: 260px;
-            left: 224px;
-            z-index: 1;
+            width: 143px;
+            height: 20px;
         }
         .auto-style9 {
-            position: absolute;
-            top: 260px;
-            left: 407px;
-            z-index: 1;
+            width: 339px;
+            height: 20px;
         }
         .auto-style10 {
-            position: absolute;
-            top: 292px;
-            left: 224px;
-            z-index: 1;
-        }
-        .auto-style12 {
-            position: absolute;
-            top: 356px;
-            left: 232px;
-            z-index: 1;
-        }
-        .auto-style16 {
-            position: absolute;
-            top: 264px;
-            left: 185px;
-            z-index: 1;
-        }
-        .auto-style17 {
-            position: absolute;
-            top: 296px;
-            left: 180px;
-            z-index: 1;
-        }
-        .auto-style19 {
-            position: absolute;
-            top: 235px;
-            left: 224px;
-            z-index: 1;
-        }
-        .auto-style22 {
-            position: absolute;
-            top: 294px;
-            left: 407px;
-            z-index: 1;
-        }
-        .auto-style23 {
-            position: absolute;
-            top: 356px;
-            left: 295px;
-            z-index: 1;
+            height: 20px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="ColoresForm" runat="server">
 
-    <table style="width:100%">
-        <tr>
-            <td class="auto-style4">
-                &nbsp;</td>
-            <td class="auto-style3">
-                <asp:RequiredFieldValidator ID="BuscarIdRequiredFieldValidator" ValidationGroup="BuscarIdTextBox" ForeColor="Red" Display="Dynamic" ControlToValidate="BuscarIdTextBox" runat="server" ErrorMessage="Digite Id" CssClass="auto-style19"></asp:RequiredFieldValidator>
-                <asp:CompareValidator ID="BuscarIdCompareValidator" runat="server" ControlToValidate="BuscarIdTextBox" Display="Dynamic" ErrorMessage="El id debe ser un numero" ValidationGroup="BuscarIdTextBox" ForeColor="Red" Operator="DataTypeCheck" Type="Integer" CssClass="auto-style19"></asp:CompareValidator>
-            </td>
-            <td class="auto-style3">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style4">
-                &nbsp;</td>
-            <td class="auto-style3">
-                <asp:TextBox ID="BuscarIdTextBox" runat="server" CssClass="auto-style8"></asp:TextBox>
-                <asp:Button ID="BuscarButton" runat="server" ValidationGroup="BuscarIdTextBox" OnClick="BuscarBtn_Click" Text="Buscar" CssClass="auto-style9 btn btn-info" />
-            </td>
-            <td class="auto-style3"></td>
-        </tr>
-        <tr>
-            <td class="auto-style5">
-                &nbsp;</td>
-            <td>
-                <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="auto-style10"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator" Display="Dynamic" ForeColor="Red" ControlToValidate="DescripcionTextBox" runat="server" ErrorMessage="Digite el color" ValidationGroup="GuardarButton" CssClass="auto-style22"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="DescripcionRegularExpressionValidator" runat="server" ControlToValidate="DescripcionTextBox" Display="Dynamic" ErrorMessage="Caracter invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$" ValidationGroup="GuardarButton" CssClass="auto-style22"></asp:RegularExpressionValidator>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style5">
-                <asp:Label ID="Label2" runat="server" Text="Id" CssClass="auto-style16"></asp:Label>
-                <asp:Label ID="Label3" runat="server" Text="Color" CssClass="auto-style17"></asp:Label>
-            </td>
-            <td>
-                <asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" CssClass="auto-style12 btn" style="z-index: 1; position: absolute; top: 356px; left: 162px" />
-                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" ValidationGroup="GuardarButton" CssClass="auto-style23 btn btn-success" style="z-index: 1; position: absolute; top: 356px; left: 295px" />
-                <br />
-                <br />
-                <br />
-                <asp:Button ID="EliminarButton" runat="server" ValidationGroup="BuscarIdTextBox"  OnClick="EliminarBtn_Click" Text="Eliminar" CssClass="auto-style6 btn btn-danger" style="z-index: 1; position: absolute; top: 356px; left: 449px" />
-                <br />
-                <br />
-                <br />
-            </td>
-            <td>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </td>
-        </tr>
-    </table>
+
+       
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+
+        <table class="auto-style6">
+            <tr>
+                <td class="auto-style8"></td>
+                <td class="auto-style9">
+                <asp:RequiredFieldValidator ID="BuscarIdRequiredFieldValidator" ValidationGroup="BuscarIdTextBox" ForeColor="Red" Display="Dynamic" ControlToValidate="BuscarIdTextBox" runat="server" ErrorMessage="Digite Id"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="BuscarIdCompareValidator" runat="server" ControlToValidate="BuscarIdTextBox" Display="Dynamic" ErrorMessage="El id debe ser un numero" ValidationGroup="BuscarIdTextBox" ForeColor="Red" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                </td>
+                <td class="auto-style10"></td>
+            </tr>
+            <tr>
+                <td class="auto-style5">
+                    <label>Id</label></td>
+                <td class="auto-style7">
+                <asp:TextBox ID="BuscarIdTextBox" runat="server" CssClass=" form-control" style="right: -307px; margin-left: 67;" Width="300px"></asp:TextBox>
+                </td>
+                <td>
+                <asp:Button ID="BuscarButton" runat="server" ValidationGroup="BuscarIdTextBox" OnClick="BuscarBtn_Click" Text="Buscar" CssClass="btn btn-info" style="margin-left: 164" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style5">&nbsp;</td>
+                <td class="auto-style7">
+                <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style5">&nbsp;</td>
+                <td class="auto-style7">
+                <asp:RegularExpressionValidator ID="DescripcionRegularExpressionValidator" runat="server" ControlToValidate="DescripcionTextBox" Display="Dynamic" ErrorMessage="Caracter invalido" ForeColor="Red" SetFocusOnError="True" ValidationExpression="[0-9 A-Za-z]+$" ValidationGroup="GuardarButton"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="DescripcionRequiredFieldValidator" Display="Dynamic" ForeColor="Red" ControlToValidate="DescripcionTextBox" runat="server" ErrorMessage="Digite el color" ValidationGroup="GuardarButton"></asp:RequiredFieldValidator>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style5">&nbsp;</td>
+                <td class="auto-style7">
+                    &nbsp;<asp:Button ID="NuevoButton" runat="server" OnClick="NuevoBtn_Click" Text="Nuevo" CssClass=" btn" />
+                &nbsp;&nbsp;&nbsp;
+                <asp:Button ID="GuardarButton" runat="server" OnClick="GuardarBtn_Click" Text="Guardar" ValidationGroup="GuardarButton" CssClass=" btn btn-success" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="EliminarButton" runat="server" ValidationGroup="BuscarIdTextBox"  OnClick="EliminarBtn_Click" Text="Eliminar" CssClass="btn btn-danger" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
     </form>
 </asp:Content>

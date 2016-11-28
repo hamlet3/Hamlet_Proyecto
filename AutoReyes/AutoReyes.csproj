@@ -144,7 +144,7 @@
     <Content Include="js\jquery-3.1.0.min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.quicksearch.js" />
-    <Content Include="WebForm\Index2.aspx" />
+    <Content Include="WebForm\DefaultAdmin.aspx" />
     <Content Include="WebForm\Login.aspx" />
     <Content Include="Registros\RegistroEstados.aspx" />
     <Content Include="Registros\RegistroMarcas.aspx" />
@@ -241,12 +241,12 @@
     <Compile Include="WebForm\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm\Index2.aspx.cs">
-      <DependentUpon>Index2.aspx</DependentUpon>
+    <Compile Include="WebForm\DefaultAdmin.aspx.cs">
+      <DependentUpon>DefaultAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm\Index2.aspx.designer.cs">
-      <DependentUpon>Index2.aspx</DependentUpon>
+    <Compile Include="WebForm\DefaultAdmin.aspx.designer.cs">
+      <DependentUpon>DefaultAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -374,7 +374,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="css\Fotos\" />
+    <Folder Include="Fotos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -38,18 +38,18 @@ namespace AutoReyes.WebForm
             TextBox Descripcion = (TextBox)Item.FindControl("DescripcionTextBox");
             Paquetes paquete = new Paquetes();
   
-            dt = paquete.Listado("*","Descripcion="+Descripcion.Text,"");
+            dt = paquete.Listado("*","Descripcion='"+Descripcion.Text+"'","");
 
             Usuarios usuario = new Usuarios();
             usuario = (Usuarios)Session["Usuarios"];
             VentasPaquetes venta = new VentasPaquetes();
 
             venta.PaqueteId = (int)dt.Rows[0]["Paqueteid"];
-            venta.EspaciosRestante =(int)dt.Rows[0]["EspaciosRestante"];
+            venta.EspaciosRestante =(int)dt.Rows[0]["Espacios"];
             venta.UsuarioId = usuario.UsuarioId;
             venta.Insertar();
 
-            Response.Redirect("/Registro/Vehiculos.aspx");
+            Response.Redirect("/Registros/RegistroVehiculos.aspx");
         }
     }
 }

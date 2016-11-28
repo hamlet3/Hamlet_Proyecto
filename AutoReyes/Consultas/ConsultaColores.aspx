@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ConsultaColores.aspx.cs" Inherits="AutoReyes.Consultas.ConsultaColores" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="ConsultaColores.aspx.cs" Inherits="AutoReyes.Consultas.ConsultaColores" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <script type="text/javascript">
             $(document).ready(function () {

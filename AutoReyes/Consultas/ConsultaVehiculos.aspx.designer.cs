@@ -22,13 +22,40 @@ namespace AutoReyes.Consultas {
         protected global::System.Web.UI.HtmlControls.HtmlForm Vehiculosform;
         
         /// <summary>
-        /// Control DropDownList1.
+        /// Control FiltroTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.TextBox FiltroTextBox;
+        
+        /// <summary>
+        /// Control FiltroButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button FiltroButton;
+        
+        /// <summary>
+        /// Control FiltroDropDownList.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList FiltroDropDownList;
+        
+        /// <summary>
+        /// Control DropdownListRequiredFieldValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropdownListRequiredFieldValidator;
         
         /// <summary>
         /// Control VehiculosDataList.
