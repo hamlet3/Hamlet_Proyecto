@@ -133,6 +133,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Estilo.css" />
     <Content Include="css\full-slider.css" />
+    <Content Include="img\carros de lujo %282%29.jpg" />
     <Content Include="Reporte.aspx" />
     <Content Include="WebForm\ComprarPaquete.aspx" />
     <Content Include="WebForm\Default.aspx" />
@@ -147,6 +148,7 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.quicksearch.js" />
     <Content Include="WebForm\DefaultAdmin.aspx" />
+    <Content Include="WebForm\DefaultOut.aspx" />
     <Content Include="WebForm\Login.aspx" />
     <Content Include="Registros\RegistroEstados.aspx" />
     <Content Include="Registros\RegistroMarcas.aspx" />
@@ -163,6 +165,8 @@
     <Content Include="toastr.min.css" />
     <Content Include="toastr.min.js" />
     <Content Include="Web.config" />
+    <Content Include="WebForm\MiCuentaAdmin.aspx" />
+    <Content Include="WebForm\MiCuentaUsuario.aspx" />
     <Content Include="WebForm\MostrarVehiculo.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +266,13 @@
     <Compile Include="WebForm\DefaultAdmin.aspx.designer.cs">
       <DependentUpon>DefaultAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm\DefaultOut.aspx.cs">
+      <DependentUpon>DefaultOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\DefaultOut.aspx.designer.cs">
+      <DependentUpon>DefaultOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -354,12 +365,33 @@
     <Compile Include="Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
+    <Compile Include="WebForm\MiCuentaAdmin.aspx.cs">
+      <DependentUpon>MiCuentaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\MiCuentaAdmin.aspx.designer.cs">
+      <DependentUpon>MiCuentaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\MiCuentaUsuario.aspx.cs">
+      <DependentUpon>MiCuentaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\MiCuentaUsuario.aspx.designer.cs">
+      <DependentUpon>MiCuentaUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm\MostrarVehiculo.aspx.cs">
       <DependentUpon>MostrarVehiculo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm\MostrarVehiculo.aspx.designer.cs">
       <DependentUpon>MostrarVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site3.Master.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site3.Master.designer.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -391,6 +423,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Site3.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

@@ -11,7 +11,13 @@ namespace AutoReyes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["Usuarios"] == null)
+                {
+                    Response.Redirect("/WebForm/DefaultOut.aspx");
+                }
+            }
         }
     }
 }

@@ -17,17 +17,17 @@ namespace AutoReyes
                 TelefonoGridVierw.DataSource= ObtenerNuevaLista();
                 TelefonoGridVierw.DataBind();
                 LlenarDropdownList();
+                if (Session["Usuarios"] != null)
+                {
+                    Usuarios usuario = new Usuarios();
+                    usuario = (Usuarios)Session["Usuarios"];
+                    if (usuario.Prioridad != 1)
+                        Response.Redirect("/WebForm/Default.aspx");
+                }
+                else
+                    Response.Redirect("/WebForm/Login.aspx");
             }
             
-            if (Session["Usuarios"] != null)
-            {
-                Usuarios usuario = new Usuarios();
-                usuario = (Usuarios)Session["Usuarios"];
-                if (usuario.Prioridad != 1)
-                    Response.Redirect("/WebForm/Default.aspx");
-            }
-            else
-                Response.Redirect("/WebForm/Login.aspx");
                 
         }
 
@@ -46,7 +46,6 @@ namespace AutoReyes
             ConfirmarContraseñaTextBox.Text = "";
             DireccionTextBox.Text = "";
             PrioridadDropDownList.SelectedIndex = 0;     
-            Session.Clear();
             TelefonoGridVierw.DataSource = ObtenerNuevaLista();
             TelefonoGridVierw.DataBind();
             TelefonoTextBox.Text = "";
@@ -74,10 +73,12 @@ namespace AutoReyes
                 NombreTextBox.Text = usuario.Nombre;
                 NombreUsuarioTextBox.Text = usuario.NombreUsuario;
                 DireccionTextBox.Text = usuario.Direccion;
-                EmailTextBox.Text = usuario.Direccion;
+                EmailTextBox.Text = usuario.Email;
                 ConfirmarContraseñaTextBox.Text = usuario.Contraseña;
                 ContraseñaTextBox.Text = usuario.Contraseña;
                 PrioridadDropDownList.SelectedIndex = usuario.Prioridad;
+
+           
 
                 foreach (UsuarioTelefonos telefono in usuario.ListaTelefono)
                 {
@@ -94,6 +95,8 @@ namespace AutoReyes
 
         public Usuarios EnviarDatos(Usuarios usuario)
         {
+            Utilerias utileria = new Utilerias();
+            usuario.UsuarioId = utileria.ConvertirValor(BuscarIdTextBox.Text);
             usuario.Nombre = NombreTextBox.Text;
             usuario.NombreUsuario = NombreUsuarioTextBox.Text;
             usuario.Direccion = DireccionTextBox.Text;
@@ -162,8 +165,7 @@ namespace AutoReyes
 
 
                 bool suiche = false;
-                try
-                {
+               
                     if (string.IsNullOrWhiteSpace(BuscarIdTextBox.Text))
                         suiche = usuario.Insertar();
                     else
@@ -175,8 +177,7 @@ namespace AutoReyes
                         Limpiar();
                     }
 
-                }
-                catch (Exception ex) { Utilerias2.ShowToastr(this, "Error ", ex.Message, "error"); }
+ 
             }else
                 Utilerias2.ShowToastr(this, "", "Agregue por lo menos un numero telefonico", "info");
         }

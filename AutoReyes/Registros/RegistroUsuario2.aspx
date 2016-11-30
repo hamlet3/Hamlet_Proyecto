@@ -40,7 +40,7 @@
             </td>
             <td class="auto-style4">
                 <asp:TextBox ID="NombreCompletoTextBox" runat="server" placeholder="Nombre completo" CssClass="form-control" Width="325px"></asp:TextBox>
-                <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator" runat="server" Display="Dynamic" ErrorMessage="Caracter invalido" ValidationGroup="GuardarButton" ControlToValidate="NombreCompletoTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[A-Za-z]*$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator" runat="server" Display="Dynamic" ErrorMessage="Caracter invalido" ValidationGroup="GuardarButton" ControlToValidate="NombreCompletoTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[A-Z a-z]*$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="NombreCompletoRequiredFieldValidator" ForeColor="Red" Display="Dynamic" ControlToValidate="NombreCompletoTextBox" ValidationGroup="GuardarButton" runat="server" ErrorMessage="Digite el nombre" Width="325px"></asp:RequiredFieldValidator>
                 </td>
             <td class="auto-style4"></td>

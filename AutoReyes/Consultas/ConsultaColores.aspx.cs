@@ -67,4 +67,4 @@ namespace AutoReyes.Consultas
             Response.Write("<script type='text/javascript'>detailedresults=window.open('/Reporte.aspx');</script>");
         }
     }
-} 
+}

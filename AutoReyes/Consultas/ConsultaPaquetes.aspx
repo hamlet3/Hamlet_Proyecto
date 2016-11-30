@@ -20,6 +20,17 @@
         <table class="auto-style9">
             <tr>
                 <td class="auto-style4">
+                <asp:RequiredFieldValidator ID="MarcasDropDownListRequiredFieldValidator1" runat="server" InitialValue="Seleccione-" ForeColor="Red" ControlToValidate="FiltroDropDownList" ValidationGroup="Buscar" ErrorMessage="Seleccione  el tipo de busqueda"></asp:RequiredFieldValidator>
+                </td>
+                <td class="auto-style7">
+    
+
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
                     <asp:DropDownList ID="FiltroDropDownList" runat="server" CssClass="form-control" Width="200px">
                         <asp:ListItem>Seleccione-</asp:ListItem>
                         <asp:ListItem Value="PaqueteId">Id</asp:ListItem>
@@ -32,7 +43,7 @@
     <asp:TextBox ID="FiltroTextbox" runat="server" CssClass="auto-style6" Width="200px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="FiltroButton" runat="server" CssClass="btn btn-info" OnClick="FiltroButton_Click" Text="Buscar" />
+                    <asp:Button ID="FiltroButton" runat="server" CssClass="btn btn-info" OnClick="FiltroButton_Click" Text="Buscar" ValidationGroup="Buscar" />
                 </td>
             </tr>
             <tr>

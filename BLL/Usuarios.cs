@@ -75,13 +75,13 @@ namespace BLL
             bool retorno = false;
             try
             {
-                conexion.Ejecutar(String.Format("Update Usuarios set Nombre='{0}', Direccion='{1}', Email='{2}',Contraseña ='{4}', Prioridad='{5}' where UsuarioId={6}", this.Nombre, this.Direccion, this.Email,this.Contraseña, this.Prioridad, this.UsuarioId));
-                retorno = true;
+                retorno =conexion.Ejecutar(String.Format("Update Usuarios set Nombres='{0}', Direccion='{1}', Email='{2}',Contraseña ='{3}', Prioridad='{4}', NombreUsuario='{5}' where UsuarioId={6}", this.Nombre, this.Direccion, this.Email,this.Contraseña, this.Prioridad, this.NombreUsuario, this.UsuarioId));
+                
 
-                conexion.Ejecutar(String.Format("Delete from UsuarioTelefonos where UsuarioId =", this.UsuarioId));
+                conexion.Ejecutar(String.Format("Delete from UsuarioTelefonos where UsuarioId ={0}", this.UsuarioId));
 
                 foreach (UsuarioTelefonos telefono in ListaTelefono) {
-                    conexion.Ejecutar(String.Format("Insert into UsuarioTelefonos(UsuarioId, Numero, TipoTelefono) Values({0},'{1}',{2})", this.UsuarioId, telefono.Telefono, telefono.TipoTelefonoId));
+                    conexion.Ejecutar(String.Format("Insert into UsuarioTelefonos(UsuarioId, Numero, TipoTelefonoId) Values({0},'{1}',{2})", this.UsuarioId, telefono.Telefono, telefono.TipoTelefonoId));
                 }
             }catch(Exception ex) { throw ex; }
             return retorno;

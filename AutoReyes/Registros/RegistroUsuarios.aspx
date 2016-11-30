@@ -134,7 +134,7 @@
             <td>&nbsp;</td>
             <td>
                 <asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" ForeColor="Red" ControlToValidate="NombreTextBox" ValidationGroup="GuardarButton" Display="Dynamic" runat="server" ErrorMessage="Digite el nombre"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator2" runat="server" Display="Dynamic" ErrorMessage="Caracter invalido" ValidationGroup="GuardarButton" ControlToValidate="NombreTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[A-Za-z]*$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator2" runat="server" Display="Dynamic" ErrorMessage="Caracter invalido" ValidationGroup="GuardarButton" ControlToValidate="NombreTextBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[A-Z a-z]*$"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
@@ -146,7 +146,7 @@
         </tr>
         <tr>
             <td class="auto-style20">
-                <asp:TextBox ID="ContraseñaTextBox" runat="server" CssClass="auto-style6 form-control" placeholder="Contraseña" Width="325px" OnTextChanged="ContraseñaTextBox_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="ContraseñaTextBox" runat="server" CssClass="auto-style6 form-control" placeholder="Contraseña" Width="325px" OnTextChanged="ContraseñaTextBox_TextChanged" TextMode="Password"></asp:TextBox>
           </td>
             <td>&nbsp;</td>
             <td>
@@ -173,7 +173,7 @@
         </tr>
         <tr>
             <td class="auto-style25">
-                            &nbsp;<asp:TextBox ID="ConfirmarContraseñaTextBox" runat="server" placeholder="Confirmar contraseña" CssClass="auto-style7 form-control" Width="325px"></asp:TextBox>
+                            &nbsp;<asp:TextBox ID="ConfirmarContraseñaTextBox" runat="server" placeholder="Confirmar contraseña" CssClass="auto-style7 form-control" Width="325px" TextMode="Password"></asp:TextBox>
                             </td>
             <td>
                 <asp:TextBox ID="EmailTextBox" runat="server" placeholder="Correro electronico" CssClass="auto-style9 form-control" Width="325px" style="margin-left: 0"></asp:TextBox>

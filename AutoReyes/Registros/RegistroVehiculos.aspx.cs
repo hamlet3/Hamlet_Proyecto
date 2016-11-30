@@ -79,7 +79,6 @@ namespace AutoReyes.Registros
             PrecioTextBox.Text = "";
             KilometrajeTextBox.Text = "";
             AñoTextBox.Text = "";
-            Session.Clear();
         }
 
         public void MarcasDropDownList()
@@ -154,12 +153,16 @@ namespace AutoReyes.Registros
         public Vehiculos ObtenerDatos()
         {
             Utilerias utileria = new Utilerias();
+            Usuarios usuario = new Usuarios();
             Vehiculos vehiculo;
             if (Session["Vehiculo"] == null)
                 Session["Vehiculo"] = new Vehiculos();
 
             vehiculo = (Vehiculos)Session["Vehiculo"];
 
+            usuario = (Usuarios)Session["Usuarios"];
+
+            vehiculo.UsuarioId = usuario.UsuarioId;
             vehiculo.MarcaId = utileria.ConvertirValor(MarcaDropDownList.SelectedValue);
             vehiculo.ModeloId = utileria.ConvertirValor(ModeloDropDownList.SelectedValue);
             vehiculo.MotorId = utileria.ConvertirValor(MotorDropDownList.SelectedValue);
@@ -190,7 +193,7 @@ namespace AutoReyes.Registros
                     UsarEspacio();
                     Limpiar();
                     Utilerias2.ShowToastr(this, "", "Su auto se a guardado correctamente", "success");
-                    Response.Redirect("/WebForm/Default");
+                    Response.Redirect("/WebForm/Default.aspx");
                 }
                 else
                     Utilerias2.ShowToastr(this, "Error", "Error al guardar", "error");
