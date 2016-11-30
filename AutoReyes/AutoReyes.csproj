@@ -72,6 +72,7 @@
       <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
@@ -132,6 +133,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Estilo.css" />
     <Content Include="css\full-slider.css" />
+    <Content Include="Reporte.aspx" />
     <Content Include="WebForm\ComprarPaquete.aspx" />
     <Content Include="WebForm\Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -226,6 +228,18 @@
     </Compile>
     <Compile Include="Consultas\ConsultaVehiculos.aspx.designer.cs">
       <DependentUpon>ConsultaVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte.aspx.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte.aspx.designer.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="WebForm\ComprarPaquete.aspx.cs">
       <DependentUpon>ComprarPaquete.aspx</DependentUpon>
@@ -360,6 +374,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Site2.Master" />
+    <Content Include="Report\DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -375,6 +400,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fotos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\ReportColores.rdlc" />
+    <EmbeddedResource Include="Report\ReportEstados.rdlc" />
+    <EmbeddedResource Include="Report\ReportMarcas.rdlc" />
+    <EmbeddedResource Include="Report\ReportModelos.rdlc" />
+    <EmbeddedResource Include="Report\ReportMotores.rdlc" />
+    <EmbeddedResource Include="Report\ReportPaquetes.rdlc" />
+    <EmbeddedResource Include="Report\ReportTransmisiones.rdlc" />
+    <EmbeddedResource Include="Report\ReportUsuarios.rdlc" />
+    <EmbeddedResource Include="Report\ReportVentaPaquetes.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

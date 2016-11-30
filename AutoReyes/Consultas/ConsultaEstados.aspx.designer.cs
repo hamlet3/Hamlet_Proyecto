@@ -22,12 +22,39 @@ namespace AutoReyes.Consultas {
         protected global::System.Web.UI.HtmlControls.HtmlForm ConsultaEstadosForm;
         
         /// <summary>
-        /// Control EstadoGridView.
+        /// Control FiltroDropDownList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView EstadoGridView;
+        protected global::System.Web.UI.WebControls.DropDownList FiltroDropDownList;
+        
+        /// <summary>
+        /// Control FiltroTextbox.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FiltroTextbox;
+        
+        /// <summary>
+        /// Control FiltroButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button FiltroButton;
+        
+        /// <summary>
+        /// Control EstadosListView.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView EstadosListView;
     }
 }

@@ -26,15 +26,37 @@ namespace AutoReyes.Consultas
             if (!IsPostBack)
             {
 
-            ModelosGridview.DataSource = MostrarMarcas();
-            ModelosGridview.DataBind();
+                ModelosListView.DataSource = MostrarModelo();
+                ModelosListView.DataBind();
             }
         }
 
-        public DataTable MostrarMarcas()
+        protected string Filtro()
+        {
+
+            Modelos modelo = new Modelos();
+            string filtro = "1=1";
+
+            if (FiltroTextbox.Text.Length > 0)
+            {
+                filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextbox.Text + "%'";
+            }
+
+            ModelosListView.DataSource = modelo.Listado("ModeloId, M.Descripcion", filtro, "");
+            ModelosListView.DataBind();
+
+            return filtro;
+        }
+
+        public DataTable MostrarModelo()
         {
             Modelos modelo = new Modelos();
-            return modelo.Listado("ModeloId, M.Descripcion","1=1","");
+            return modelo.Listado("*", "1=1", "");
+        }
+
+        protected void FiltroButton_Click(object sender, EventArgs e)
+        {
+            Filtro();
         }
     }
 }

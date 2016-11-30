@@ -25,16 +25,37 @@ namespace AutoReyes.Consultas
 
             if (!IsPostBack)
             {
-                PaquetesGridView.DataSource = MostrarPaquetes();
-                PaquetesGridView.DataBind();
-
+                PaquetesListView.DataSource = MostrarPaquete();
+                PaquetesListView.DataBind();
             }
-		}
+        }
 
-        public DataTable MostrarPaquetes()
+        protected string Filtro()
+        {
+
+            Paquetes paquete = new Paquetes();
+            string filtro = "1=1";
+
+            if (FiltroTextbox.Text.Length > 0)
+            {
+                filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextbox.Text + "%'";
+            }
+
+            PaquetesListView.DataSource = paquete.Listado("PaqueteId, Descripcion", filtro, "");
+            PaquetesListView.DataBind();
+
+            return filtro;
+        }
+
+        public DataTable MostrarPaquete()
         {
             Paquetes paquete = new Paquetes();
-            return paquete.Listado("*","1=1","");
+            return paquete.Listado("*", "1=1", "");
         }
-	}
+
+        protected void FiltroButton_Click(object sender, EventArgs e)
+        {
+            Filtro();
+        }
+    }
 }

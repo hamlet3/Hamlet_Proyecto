@@ -24,15 +24,37 @@ namespace AutoReyes.Consultas
                 Response.Redirect("/WebForm/Login.aspx");
 
             if (!IsPostBack) {
-                TransmisionesGridView.DataSource = MostrarTransmisiones();
-                TransmisionesGridView.DataBind();
+                TransmisionesListView.DataSource = MostrarTransmisiones();
+                TransmisionesListView.DataBind();
             }
+        }
+
+        protected string Filtro()
+        {
+
+            Transmisiones transmision = new Transmisiones();
+            string filtro = "1=1";
+
+            if (FiltroTextbox.Text.Length > 0)
+            {
+                filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextbox.Text + "%'";
+            }
+
+            TransmisionesListView.DataSource = transmision.Listado("TransmisionId, Descripcion", filtro, "");
+            TransmisionesListView.DataBind();
+
+            return filtro;
         }
 
         public DataTable MostrarTransmisiones()
         {
             Transmisiones transmision = new Transmisiones();
-            return transmision.Listado("*","1=1","");
+            return transmision.Listado("*", "1=1", "");
+        }
+
+        protected void FiltroButton_Click(object sender, EventArgs e)
+        {
+            Filtro();
         }
     }
 }

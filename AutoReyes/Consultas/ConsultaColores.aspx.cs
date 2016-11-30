@@ -21,7 +21,7 @@ namespace AutoReyes.Consultas
                     Response.Redirect("/WebForm/Default.aspx");
             }
             else
-                Response.Redirect("/Login.aspx");
+                Response.Redirect("/WebForm/Login.aspx");
 
             if (!IsPostBack)
             {
@@ -30,10 +30,41 @@ namespace AutoReyes.Consultas
             }
         }
 
+        protected string Filtro()
+        {
+
+            Colores color = new Colores();
+            string filtro = "1=1";
+
+            if (FiltroTextbox.Text.Length > 0)
+            {
+                filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextbox.Text + "%'";
+            }
+
+            ColoresListView.DataSource = color.Listado("ColorId, Descripcion", filtro, "");
+            ColoresListView.DataBind();
+
+            return filtro;
+        }
+
         public DataTable MostrarColores()
         {
             Colores color = new Colores();
             return color.Listado("*", "1=1", "");
         }
+
+        protected void FiltroButton_Click(object sender, EventArgs e)
+        {
+            Filtro();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Colores color = new Colores();
+            Utilerias2.dataset = "Colores";
+            Utilerias2.reporte = @"Report\ReportColores.rdlc";
+            Utilerias2.data = color.Listado("*", Filtro(), "");
+            Response.Write("<script type='text/javascript'>detailedresults=window.open('/Reporte.aspx');</script>");
+        }
     }
-}
+} 

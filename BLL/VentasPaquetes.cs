@@ -13,6 +13,7 @@ namespace BLL
         public int UsuarioId { get; set; }
         public int PaqueteId { get; set; }
         public int EspaciosRestante { get; set; }
+        public string Fecha { get; set; }
 
 
         public override bool Insertar()
@@ -21,7 +22,7 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             try
             {
-               retornar= conexion.Ejecutar(string.Format("Insert into VentasPaquetes(UsuarioId, PaqueteId, EspaciosRestante)Values({0}, {1}, {2})", this.UsuarioId, this.PaqueteId, this.EspaciosRestante));
+               retornar= conexion.Ejecutar(String.Format("Insert into VentasPaquetes(UsuarioId, PaqueteId, EspaciosRestante, Fecha)Values({0}, {1}, {2}, '{3}')", this.UsuarioId, this.PaqueteId, this.EspaciosRestante, this.Fecha));
             }catch(Exception ex){ throw ex; }
             return retornar;
         }

@@ -22,84 +22,39 @@ namespace AutoReyes {
         protected global::System.Web.UI.HtmlControls.HtmlForm UsuariosForms;
         
         /// <summary>
-        /// Control Label1.
+        /// Control FiltroDropDownList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.DropDownList FiltroDropDownList;
         
         /// <summary>
-        /// Control Label2.
+        /// Control FiltroTextbox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox FiltroTextbox;
         
         /// <summary>
-        /// Control BuscarUsuarioButton.
+        /// Control FiltroButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuscarUsuarioButton;
+        protected global::System.Web.UI.WebControls.Button FiltroButton;
         
         /// <summary>
-        /// Control BuscarNombreTextBox.
+        /// Control UsuariosListView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BuscarNombreTextBox;
-        
-        /// <summary>
-        /// Control BuscarIButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuscarIButton;
-        
-        /// <summary>
-        /// Control BuscarIdTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BuscarIdTextBox;
-        
-        /// <summary>
-        /// Control UsuariosGridvierw.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView UsuariosGridvierw;
-        
-        /// <summary>
-        /// Control TelefonosUsuarioGridVierw.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView TelefonosUsuarioGridVierw;
-        
-        /// <summary>
-        /// Control RecargarButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RecargarButton;
+        protected global::System.Web.UI.WebControls.ListView UsuariosListView;
     }
 }

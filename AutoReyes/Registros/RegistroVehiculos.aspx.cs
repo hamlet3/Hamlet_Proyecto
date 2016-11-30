@@ -188,8 +188,9 @@ namespace AutoReyes.Registros
                 if (vehiculo.Insertar())
                 {
                     UsarEspacio();
-                    Utilerias2.ShowToastr(this, "", "Exito!", "success");
                     Limpiar();
+                    Utilerias2.ShowToastr(this, "", "Su auto se a guardado correctamente", "success");
+                    Response.Redirect("/WebForm/Default");
                 }
                 else
                     Utilerias2.ShowToastr(this, "Error", "Error al guardar", "error");

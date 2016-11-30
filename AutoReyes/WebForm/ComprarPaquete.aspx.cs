@@ -47,6 +47,7 @@ namespace AutoReyes.WebForm
             venta.PaqueteId = (int)dt.Rows[0]["Paqueteid"];
             venta.EspaciosRestante =(int)dt.Rows[0]["Espacios"];
             venta.UsuarioId = usuario.UsuarioId;
+         //   venta.Fecha= DateTime.Now.ToString("dd/MM/yyyy");
             venta.Insertar();
 
             Response.Redirect("/Registros/RegistroVehiculos.aspx");

@@ -24,14 +24,36 @@ namespace AutoReyes.Consultas
                 Response.Redirect("/WebForm/Login.aspx");
 
 
-            EstadoGridView.DataSource = MostrarEstados();
-            EstadoGridView.DataBind();
+            EstadosListView.DataSource = MostrarEstados();
+            EstadosListView.DataBind();
+        }
+
+        protected string Filtro()
+        {
+
+            Estados estado = new Estados();
+            string filtro = "1=1";
+
+            if (FiltroTextbox.Text.Length > 0)
+            {
+                filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextbox.Text + "%'";
+            }
+
+            EstadosListView.DataSource = estado.Listado("EstadoId, Descripcion", filtro, "");
+            EstadosListView.DataBind();
+
+            return filtro;
         }
 
         public DataTable MostrarEstados()
         {
             Estados estado = new Estados();
-            return estado.Listado("*","1=1","");
+            return estado.Listado("*", "1=1", "");
+        }
+
+        protected void FiltroButton_Click(object sender, EventArgs e)
+        {
+            Filtro();
         }
     }
 }

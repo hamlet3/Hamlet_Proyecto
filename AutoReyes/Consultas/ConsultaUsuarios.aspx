@@ -41,60 +41,74 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id ="UsuariosForms" runat="server">
 
-    <table class="auto-style7">
-        <tr>
-            <td class="auto-style9">&nbsp;</td>
-            <td class="auto-style10">
-                &nbsp;</td>
-            <td class="auto-style11"></td>
-        </tr>
-        <tr>
-            <td class="auto-style5">&nbsp;&nbsp;
-                <h3>Buscar Usuario</h3>
-                <asp:Label ID="Label1" runat="server" BorderStyle="Inset" Text="Busqueda por Nombre"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-            <td class="auto-style4">
-                <h3>Busqueda de Numeros Telefonicos</h3>
-                <asp:Label ID="Label2" runat="server" BorderStyle="Inset" Text="Busqueda por el Id del Usuario"></asp:Label>
-            </td>
-            <td class="auto-style6">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style5">
-                <asp:Button ID="BuscarUsuarioButton" runat="server" OnClick="ListarUsuarios_Click" Text="Buscar" />
-                &nbsp;<asp:TextBox ID="BuscarNombreTextBox" runat="server"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-            <td class="auto-style4">
-                <asp:Button ID="BuscarIButton" runat="server" CssClass="col-xs-offset-0" OnClick="BuscarIdBtn_Click" Text="Buscar" />
-                <asp:TextBox ID="BuscarIdTextBox" runat="server"></asp:TextBox>
-            </td>
-            <td class="auto-style6">&nbsp;</td>
-        </tr>
-    </table>
-    <table class="nav-justified">
-        <tr>
-            <td class="auto-style12">&nbsp;</td>
-            <td class="auto-style13">
-                <asp:GridView ID="UsuariosGridvierw" runat="server">
-                </asp:GridView>
-            </td>
-            <td>
-                <asp:GridView ID="TelefonosUsuarioGridVierw" runat="server" CssClass="auto-style8">
-                </asp:GridView>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style12">&nbsp;</td>
-            <td class="auto-style13">
-                <asp:Button ID="RecargarButton" runat="server" Text="Recargar" OnClick="RecargarBtn_Click" />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style12">&nbsp;</td>
-            <td class="auto-style13">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <table class="auto-style9">
+            <tr>
+                <td class="auto-style4">
+                    <asp:DropDownList ID="FiltroDropDownList" runat="server" CssClass="form-control" Width="200px">
+                        <asp:ListItem>Seleccione-</asp:ListItem>
+                        <asp:ListItem Value="U.UsuarioId">Id</asp:ListItem>
+                        <asp:ListItem>NombreUsuario</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style7">
+    
+
+    <asp:TextBox ID="FiltroTextbox" runat="server" CssClass="auto-style6" Width="200px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:Button ID="FiltroButton" runat="server" CssClass="btn btn-info" OnClick="FiltroButton_Click" Text="Buscar" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style5"></td>
+                <td class="auto-style8"></td>
+                <td class="auto-style3"></td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+            <table id="IdTable" border="1" class="auto-style10">
+                <thead>
+                      <tr>
+                         <th>id</th>
+                         <th>Nombre de usuario</th>
+                          <th>Nombre</th>
+                         <th>Direccion</th>
+                          <th>Prioridad</th>
+                     </tr>
+                 </thead>
+                <tbody>
+                    <asp:ListView ID="UsuariosListView" runat="server">
+                        <ItemTemplate>
+                            <tr>
+                                <td><%#Eval("Usuario") %></td>
+                                <td><%#Eval("NombreUsuario") %></td>
+                                <td><%#Eval("Nombres") %></td>
+                                <td><%#Eval("Direccion") %></td>
+                                <td><%#Eval("Prioridad") %></td>                               
+
+                            </tr> 
+                        </ItemTemplate>
+                    </asp:ListView>
+                </tbody>
+            </table>
+                </td>
+                <td class="auto-style7">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+       
+    
+
+        <div>
+        </div>
     </table>
     </form>
 </asp:Content>

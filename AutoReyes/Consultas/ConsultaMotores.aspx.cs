@@ -25,16 +25,37 @@ namespace AutoReyes.Consultas
 
             if (!IsPostBack)
             {
-                MotoresGridView.DataSource = MostrarMotores();
-                MotoresGridView.DataBind();
-
+                MotoresListView.DataSource = MostrarMotores();
+                MotoresListView.DataBind();
             }
+        }
+
+        protected string Filtro()
+        {
+
+            Motores motor = new Motores();
+            string filtro = "1=1";
+
+            if (FiltroTextbox.Text.Length > 0)
+            {
+                filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextbox.Text + "%'";
+            }
+
+            MotoresListView.DataSource = motor.Listado("MotorId, Descripcion", filtro, "");
+            MotoresListView.DataBind();
+
+            return filtro;
         }
 
         public DataTable MostrarMotores()
         {
             Motores motor = new Motores();
-            return motor.Listado("*","1=1","");
+            return motor.Listado("*", "1=1", "");
+        }
+
+        protected void FiltroButton_Click(object sender, EventArgs e)
+        {
+            Filtro();
         }
     }
 }
